@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Judith-Franz</string>
+    <string name="logo_desc">Logo de la aplicación</string>
+    <string name="login_titulo">Iniciar sesión</string>
+    <string name="hint_email">Correo electrónico</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="btn_login">Entrar</string>
+    <string name="txt_registro">¿No tienes cuenta? Regístrate</string>
+</resources>
