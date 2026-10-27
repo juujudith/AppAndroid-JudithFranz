@@ -1,9 +1,20 @@
 <resources>
     <string name="app_name">Judith-Franz</string>
     <string name="logo_desc">Logo de la aplicación</string>
+
+    <!-- MainActivity: LOGIN -->
     <string name="login_titulo">Iniciar sesión</string>
     <string name="hint_email">Correo electrónico</string>
     <string name="hint_password">Contraseña</string>
     <string name="btn_login">Entrar</string>
     <string name="txt_registro">¿No tienes cuenta? Regístrate</string>
+
+    <!-- REGISTER -->
+    <string name="registro_titulo">Regístrate</string>
+    <string name="hint_nombre">Nombre de usuario</string>
+    <string name="hint_confirmar_password">Confirmar contraseña</string>
+    <string name="btn_registro">Registrarse</string>
+    <string name="txt_ya_cuenta">Iniciar sesión</string>
+
+
 </resources>
