@@ -1,27 +1,427 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/fondo_degradado">
 
-    <!-- CONTENIDO DE LA PANTALLA -->
-    <FrameLayout
+    <!-- TÍTULO SUPERIOR DE LA PANTALLA -->
+    <TextView
+        android:id="@+id/tvHeaderTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/nunito_extralight"
+        android:text="Moon Edition Series 3"
+        android:textColor="@color/azulnoche"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <!-- CUADRO CENTRAL (CONTIENE FILTROS ARRIBA + CARTAS CON SCROLL ABAJO) -->
+    <LinearLayout
+        android:id="@+id/cuadroContenedorCartas"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bg_cuadro_cartas"
+        android:elevation="6dp"
+        android:orientation="vertical"
+        android:padding="12dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <!-- ================= APARTADO SUPERIOR DE FILTROS ================= -->
+        <LinearLayout
+            android:id="@+id/layoutFiltros"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/nunito_extralight"
-            android:text="@string/nav_home"
-            android:textColor="@color/azulnoche"
-            android:textSize="30sp"
-            android:textStyle="bold" />
-    </FrameLayout>
+            android:orientation="vertical"
+            android:paddingBottom="10dp">
+
+            <!-- Fila 1: Buscador por Código o Nombre -->
+            <EditText
+                android:id="@+id/etFiltroCodigo"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:background="@drawable/bg_filtro_input"
+                android:drawableEnd="@android:drawable/ic_menu_search"
+                android:drawableTint="@color/azulnoche"
+                android:fontFamily="@font/nunito_extralight"
+                android:hint="Buscar por código (ej. MLPME03-SC-001L5) o nombre..."
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:paddingHorizontal="14dp"
+                android:textColor="@color/azulnoche"
+                android:textColorHint="#6E687D"
+                android:textSize="13sp"
+                android:contentDescription="Filtrar cartas por código o nombre" />
+
+            <!-- Fila 2: Desplegables de Rareza/Tier y Posesión (Tengo / No tengo) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <!-- Filtro por Rareza / Tier -->
+                <Spinner
+                    android:id="@+id/spinnerFiltroRareza"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/bg_filtro_input"
+                    android:paddingHorizontal="8dp"
+                    android:contentDescription="Filtrar por rareza o Tier" />
+
+                <!-- Filtro por Posesión (Las tengo / Me faltan) -->
+                <Spinner
+                    android:id="@+id/spinnerFiltroTengo"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="4dp"
+                    android:background="@drawable/bg_filtro_input"
+                    android:paddingHorizontal="8dp"
+                    android:contentDescription="Filtrar por cartas que tengo o me faltan" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Línea divisoria sutil entre filtros y cartas -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="8dp"
+            android:background="#337E788C" />
+
+        <!-- ================= ÁREA SCROLLABLE DE CARTAS ================= -->
+        <ScrollView
+            android:id="@+id/scrollCartas"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true"
+            android:scrollbars="vertical">
+
+            <!-- Cuadrícula de 2 columnas para ver bien el arte y detalles de cada carta -->
+            <GridLayout
+                android:id="@+id/gridCartas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:alignmentMode="alignMargins"
+                android:useDefaultMargins="false">
+
+                <!-- ======== CARTA EJEMPLO 1 (CONSEGUIDA) ======== -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="6dp"
+                    android:tag="MLPME03-SC-001L5|SC TIER|OWNED|Princess Twilight Sparkle"
+                    app:cardBackgroundColor="#F8F5FF"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="3dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="190dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/carta_twilight_sc001"
+                            android:contentDescription="Princess Twilight Sparkle MLPME03-SC-001L5" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:fontFamily="@font/nunito_extralight"
+                            android:text="Princess Twilight Sparkle"
+                            android:textColor="@color/azulnoche"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito_extralight"
+                            android:text="MLPME03-SC-001L5"
+                            android:textColor="#5E586E"
+                            android:textSize="11sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="#7C83E8"
+                                android:paddingHorizontal="6dp"
+                                android:paddingVertical="2dp"
+                                android:text="SC TIER"
+                                android:textColor="#FFFFFF"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="end"
+                                android:text="✔ La tengo"
+                                android:textColor="#2E7D32"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- ======== CARTA EJEMPLO 2 (FALTA / UNOWNED) ======== -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="6dp"
+                    android:tag="MLPME03-SC-001L5|SC TIER|UNOWNED|Princess Twilight Sparkle"
+                    app:cardBackgroundColor="#F8F5FF"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="3dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="190dp"
+                            android:alpha="0.55"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/carta_twilight_sc001"
+                            android:contentDescription="Princess Twilight Sparkle MLPME03-SC-001L5" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:fontFamily="@font/nunito_extralight"
+                            android:text="Princess Twilight Sparkle"
+                            android:textColor="@color/azulnoche"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito_extralight"
+                            android:text="MLPME03-SC-001L5"
+                            android:textColor="#5E586E"
+                            android:textSize="11sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="#7C83E8"
+                                android:paddingHorizontal="6dp"
+                                android:paddingVertical="2dp"
+                                android:text="SC TIER"
+                                android:textColor="#FFFFFF"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="end"
+                                android:text="✖ Falta"
+                                android:textColor="#C62828"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- ======== CARTA EJEMPLO 3 ======== -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="6dp"
+                    android:tag="MLPME03-SC-001L5|SC TIER|OWNED|Princess Twilight Sparkle"
+                    app:cardBackgroundColor="#F8F5FF"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="3dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="190dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/carta_twilight_sc001"
+                            android:contentDescription="Princess Twilight Sparkle MLPME03-SC-001L5" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:fontFamily="@font/nunito_extralight"
+                            android:text="Princess Twilight Sparkle"
+                            android:textColor="@color/azulnoche"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito_extralight"
+                            android:text="MLPME03-SC-001L5"
+                            android:textColor="#5E586E"
+                            android:textSize="11sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="#7C83E8"
+                                android:paddingHorizontal="6dp"
+                                android:paddingVertical="2dp"
+                                android:text="SC TIER"
+                                android:textColor="#FFFFFF"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="end"
+                                android:text="✔ La tengo"
+                                android:textColor="#2E7D32"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- ======== CARTA EJEMPLO 4 ======== -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="6dp"
+                    android:tag="MLPME03-SC-001L5|SC TIER|OWNED|Princess Twilight Sparkle"
+                    app:cardBackgroundColor="#F8F5FF"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="3dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="190dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/carta_twilight_sc001"
+                            android:contentDescription="Princess Twilight Sparkle MLPME03-SC-001L5" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:fontFamily="@font/nunito_extralight"
+                            android:text="Princess Twilight Sparkle"
+                            android:textColor="@color/azulnoche"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:maxLines="1"
+                            android:ellipsize="end" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunito_extralight"
+                            android:text="MLPME03-SC-001L5"
+                            android:textColor="#5E586E"
+                            android:textSize="11sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="#7C83E8"
+                                android:paddingHorizontal="6dp"
+                                android:paddingVertical="2dp"
+                                android:text="SC TIER"
+                                android:textColor="#FFFFFF"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="end"
+                                android:text="✔ La tengo"
+                                android:textColor="#2E7D32"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            </GridLayout>
+        </ScrollView>
+
+    </LinearLayout>
 
     <!-- BARRA INFERIOR -->
     <include layout="@layout/fragment_bottom_bar" />

@@ -112,5 +112,17 @@
             android:textSize="16sp"
             android:textColor="@color/black" />
 
+        <!-- Home -->
+        <TextView
+            android:id="@+id/tvHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:padding="8dp"
+            android:text="Home"
+            android:fontFamily="@font/nunito_extralight"
+            android:textSize="16sp"
+            android:textColor="@color/black" />
+
     </LinearLayout>
 </ScrollView>
