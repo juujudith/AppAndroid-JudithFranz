@@ -1,242 +1,257 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
     android:background="@drawable/fondo_degradado">
 
-    <LinearLayout
+    <ScrollView
+        android:id="@+id/scrollAjustes"
         android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomBar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <!-- TÍTULO -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/nunito_extralight"
+                android:text="@string/ajustes"
+                android:textColor="@color/azulnoche"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <!-- ========== CUENTA ========== -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/nunito_extralight"
+                android:text="@string/cuenta"
+                android:textColor="@color/azulnoche"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardBackgroundColor="@color/campo_fondo"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="4dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/optEditarPerfil"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:fontFamily="@font/nunito_extralight"
+                        android:padding="16dp"
+                        android:text="@string/editar_perfil"
+                        android:textColor="@color/azulnoche"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/optCambiarPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:fontFamily="@font/nunito_extralight"
+                        android:padding="16dp"
+                        android:text="@string/cambiar_contrase_a"
+                        android:textColor="@color/azulnoche"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ========== ESCÁNER ========== -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/nunito_extralight"
+                android:text="@string/esc_ner"
+                android:textColor="@color/azulnoche"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardBackgroundColor="@color/campo_fondo"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="4dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/swGuardarAuto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_extralight"
+                        android:padding="16dp"
+                        android:text="@string/guardar_cartas_autom_ticamente"
+                        android:textColor="@color/azulnoche"
+                        android:textSize="18sp" />
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/swVibracion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_extralight"
+                        android:padding="16dp"
+                        android:text="@string/vibrar_al_reconocer_una_carta"
+                        android:textColor="@color/azulnoche"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ========== COLECCIÓN ========== -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/nunito_extralight"
+                android:text="@string/colecci_n"
+                android:textColor="@color/azulnoche"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardBackgroundColor="@color/campo_fondo"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="4dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/optOrdenar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:fontFamily="@font/nunito_extralight"
+                        android:padding="16dp"
+                        android:text="@string/ordenar_colecci_n_por"
+                        android:textColor="@color/azulnoche"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/optBorrarHistorial"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:fontFamily="@font/nunito_extralight"
+                        android:padding="16dp"
+                        android:text="@string/borrar_historial_de_escaneos"
+                        android:textColor="@color/azulnoche"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ========== APARIENCIA ========== -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/nunito_extralight"
+                android:text="@string/apariencia"
+                android:textColor="@color/azulnoche"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardBackgroundColor="@color/campo_fondo"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="4dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/swModoOscuro"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_extralight"
+                        android:padding="16dp"
+                        android:text="@string/modo_oscuro"
+                        android:textColor="@color/azulnoche"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/optIdioma"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:fontFamily="@font/nunito_extralight"
+                        android:padding="16dp"
+                        android:text="@string/idioma"
+                        android:textColor="@color/azulnoche"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- CERRAR SESIÓN -->
+            <Button
+                android:id="@+id/btnCerrarSesion"
+                android:layout_width="220dp"
+                android:layout_height="56dp"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/nunito_extralight"
+                android:text="@string/cerrar_sesi_n"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                app:backgroundTint="@color/morado" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- BARRA INFERIOR FIJA (home, cámara, ajustes) -->
+    <include
+        android:id="@+id/bottomBar"
+        layout="@layout/fragment_bottom_bar"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="24dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
-        <!-- TÍTULO -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:fontFamily="@font/nunito_extralight"
-            android:text="@string/ajustes"
-            android:textColor="@color/azulnoche"
-            android:textSize="30sp"
-            android:textStyle="bold" />
-
-        <!-- ========== CUENTA ========== -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/nunito_extralight"
-            android:text="@string/cuenta"
-            android:textColor="@color/azulnoche"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            app:cardBackgroundColor="@color/campo_fondo"
-            app:cardCornerRadius="24dp"
-            app:cardElevation="4dp"
-            app:strokeWidth="0dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/optEditarPerfil"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="?attr/selectableItemBackground"
-                    android:fontFamily="@font/nunito_extralight"
-                    android:padding="16dp"
-                    android:text="@string/editar_perfil"
-                    android:textColor="@color/azulnoche"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/optCambiarPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="?attr/selectableItemBackground"
-                    android:fontFamily="@font/nunito_extralight"
-                    android:padding="16dp"
-                    android:text="@string/cambiar_contrase_a"
-                    android:textColor="@color/azulnoche"
-                    android:textSize="18sp" />
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- ========== ESCÁNER ========== -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/nunito_extralight"
-            android:text="@string/esc_ner"
-            android:textColor="@color/azulnoche"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            app:cardBackgroundColor="@color/campo_fondo"
-            app:cardCornerRadius="24dp"
-            app:cardElevation="4dp"
-            app:strokeWidth="0dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <com.google.android.material.materialswitch.MaterialSwitch
-                    android:id="@+id/swGuardarAuto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/nunito_extralight"
-                    android:padding="16dp"
-                    android:text="@string/guardar_cartas_autom_ticamente"
-                    android:textColor="@color/azulnoche"
-                    android:textSize="18sp" />
-
-                <com.google.android.material.materialswitch.MaterialSwitch
-                    android:id="@+id/swVibracion"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/nunito_extralight"
-                    android:padding="16dp"
-                    android:text="@string/vibrar_al_reconocer_una_carta"
-                    android:textColor="@color/azulnoche"
-                    android:textSize="18sp" />
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- ========== COLECCIÓN ========== -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/nunito_extralight"
-            android:text="@string/colecci_n"
-            android:textColor="@color/azulnoche"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            app:cardBackgroundColor="@color/campo_fondo"
-            app:cardCornerRadius="24dp"
-            app:cardElevation="4dp"
-            app:strokeWidth="0dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/optOrdenar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="?attr/selectableItemBackground"
-                    android:fontFamily="@font/nunito_extralight"
-                    android:padding="16dp"
-                    android:text="@string/ordenar_colecci_n_por"
-                    android:textColor="@color/azulnoche"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/optBorrarHistorial"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="?attr/selectableItemBackground"
-                    android:fontFamily="@font/nunito_extralight"
-                    android:padding="16dp"
-                    android:text="@string/borrar_historial_de_escaneos"
-                    android:textColor="@color/azulnoche"
-                    android:textSize="18sp" />
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- ========== APARIENCIA ========== -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/nunito_extralight"
-            android:text="@string/apariencia"
-            android:textColor="@color/azulnoche"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            app:cardBackgroundColor="@color/campo_fondo"
-            app:cardCornerRadius="24dp"
-            app:cardElevation="4dp"
-            app:strokeWidth="0dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <com.google.android.material.materialswitch.MaterialSwitch
-                    android:id="@+id/swModoOscuro"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/nunito_extralight"
-                    android:padding="16dp"
-                    android:text="@string/modo_oscuro"
-                    android:textColor="@color/azulnoche"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/optIdioma"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="?attr/selectableItemBackground"
-                    android:fontFamily="@font/nunito_extralight"
-                    android:padding="16dp"
-                    android:text="@string/idioma"
-                    android:textColor="@color/azulnoche"
-                    android:textSize="18sp" />
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- CERRAR SESIÓN -->
-        <Button
-            android:id="@+id/btnCerrarSesion"
-            android:layout_width="220dp"
-            android:layout_height="56dp"
-            android:layout_gravity="center_horizontal"
-            android:fontFamily="@font/nunito_extralight"
-            android:text="@string/cerrar_sesi_n"
-            android:textColor="#FFFFFF"
-            android:textSize="22sp"
-            app:backgroundTint="@color/morado" />
-
-        <!-- Espacio para que la barra inferior flotante no tape el botón -->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="100dp" />
-
-    </LinearLayout>
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
