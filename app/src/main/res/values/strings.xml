@@ -20,4 +20,24 @@
     <string name="nav_scan">Escanear</string>
     <string name="nav_settings">Ajustes</string>
 
+    <!-- AJUSTES -->
+    <string name="ajustes">Ajustes</string>
+
+    <string name="cuenta">Cuenta</string>
+    <string name="editar_perfil">Editar perfil</string>
+    <string name="cambiar_contrase_a">Cambiar contraseña</string>
+
+    <string name="esc_ner">Escáner</string>
+    <string name="guardar_cartas_autom_ticamente">Guardar cartas automáticamente</string>
+    <string name="vibrar_al_reconocer_una_carta">Vibrar al reconocer una carta</string>
+
+    <string name="colecci_n">Colección</string>
+    <string name="ordenar_colecci_n_por">Ordenar colección por…</string>
+    <string name="borrar_historial_de_escaneos">Borrar historial de escaneos</string>
+
+    <string name="apariencia">Apariencia</string>
+    <string name="modo_oscuro">Modo oscuro</string>
+    <string name="idioma">Idioma</string>
+
+    <string name="cerrar_sesi_n">Cerrar sesión</string>
 </resources>
