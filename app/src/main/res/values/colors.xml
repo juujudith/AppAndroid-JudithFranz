@@ -11,5 +11,8 @@
 
     <color name="campo_fondo">#EDE7F6</color>
 
+    <color name="icono_barra">#000000</color>
+    <color name="fondo_barra">#EDE7F6</color>
+
 
 </resources>

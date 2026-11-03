@@ -16,5 +16,8 @@
     <string name="btn_registro">Registrarse</string>
     <string name="txt_ya_cuenta">Iniciar sesión</string>
 
+    <string name="nav_home">Home</string>
+    <string name="nav_scan">Escanear</string>
+    <string name="nav_settings">Ajustes</string>
 
 </resources>
