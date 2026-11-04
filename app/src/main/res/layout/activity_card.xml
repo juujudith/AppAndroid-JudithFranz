@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainCard"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/fondo_degradado"
+    tools:context=".CardActivity">
+
+    <!-- ================= CABECERA CON BOTÓN VOLVER ================= -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:paddingHorizontal="16dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btnVolverHome"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_filtro_input"
+            android:src="?attr/homeAsUpIndicator"
+            app:tint="@color/azulnoche"
+            android:contentDescription="Volver al catálogo principal Home" />
+
+        <TextView
+            android:id="@+id/tvCardScreenTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="44dp"
+            android:gravity="center"
+            android:fontFamily="@font/nunito_extralight"
+            android:text="Detalle de la Carta"
+            android:textColor="@color/azulnoche"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- ================= CONTENIDO SCROLLABLE DE LA FICHA ================= -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp">
+
+            <!-- ILUSTRACIÓN DESTACADA DE LA CARTA (Con recorte limpio de esquinas) -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewImagen"
+                android:layout_width="220dp"
+                android:layout_height="308dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@android:color/transparent">
+
+                <ImageView
+                    android:id="@+id/ivDetalleCarta"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:scaleX="1.05"
+                    android:scaleY="1.05"
+                    android:src="@drawable/carta_twilight_sc001"
+                    android:contentDescription="Ilustración de la carta Princess Twilight Sparkle, código MLPME03-SC-001L5" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- CUADRO TRANSLÚCIDO CON LA INFORMACIÓN TÉCNICA Y ACCIONES -->
+            <LinearLayout
+                android:id="@+id/cuadroInfoCarta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_cuadro_cartas"
+                android:elevation="6dp"
+                android:orientation="vertical"
+                android:padding="18dp"
+                android:gravity="center_horizontal">
+
+                <!-- Nombre de la carta (Name) -->
+                <TextView
+                    android:id="@+id/tvDetalleNombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:fontFamily="@font/nunito_extralight"
+                    android:text="Princess Twilight Sparkle"
+                    android:textColor="@color/azulnoche"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <!-- Píldora de Rareza / Tier en alto contraste (Accesibilidad) -->
+                <TextView
+                    android:id="@+id/tvDetalleRareza"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_boton_morado"
+                    android:paddingHorizontal="18dp"
+                    android:paddingVertical="5dp"
+                    android:fontFamily="@font/nunito_extralight"
+                    android:text="Rareza: SC TIER"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:contentDescription="Nivel de rareza: SC TIER" />
+
+                <!-- Línea divisoria sutil -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="12dp"
+                    android:background="#337E788C" />
+
+                <!-- Fila de Código (Code) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_extralight"
+                        android:text="Código:"
+                        android:textColor="#5E586E"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvDetalleCodigo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:fontFamily="@font/nunito_extralight"
+                        android:text="MLPME03-SC-001L5"
+                        android:textColor="@color/azulnoche"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Fila de Edición (Edition) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_extralight"
+                        android:text="Edición:"
+                        android:textColor="#5E586E"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvDetalleEdicion"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:fontFamily="@font/nunito_extralight"
+                        android:text="Moon Edition Series 3"
+                        android:textColor="@color/azulnoche"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <!-- Línea divisoria sutil -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="12dp"
+                    android:background="#337E788C" />
+
+                <!-- Interruptor para marcar posesión (Owned / Unowned) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_filtro_input"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="6dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvEstadoPosesion"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nunito_extralight"
+                        android:text="✔ En mi colección (Owned)"
+                        android:textColor="#2E7D32"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switchTengoCarta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:checked="true"
+                        android:contentDescription="Marcar o desmarcar carta como conseguida en la colección" />
+                </LinearLayout>
+
+                <!-- Contador de cartas repetidas (Para eventos de intercambio) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nunito_extralight"
+                        android:text="Cantidad / Repetidas:"
+                        android:textColor="@color/azulnoche"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <ImageButton
+                        android:id="@+id/btnRestarRepetida"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_filtro_input"
+                        android:src="@android:drawable/ic_media_previous"
+                        app:tint="@color/azulnoche"
+                        android:contentDescription="Restar una copia de esta carta" />
+
+                    <TextView
+                        android:id="@+id/tvCantidadCarta"
+                        android:layout_width="44dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:fontFamily="@font/nunito_extralight"
+                        android:text="1"
+                        android:textColor="@color/azulnoche"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <ImageButton
+                        android:id="@+id/btnSumarRepetida"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_filtro_input"
+                        android:src="@android:drawable/ic_input_add"
+                        app:tint="@color/azulnoche"
+                        android:contentDescription="Sumar una copia repetida de esta carta" />
+                </LinearLayout>
+
+                <!-- Botones de gestión: Modificar y Borrar -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnModificarCarta"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/bg_boton_morado"
+                        android:fontFamily="@font/nunito_extralight"
+                        android:text="Modificar"
+                        android:textAllCaps="false"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:contentDescription="Abrir pantalla para modificar los datos de esta carta" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnBorrarCarta"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/bg_boton_borrar"
+                        android:fontFamily="@font/nunito_extralight"
+                        android:text="Borrar"
+                        android:textAllCaps="false"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:contentDescription="Borrar esta carta mostrando antes un diálogo de confirmación" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- ================= BARRA INFERIOR FIJA ================= -->
+    <include layout="@layout/fragment_bottom_bar" />
+
+</LinearLayout>
