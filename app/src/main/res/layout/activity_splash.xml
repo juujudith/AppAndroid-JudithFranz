@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_degradado">
+
+    <!-- Logo centrado (lo anima el código Kotlin) -->
+    <ImageView
+        android:id="@+id/ivLogoSplash"
+        android:layout_width="300dp"
+        android:layout_height="220dp"
+        android:layout_gravity="center"
+        android:contentDescription="@string/logo_desc"
+        android:src="@drawable/mlp_logo" />
+
+</FrameLayout>
