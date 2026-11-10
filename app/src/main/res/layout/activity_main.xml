@@ -112,5 +112,19 @@
             android:textSize="16sp"
             android:textColor="@color/black" />
 
+        <!-- AYUDA PARA EL PRIMER USO -->
+        <TextView
+            android:id="@+id/tvAyuda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/txt_ayuda_login"
+            android:fontFamily="@font/nunito_extralight"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/azulnoche" />
+
     </LinearLayout>
 </ScrollView>

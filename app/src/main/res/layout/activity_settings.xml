@@ -226,6 +226,17 @@
                         android:text="@string/idioma"
                         android:textColor="@color/azulnoche"
                         android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/optAyuda"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:fontFamily="@font/nunito_extralight"
+                        android:padding="16dp"
+                        android:text="@string/opt_ayuda"
+                        android:textColor="@color/azulnoche"
+                        android:textSize="18sp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 

@@ -40,4 +40,90 @@
     <string name="idioma">Idioma</string>
 
     <string name="cerrar_sesi_n">Cerrar sesión</string>
+    <string name="opt_ayuda">Ayuda</string>
+
+    <!-- LOGIN: acceso a la ayuda -->
+    <string name="txt_ayuda_login">¿Primera vez? Ver la ayuda</string>
+
+    <!-- HOME -->
+    <string name="home_titulo">Moon Edition Series 3</string>
+    <string name="hint_buscar">Buscar por código o nombre…</string>
+    <string name="desc_filtro_rareza">Filtrar por rareza o tier</string>
+    <string name="desc_filtro_tengo">Filtrar por cartas que tengo o me faltan</string>
+    <string name="desc_anadir_carta">Añadir una carta nueva</string>
+    <string name="estado_tengo">✔ La tengo</string>
+    <string name="estado_falta">✖ Falta</string>
+    <string name="pronto_escaner">El escáner estará disponible próximamente</string>
+
+    <!-- CARTA DE EJEMPLO (datos del prototipo) -->
+    <string name="ejemplo_nombre">Princess Twilight Sparkle</string>
+    <string name="ejemplo_codigo">MLPME03-SC-001L5</string>
+    <string name="ejemplo_rareza">SC TIER</string>
+    <string name="ejemplo_edicion">Moon Edition Series 3</string>
+    <string name="desc_imagen_carta_ejemplo">Princess Twilight Sparkle, código MLPME03-SC-001L5</string>
+
+    <!-- DETALLE DE CARTA -->
+    <string name="detalle_titulo">Detalle de la carta</string>
+    <string name="desc_volver">Volver atrás</string>
+    <string name="ejemplo_rareza_detalle">Rareza: SC TIER</string>
+    <string name="etiqueta_codigo">Código:</string>
+    <string name="etiqueta_edicion">Edición:</string>
+    <string name="estado_en_coleccion">✔ En mi colección</string>
+    <string name="desc_switch_tengo">Marcar o desmarcar la carta como conseguida</string>
+    <string name="etiqueta_cantidad">Cantidad / repetidas:</string>
+    <string name="desc_restar">Restar una copia de esta carta</string>
+    <string name="desc_sumar">Sumar una copia de esta carta</string>
+    <string name="btn_modificar">Modificar</string>
+    <string name="btn_borrar">Borrar</string>
+
+    <!-- EDITAR / AÑADIR CARTA -->
+    <string name="editar_titulo">Editar carta</string>
+    <string name="anadir_titulo">Añadir carta</string>
+
+    <!-- Opciones de los desplegables -->
+    <string-array name="filtro_rareza">
+        <item>Todas las rarezas</item>
+        <item>R</item>
+        <item>SR</item>
+        <item>SSR</item>
+        <item>UR</item>
+        <item>SC TIER</item>
+    </string-array>
+    <string-array name="filtro_tengo">
+        <item>Todas</item>
+        <item>Las tengo</item>
+        <item>Me faltan</item>
+    </string-array>
+    <string-array name="rarezas_carta">
+        <item>R</item>
+        <item>SR</item>
+        <item>SSR</item>
+        <item>UR</item>
+        <item>SC TIER</item>
+    </string-array>
+    <string name="desc_imagen_editar">Imagen de la carta. Pulsa para cambiarla</string>
+    <string name="btn_cambiar_imagen">Cambiar imagen</string>
+    <string name="hint_nombre_carta">Nombre de la carta</string>
+    <string name="hint_codigo_carta">Código (ej. MLPME03-SC-001L5)</string>
+    <string name="hint_rareza_carta">Rareza</string>
+    <string name="hint_edicion_carta">Edición</string>
+    <string name="hint_cantidad_carta">Cantidad</string>
+    <string name="switch_la_tengo">La tengo en mi colección</string>
+    <string name="btn_guardar">Guardar</string>
+    <string name="btn_cancelar">Cancelar</string>
+
+    <!-- AYUDA -->
+    <string name="ayuda_titulo">Ayuda</string>
+    <string name="ayuda_intro">Te damos la bienvenida a tu colección de cartas MLP. Así funciona la app:</string>
+    <string name="ayuda_paso1_titulo">1. Tu colección</string>
+    <string name="ayuda_paso1_texto">En Home ves todas las cartas de la edición. Las que tienes aparecen marcadas con ✔ y las que te faltan con ✖.</string>
+    <string name="ayuda_paso2_titulo">2. Buscar y filtrar</string>
+    <string name="ayuda_paso2_texto">Escribe un nombre o un código en el buscador, o usa los desplegables para filtrar por rareza o por las cartas que tienes.</string>
+    <string name="ayuda_paso3_titulo">3. Escanear una carta</string>
+    <string name="ayuda_paso3_texto">Pulsa el icono de la cámara en la barra inferior y apunta al código de la carta para añadirla a tu colección.</string>
+    <string name="ayuda_paso4_titulo">4. Editar y repetidas</string>
+    <string name="ayuda_paso4_texto">Toca una carta para ver su detalle, marcarla como conseguida, sumar repetidas o modificar sus datos.</string>
+    <string name="ayuda_paso5_titulo">5. Ajustes</string>
+    <string name="ayuda_paso5_texto">En Ajustes puedes cambiar el modo oscuro, el idioma y las opciones del escáner.</string>
+    <string name="btn_entendido">Entendido</string>
 </resources>
