@@ -126,4 +126,11 @@
     <string name="ayuda_paso5_titulo">5. Ajustes</string>
     <string name="ayuda_paso5_texto">En Ajustes puedes cambiar el modo oscuro, el idioma y las opciones del escáner.</string>
     <string name="btn_entendido">Entendido</string>
+
+    <!-- MENSAJES Y TEXTOS DE CARTAS (usados desde el código Kotlin) -->
+    <string name="etiqueta_rareza">Rareza: %1$s</string>
+    <string name="desc_imagen_carta">%1$s, código %2$s</string>
+    <string name="error_campo_obligatorio">Este campo es obligatorio</string>
+    <string name="error_codigo_repetido">Ya existe una carta con ese código</string>
+    <string name="carta_guardada">Carta guardada</string>
 </resources>

@@ -1,7 +1,17 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+    <!-- Tema oscuro: mismos colores de marca, superficie oscura -->
     <style name="Base.Theme.JudithFranz" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/lavanda</item>
+        <item name="colorOnPrimary">@color/azulnoche</item>
+        <item name="colorPrimaryContainer">@color/morado</item>
+        <item name="colorOnPrimaryContainer">@color/white</item>
+        <item name="colorSecondary">@color/morado</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSurface">@color/azulnoche</item>
+        <item name="colorOnSurface">@color/blancolunar</item>
+        <item name="colorError">@color/rojo_error</item>
+        <item name="android:windowBackground">@drawable/fondo_degradado</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 </resources>

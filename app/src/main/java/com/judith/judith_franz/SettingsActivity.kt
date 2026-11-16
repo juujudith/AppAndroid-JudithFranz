@@ -1,28 +1,35 @@
 package com.judith.judith_franz
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.TextView         // NUEVO: para usar el texto "Inicia sesión"
+import android.view.View
+import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class RegisterActivity : AppCompatActivity() {
+class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_register)
+        setContentView(R.layout.activity_settings)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        // NUEVO: "¿Ya tienes cuenta? Inicia sesión" --> vuelve al login
-        val tvYaCuenta = findViewById<TextView>(R.id.tvYaCuenta)
+        BarraInferior.configurar(this, R.id.nav_settings)
 
-        tvYaCuenta.setOnClickListener {
-            finish()
+        findViewById<View>(R.id.optAyuda).setOnClickListener {
+            startActivity(Intent(this, AyudaActivity::class.java))
+        }
+
+        findViewById<Button>(R.id.btnCerrarSesion).setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            startActivity(intent)
         }
     }
 }

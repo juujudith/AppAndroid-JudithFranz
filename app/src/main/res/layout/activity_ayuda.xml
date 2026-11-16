@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Pantalla de AYUDA para el primer uso -->
+<!-- Pantalla de ayuda -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,7 +9,7 @@
     android:background="@drawable/fondo_degradado"
     tools:context=".AyudaActivity">
 
-    <!-- CABECERA: volver + título -->
+    <!-- Volver + título -->
     <ImageButton
         android:id="@+id/btnVolverAyuda"
         android:layout_width="48dp"
@@ -34,7 +34,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/btnVolverAyuda" />
 
-    <!-- CONTENIDO CON SCROLL -->
+    <!-- Contenido (scroll) -->
     <ScrollView
         android:id="@+id/scrollAyuda"
         android:layout_width="0dp"
@@ -68,7 +68,6 @@
                 android:gravity="center"
                 android:text="@string/ayuda_intro" />
 
-            <!-- Cada paso es una tarjeta con título y explicación -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -288,7 +287,7 @@
         </LinearLayout>
     </ScrollView>
 
-    <!-- BOTÓN FINAL -->
+    <!-- Botón Entendido -->
     <Button
         android:id="@+id/btnEntendido"
         style="@style/BotonPrincipal"

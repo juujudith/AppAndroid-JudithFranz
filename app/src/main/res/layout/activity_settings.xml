@@ -32,7 +32,7 @@
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
-            <!-- ========== CUENTA ========== -->
+            <!-- Cuenta -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- ========== ESCÁNER ========== -->
+            <!-- Escáner -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -130,7 +130,7 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- ========== COLECCIÓN ========== -->
+            <!-- Colección -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -180,7 +180,7 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- ========== APARIENCIA ========== -->
+            <!-- Apariencia -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -240,7 +240,7 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- CERRAR SESIÓN -->
+            <!-- Cerrar sesión -->
             <Button
                 android:id="@+id/btnCerrarSesion"
                 android:layout_width="220dp"
@@ -255,7 +255,7 @@
         </LinearLayout>
     </ScrollView>
 
-    <!-- BARRA INFERIOR FIJA (home, cámara, ajustes) -->
+    <!-- Incluir barra inferior -->
     <include
         android:id="@+id/bottomBar"
         layout="@layout/fragment_bottom_bar"
