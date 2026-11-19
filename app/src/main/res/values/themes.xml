@@ -1,19 +1,335 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Tema base de la app (colores de la paleta "luna" de colors.xml) -->
-    <style name="Base.Theme.JudithFranz" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/morado</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <item name="colorPrimaryContainer">@color/lilaclaro</item>
-        <item name="colorOnPrimaryContainer">@color/azulnoche</item>
-        <item name="colorSecondary">@color/lavanda</item>
-        <item name="colorOnSecondary">@color/azulnoche</item>
-        <item name="colorSurface">@color/blancolunar</item>
-        <item name="colorOnSurface">@color/azulnoche</item>
-        <item name="colorError">@color/rojo_error</item>
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Tema.Base.Claro" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">?attr/temaPrincipal</item>
+        <item name="colorOnPrimary">?attr/temaTextoSobrePrincipal</item>
+        <item name="colorPrimaryContainer">?attr/temaPlaceholder</item>
+        <item name="colorOnPrimaryContainer">?attr/temaTexto</item>
+        <item name="colorSecondary">?attr/temaAcento</item>
+        <item name="colorOnSecondary">?attr/temaTextoSobreAcento</item>
+        <item name="colorSecondaryContainer">?attr/temaPlaceholder</item>
+        <item name="colorOnSecondaryContainer">?attr/temaTexto</item>
+        <item name="colorSurface">?attr/temaSuperficie</item>
+        <item name="colorOnSurface">?attr/temaTexto</item>
+        <item name="colorOnSurfaceVariant">?attr/temaTextoSecundario</item>
+        <item name="colorSurfaceContainerLow">?attr/temaSuperficie</item>
+        <item name="colorSurfaceContainer">?attr/temaSuperficie</item>
+        <item name="colorSurfaceContainerHigh">?attr/temaSuperficie</item>
+        <item name="colorSurfaceContainerHighest">?attr/temaPlaceholder</item>
+        <item name="colorOutline">?attr/temaBorde</item>
+        <item name="colorError">?attr/temaFalta</item>
         <item name="android:windowBackground">@drawable/fondo_degradado</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
-    <style name="Theme.JudithFranz" parent="Base.Theme.JudithFranz" />
+    <style name="Tema.Base.Oscuro" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">?attr/temaPrincipal</item>
+        <item name="colorOnPrimary">?attr/temaTextoSobrePrincipal</item>
+        <item name="colorPrimaryContainer">?attr/temaPlaceholder</item>
+        <item name="colorOnPrimaryContainer">?attr/temaTexto</item>
+        <item name="colorSecondary">?attr/temaAcento</item>
+        <item name="colorOnSecondary">?attr/temaTextoSobreAcento</item>
+        <item name="colorSecondaryContainer">?attr/temaPlaceholder</item>
+        <item name="colorOnSecondaryContainer">?attr/temaTexto</item>
+        <item name="colorSurface">?attr/temaSuperficie</item>
+        <item name="colorOnSurface">?attr/temaTexto</item>
+        <item name="colorOnSurfaceVariant">?attr/temaTextoSecundario</item>
+        <item name="colorSurfaceContainerLow">?attr/temaSuperficie</item>
+        <item name="colorSurfaceContainer">?attr/temaSuperficie</item>
+        <item name="colorSurfaceContainerHigh">?attr/temaSuperficie</item>
+        <item name="colorSurfaceContainerHighest">?attr/temaPlaceholder</item>
+        <item name="colorOutline">?attr/temaBorde</item>
+        <item name="colorError">?attr/temaFalta</item>
+        <item name="android:windowBackground">@drawable/fondo_degradado</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <style name="Theme.JudithFranz" parent="Tema.Base.Claro">
+        <item name="temaFondoInicio">#B39DDB</item>
+        <item name="temaFondoFin">#FFFFFF</item>
+        <item name="temaTexto">#101329</item>
+        <item name="temaTextoSecundario">#5E586E</item>
+        <item name="temaSuperficie">#EDE7F6</item>
+        <item name="temaTarjeta">#F8F5FF</item>
+        <item name="temaCuadro">#D9F3EFFB</item>
+        <item name="temaCuadroBorde">#FFFFFF</item>
+        <item name="temaCampo">#80FFFFFF</item>
+        <item name="temaBorde">#7E788C</item>
+        <item name="temaDivisor">#337E788C</item>
+        <item name="temaPrincipal">#8188E8</item>
+        <item name="temaTextoSobrePrincipal">#FFFFFF</item>
+        <item name="temaAcento">#5C63C9</item>
+        <item name="temaTextoSobreAcento">#FFFFFF</item>
+        <item name="temaPlaceholder">#E8E5FF</item>
+        <item name="temaIconoBarra">#000000</item>
+        <item name="temaOk">#2E7D32</item>
+        <item name="temaFalta">#C62828</item>
+    </style>
+
+    <style name="Theme.JudithFranz.Applejack.Light" parent="Tema.Base.Claro">
+        <item name="temaFondoInicio">#FBD3A6</item>
+        <item name="temaFondoFin">#FFFAF2</item>
+        <item name="temaTexto">#3B1F0E</item>
+        <item name="temaTextoSecundario">#7A5A44</item>
+        <item name="temaSuperficie">#FFF1E0</item>
+        <item name="temaTarjeta">#FFFAF2</item>
+        <item name="temaCuadro">#D9FFF1E0</item>
+        <item name="temaCuadroBorde">#FFFFFF</item>
+        <item name="temaCampo">#80FFFFFF</item>
+        <item name="temaBorde">#7A5A44</item>
+        <item name="temaDivisor">#337A5A44</item>
+        <item name="temaPrincipal">#E07A2E</item>
+        <item name="temaTextoSobrePrincipal">#3B1F0E</item>
+        <item name="temaAcento">#D9433A</item>
+        <item name="temaTextoSobreAcento">#FFFFFF</item>
+        <item name="temaPlaceholder">#FDE2C2</item>
+        <item name="temaIconoBarra">#3B1F0E</item>
+        <item name="temaOk">#2E7D32</item>
+        <item name="temaFalta">#C62828</item>
+    </style>
+
+    <style name="Theme.JudithFranz.Applejack.Dark" parent="Tema.Base.Oscuro">
+        <item name="temaFondoInicio">#3A2214</item>
+        <item name="temaFondoFin">#24140C</item>
+        <item name="temaTexto">#FFF1E0</item>
+        <item name="temaTextoSecundario">#D6B89A</item>
+        <item name="temaSuperficie">#3A2214</item>
+        <item name="temaTarjeta">#4A2E1C</item>
+        <item name="temaCuadro">#D924140C</item>
+        <item name="temaCuadroBorde">#4A2E1C</item>
+        <item name="temaCampo">#804A2E1C</item>
+        <item name="temaBorde">#D6B89A</item>
+        <item name="temaDivisor">#33D6B89A</item>
+        <item name="temaPrincipal">#F5A55A</item>
+        <item name="temaTextoSobrePrincipal">#24140C</item>
+        <item name="temaAcento">#FCE38A</item>
+        <item name="temaTextoSobreAcento">#24140C</item>
+        <item name="temaPlaceholder">#4A2E1C</item>
+        <item name="temaIconoBarra">#D6B89A</item>
+        <item name="temaOk">#81C784</item>
+        <item name="temaFalta">#EF9A9A</item>
+    </style>
+
+    <style name="Theme.JudithFranz.Fluttershy.Light" parent="Tema.Base.Claro">
+        <item name="temaFondoInicio">#FFF2A8</item>
+        <item name="temaFondoFin">#FFFEF6</item>
+        <item name="temaTexto">#3A2A12</item>
+        <item name="temaTextoSecundario">#786A4A</item>
+        <item name="temaSuperficie">#FFFADC</item>
+        <item name="temaTarjeta">#FFFEF6</item>
+        <item name="temaCuadro">#D9FFFADC</item>
+        <item name="temaCuadroBorde">#FFFFFF</item>
+        <item name="temaCampo">#80FFFFFF</item>
+        <item name="temaBorde">#786A4A</item>
+        <item name="temaDivisor">#33786A4A</item>
+        <item name="temaPrincipal">#E889B5</item>
+        <item name="temaTextoSobrePrincipal">#3A2A12</item>
+        <item name="temaAcento">#3FA7A0</item>
+        <item name="temaTextoSobreAcento">#3A2A12</item>
+        <item name="temaPlaceholder">#FFF5C2</item>
+        <item name="temaIconoBarra">#3A2A12</item>
+        <item name="temaOk">#2E7D32</item>
+        <item name="temaFalta">#C62828</item>
+    </style>
+
+    <style name="Theme.JudithFranz.Fluttershy.Dark" parent="Tema.Base.Oscuro">
+        <item name="temaFondoInicio">#36262F</item>
+        <item name="temaFondoFin">#251A20</item>
+        <item name="temaTexto">#FFF6E0</item>
+        <item name="temaTextoSecundario">#D0BCC4</item>
+        <item name="temaSuperficie">#36262F</item>
+        <item name="temaTarjeta">#46323D</item>
+        <item name="temaCuadro">#D9251A20</item>
+        <item name="temaCuadroBorde">#46323D</item>
+        <item name="temaCampo">#8046323D</item>
+        <item name="temaBorde">#D0BCC4</item>
+        <item name="temaDivisor">#33D0BCC4</item>
+        <item name="temaPrincipal">#F7B8D2</item>
+        <item name="temaTextoSobrePrincipal">#251A20</item>
+        <item name="temaAcento">#FDE58A</item>
+        <item name="temaTextoSobreAcento">#251A20</item>
+        <item name="temaPlaceholder">#46323D</item>
+        <item name="temaIconoBarra">#D0BCC4</item>
+        <item name="temaOk">#81C784</item>
+        <item name="temaFalta">#EF9A9A</item>
+    </style>
+
+    <style name="Theme.JudithFranz.PinkiePie.Light" parent="Tema.Base.Claro">
+        <item name="temaFondoInicio">#F8BFD8</item>
+        <item name="temaFondoFin">#FFF7FB</item>
+        <item name="temaTexto">#3D0F25</item>
+        <item name="temaTextoSecundario">#7A4F63</item>
+        <item name="temaSuperficie">#FFEAF3</item>
+        <item name="temaTarjeta">#FFF7FB</item>
+        <item name="temaCuadro">#D9FFEAF3</item>
+        <item name="temaCuadroBorde">#FFFFFF</item>
+        <item name="temaCampo">#80FFFFFF</item>
+        <item name="temaBorde">#7A4F63</item>
+        <item name="temaDivisor">#337A4F63</item>
+        <item name="temaPrincipal">#E4418A</item>
+        <item name="temaTextoSobrePrincipal">#3D0F25</item>
+        <item name="temaAcento">#3FA3D9</item>
+        <item name="temaTextoSobreAcento">#3D0F25</item>
+        <item name="temaPlaceholder">#FBD3E5</item>
+        <item name="temaIconoBarra">#3D0F25</item>
+        <item name="temaOk">#2E7D32</item>
+        <item name="temaFalta">#C62828</item>
+    </style>
+
+    <style name="Theme.JudithFranz.PinkiePie.Dark" parent="Tema.Base.Oscuro">
+        <item name="temaFondoInicio">#3E1730</item>
+        <item name="temaFondoFin">#2A0E1E</item>
+        <item name="temaTexto">#FFEAF4</item>
+        <item name="temaTextoSecundario">#D7AFC3</item>
+        <item name="temaSuperficie">#3E1730</item>
+        <item name="temaTarjeta">#51203F</item>
+        <item name="temaCuadro">#D92A0E1E</item>
+        <item name="temaCuadroBorde">#51203F</item>
+        <item name="temaCampo">#8051203F</item>
+        <item name="temaBorde">#D7AFC3</item>
+        <item name="temaDivisor">#33D7AFC3</item>
+        <item name="temaPrincipal">#F58AB9</item>
+        <item name="temaTextoSobrePrincipal">#2A0E1E</item>
+        <item name="temaAcento">#6EC1E8</item>
+        <item name="temaTextoSobreAcento">#2A0E1E</item>
+        <item name="temaPlaceholder">#51203F</item>
+        <item name="temaIconoBarra">#D7AFC3</item>
+        <item name="temaOk">#81C784</item>
+        <item name="temaFalta">#EF9A9A</item>
+    </style>
+
+    <style name="Theme.JudithFranz.RainbowDash.Light" parent="Tema.Base.Claro">
+        <item name="temaFondoInicio">#A9DDF7</item>
+        <item name="temaFondoFin">#F7FCFF</item>
+        <item name="temaTexto">#0B2638</item>
+        <item name="temaTextoSecundario">#4A6476</item>
+        <item name="temaSuperficie">#E8F6FD</item>
+        <item name="temaTarjeta">#F7FCFF</item>
+        <item name="temaCuadro">#D9E8F6FD</item>
+        <item name="temaCuadroBorde">#FFFFFF</item>
+        <item name="temaCampo">#80FFFFFF</item>
+        <item name="temaBorde">#4A6476</item>
+        <item name="temaDivisor">#334A6476</item>
+        <item name="temaPrincipal">#1E98D3</item>
+        <item name="temaTextoSobrePrincipal">#0B2638</item>
+        <item name="temaAcento">#EE4144</item>
+        <item name="temaTextoSobreAcento">#0B2638</item>
+        <item name="temaPlaceholder">#CDEBFA</item>
+        <item name="temaIconoBarra">#0B2638</item>
+        <item name="temaOk">#2E7D32</item>
+        <item name="temaFalta">#C62828</item>
+    </style>
+
+    <style name="Theme.JudithFranz.RainbowDash.Dark" parent="Tema.Base.Oscuro">
+        <item name="temaFondoInicio">#16293D</item>
+        <item name="temaFondoFin">#0D1B2A</item>
+        <item name="temaTexto">#EAF6FF</item>
+        <item name="temaTextoSecundario">#A8C2D8</item>
+        <item name="temaSuperficie">#16293D</item>
+        <item name="temaTarjeta">#1F3650</item>
+        <item name="temaCuadro">#D90D1B2A</item>
+        <item name="temaCuadroBorde">#1F3650</item>
+        <item name="temaCampo">#801F3650</item>
+        <item name="temaBorde">#A8C2D8</item>
+        <item name="temaDivisor">#33A8C2D8</item>
+        <item name="temaPrincipal">#9EDBF9</item>
+        <item name="temaTextoSobrePrincipal">#0D1B2A</item>
+        <item name="temaAcento">#EE4144</item>
+        <item name="temaTextoSobreAcento">#0D1B2A</item>
+        <item name="temaPlaceholder">#1F3650</item>
+        <item name="temaIconoBarra">#A8C2D8</item>
+        <item name="temaOk">#81C784</item>
+        <item name="temaFalta">#EF9A9A</item>
+    </style>
+
+    <style name="Theme.JudithFranz.Rarity.Light" parent="Tema.Base.Claro">
+        <item name="temaFondoInicio">#E4DDF5</item>
+        <item name="temaFondoFin">#FFFFFF</item>
+        <item name="temaTexto">#1E1838</item>
+        <item name="temaTextoSecundario">#615A78</item>
+        <item name="temaSuperficie">#F7F5FD</item>
+        <item name="temaTarjeta">#FFFFFF</item>
+        <item name="temaCuadro">#D9F7F5FD</item>
+        <item name="temaCuadroBorde">#FFFFFF</item>
+        <item name="temaCampo">#80FFFFFF</item>
+        <item name="temaBorde">#615A78</item>
+        <item name="temaDivisor">#33615A78</item>
+        <item name="temaPrincipal">#5E4FA2</item>
+        <item name="temaTextoSobrePrincipal">#FFFFFF</item>
+        <item name="temaAcento">#4BB3E0</item>
+        <item name="temaTextoSobreAcento">#1E1838</item>
+        <item name="temaPlaceholder">#ECE7F9</item>
+        <item name="temaIconoBarra">#1E1838</item>
+        <item name="temaOk">#2E7D32</item>
+        <item name="temaFalta">#C62828</item>
+    </style>
+
+    <style name="Theme.JudithFranz.Rarity.Dark" parent="Tema.Base.Oscuro">
+        <item name="temaFondoInicio">#241E3E</item>
+        <item name="temaFondoFin">#17132A</item>
+        <item name="temaTexto">#F7F5FD</item>
+        <item name="temaTextoSecundario">#BDB6D6</item>
+        <item name="temaSuperficie">#241E3E</item>
+        <item name="temaTarjeta">#302852</item>
+        <item name="temaCuadro">#D917132A</item>
+        <item name="temaCuadroBorde">#302852</item>
+        <item name="temaCampo">#80302852</item>
+        <item name="temaBorde">#BDB6D6</item>
+        <item name="temaDivisor">#33BDB6D6</item>
+        <item name="temaPrincipal">#B8A8F0</item>
+        <item name="temaTextoSobrePrincipal">#17132A</item>
+        <item name="temaAcento">#8EC3EB</item>
+        <item name="temaTextoSobreAcento">#17132A</item>
+        <item name="temaPlaceholder">#302852</item>
+        <item name="temaIconoBarra">#BDB6D6</item>
+        <item name="temaOk">#81C784</item>
+        <item name="temaFalta">#EF9A9A</item>
+    </style>
+
+    <style name="Theme.JudithFranz.Twilight.Light" parent="Tema.Base.Claro">
+        <item name="temaFondoInicio">#DCC8EE</item>
+        <item name="temaFondoFin">#FFFCFF</item>
+        <item name="temaTexto">#23163A</item>
+        <item name="temaTextoSecundario">#66587A</item>
+        <item name="temaSuperficie">#F5EEFB</item>
+        <item name="temaTarjeta">#FFFCFF</item>
+        <item name="temaCuadro">#D9F5EEFB</item>
+        <item name="temaCuadroBorde">#FFFFFF</item>
+        <item name="temaCampo">#80FFFFFF</item>
+        <item name="temaBorde">#66587A</item>
+        <item name="temaDivisor">#3366587A</item>
+        <item name="temaPrincipal">#7B4BB5</item>
+        <item name="temaTextoSobrePrincipal">#FFFFFF</item>
+        <item name="temaAcento">#EC4A8A</item>
+        <item name="temaTextoSobreAcento">#23163A</item>
+        <item name="temaPlaceholder">#E8DAF5</item>
+        <item name="temaIconoBarra">#23163A</item>
+        <item name="temaOk">#2E7D32</item>
+        <item name="temaFalta">#C62828</item>
+    </style>
+
+    <style name="Theme.JudithFranz.Twilight.Dark" parent="Tema.Base.Oscuro">
+        <item name="temaFondoInicio">#281C48</item>
+        <item name="temaFondoFin">#1A1230</item>
+        <item name="temaTexto">#F6EEFF</item>
+        <item name="temaTextoSecundario">#C2B3DA</item>
+        <item name="temaSuperficie">#281C48</item>
+        <item name="temaTarjeta">#36275E</item>
+        <item name="temaCuadro">#D91A1230</item>
+        <item name="temaCuadroBorde">#36275E</item>
+        <item name="temaCampo">#8036275E</item>
+        <item name="temaBorde">#C2B3DA</item>
+        <item name="temaDivisor">#33C2B3DA</item>
+        <item name="temaPrincipal">#CBA3E0</item>
+        <item name="temaTextoSobrePrincipal">#1A1230</item>
+        <item name="temaAcento">#EC4A8A</item>
+        <item name="temaTextoSobreAcento">#1A1230</item>
+        <item name="temaPlaceholder">#36275E</item>
+        <item name="temaIconoBarra">#C2B3DA</item>
+        <item name="temaOk">#81C784</item>
+        <item name="temaFalta">#EF9A9A</item>
+    </style>
+
 </resources>

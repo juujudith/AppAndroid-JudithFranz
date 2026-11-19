@@ -14,7 +14,6 @@
     <color name="icono_barra">#000000</color>
     <color name="fondo_barra">#EDE7F6</color>
 
-    <!-- Colores de estado y texto secundario -->
     <color name="rojo_error">#C62828</color>
     <color name="verde_ok">#2E7D32</color>
     <color name="gris_texto">#5E586E</color>

@@ -10,7 +10,7 @@
     android:orientation="vertical"
     tools:context=".EditarCartaActivity">
 
-    <!-- CABECERA -->
+    <!-- Rareza y cantidad -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
             android:background="@drawable/bg_filtro_input"
             android:contentDescription="@string/desc_volver"
             android:src="?attr/homeAsUpIndicator"
-            app:tint="@color/azulnoche" />
+            app:tint="?attr/temaTexto" />
 
         <TextView
             android:id="@+id/tvEditarTitulo"
@@ -55,7 +55,6 @@
             android:orientation="vertical"
             android:padding="18dp">
 
-            <!-- Imagen actual + botón para cambiarla -->
             <androidx.cardview.widget.CardView
                 android:layout_width="140dp"
                 android:layout_height="196dp"
@@ -68,7 +67,7 @@
                     android:layout_height="match_parent"
                     android:contentDescription="@string/desc_imagen_editar"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/carta_twilight_sc001" />
+                    android:src="@drawable/carta_placeholder" />
             </androidx.cardview.widget.CardView>
 
             <Button
@@ -79,7 +78,6 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/btn_cambiar_imagen" />
 
-            <!-- Campos de la carta -->
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/CampoTexto"
                 android:layout_width="match_parent"
@@ -94,7 +92,7 @@
                     android:fontFamily="@font/nunito_extralight"
                     android:inputType="textCapWords"
                     android:text="@string/ejemplo_nombre"
-                    android:textColor="@color/azulnoche" />
+                    android:textColor="?attr/temaTexto" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -111,10 +109,9 @@
                     android:fontFamily="@font/nunito_extralight"
                     android:inputType="textCapCharacters"
                     android:text="@string/ejemplo_codigo"
-                    android:textColor="@color/azulnoche" />
+                    android:textColor="?attr/temaTexto" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Rareza y cantidad -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -129,12 +126,12 @@
                     android:layout_marginEnd="6dp"
                     android:layout_weight="2"
                     android:hint="@string/hint_rareza_carta"
-                    app:boxBackgroundColor="@color/campo_fondo"
+                    app:boxBackgroundColor="?attr/temaSuperficie"
                     app:boxCornerRadiusBottomEnd="16dp"
                     app:boxCornerRadiusBottomStart="16dp"
                     app:boxCornerRadiusTopEnd="16dp"
                     app:boxCornerRadiusTopStart="16dp"
-                    app:boxStrokeColor="@color/morado">
+                    app:boxStrokeColor="?attr/temaPrincipal">
 
                     <com.google.android.material.textfield.MaterialAutoCompleteTextView
                         android:id="@+id/actvRarezaCarta"
@@ -146,7 +143,7 @@
                         android:minHeight="48dp"
                         android:paddingHorizontal="16dp"
                         android:text="@string/ejemplo_rareza"
-                        android:textColor="@color/azulnoche" />
+                        android:textColor="?attr/temaTexto" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -164,7 +161,7 @@
                         android:fontFamily="@font/nunito_extralight"
                         android:inputType="number"
                         android:text="1"
-                        android:textColor="@color/azulnoche"
+                        android:textColor="?attr/temaTexto"
                         tools:ignore="HardcodedText" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
@@ -183,7 +180,7 @@
                     android:fontFamily="@font/nunito_extralight"
                     android:inputType="textCapWords"
                     android:text="@string/ejemplo_edicion"
-                    android:textColor="@color/azulnoche" />
+                    android:textColor="?attr/temaTexto" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.materialswitch.MaterialSwitch
@@ -195,10 +192,9 @@
                 android:fontFamily="@font/nunito_extralight"
                 android:minHeight="48dp"
                 android:text="@string/switch_la_tengo"
-                android:textColor="@color/azulnoche"
+                android:textColor="?attr/temaTexto"
                 android:textSize="16sp" />
 
-            <!-- Botones Guardar / Cancelar -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

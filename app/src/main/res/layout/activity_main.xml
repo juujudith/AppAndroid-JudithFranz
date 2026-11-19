@@ -29,7 +29,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/nunito_extralight"
             android:text="@string/login_titulo"
-            android:textColor="@color/azulnoche"
+            android:textColor="?attr/temaTexto"
             android:textSize="30sp"
             android:textStyle="bold" />
 
@@ -40,15 +40,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:hint="@string/hint_email"
-            android:textColor="@color/azulnoche"
-            android:textColorHint="@color/azulnoche"
-            app:hintTextColor="@color/azulnoche"
-            app:boxBackgroundColor="@color/campo_fondo"
+            android:textColor="?attr/temaTexto"
+            android:textColorHint="?attr/temaTexto"
+            app:hintTextColor="?attr/temaTexto"
+            app:boxBackgroundColor="?attr/temaSuperficie"
             app:boxCornerRadiusTopStart="16dp"
             app:boxCornerRadiusTopEnd="16dp"
             app:boxCornerRadiusBottomStart="16dp"
             app:boxCornerRadiusBottomEnd="16dp"
-            app:boxStrokeColor="@color/morado">
+            app:boxStrokeColor="?attr/temaPrincipal">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etEmail"
@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nunito_extralight"
                 android:textSize="18sp"
-                android:textColor="@color/azulnoche"
+                android:textColor="?attr/temaTexto"
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -67,16 +67,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="@string/hint_password"
-            android:textColor="@color/azulnoche"
-            android:textColorHint="@color/azulnoche"
-            app:hintTextColor="@color/azulnoche"
+            android:textColor="?attr/temaTexto"
+            android:textColorHint="?attr/temaTexto"
+            app:hintTextColor="?attr/temaTexto"
             app:endIconMode="password_toggle"
-            app:boxBackgroundColor="@color/campo_fondo"
+            app:boxBackgroundColor="?attr/temaSuperficie"
             app:boxCornerRadiusTopStart="16dp"
             app:boxCornerRadiusTopEnd="16dp"
             app:boxCornerRadiusBottomStart="16dp"
             app:boxCornerRadiusBottomEnd="16dp"
-            app:boxStrokeColor="@color/morado">
+            app:boxStrokeColor="?attr/temaPrincipal">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPassword"
@@ -84,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nunito_extralight"
                 android:textSize="18sp"
-                android:textColor="@color/azulnoche"
+                android:textColor="?attr/temaTexto"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -97,8 +97,8 @@
             android:text="@string/btn_login"
             android:textSize="24sp"
             android:fontFamily="@font/nunito_extralight"
-            app:backgroundTint="@color/morado"
-            android:textColor="#FFFFFF"/>
+            app:backgroundTint="?attr/temaPrincipal"
+            android:textColor="?attr/temaTextoSobrePrincipal"/>
 
         <!-- REGISTRARSE -->
         <TextView
@@ -110,9 +110,8 @@
             android:text="@string/txt_registro"
             android:fontFamily="@font/nunito_extralight"
             android:textSize="16sp"
-            android:textColor="@color/black" />
+            android:textColor="?attr/temaTexto" />
 
-        <!-- AYUDA PARA EL PRIMER USO -->
         <TextView
             android:id="@+id/tvAyuda"
             android:layout_width="wrap_content"
@@ -124,7 +123,7 @@
             android:fontFamily="@font/nunito_extralight"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:textColor="@color/azulnoche" />
+            android:textColor="?attr/temaTexto" />
 
     </LinearLayout>
 </ScrollView>

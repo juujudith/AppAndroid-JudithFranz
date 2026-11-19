@@ -18,6 +18,7 @@ class RegisterActivity : AppCompatActivity() {
             insets
         }
 
+        // NUEVO: "¿Ya tienes cuenta? Inicia sesión" --> vuelve al login
         val tvYaCuenta = findViewById<TextView>(R.id.tvYaCuenta)
 
         tvYaCuenta.setOnClickListener {

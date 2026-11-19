@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="temaFondoInicio" format="color" />
+    <attr name="temaFondoFin" format="color" />
+
+    <attr name="temaTexto" format="color" />
+    <attr name="temaTextoSecundario" format="color" />
+
+    <attr name="temaSuperficie" format="color" />
+    <attr name="temaTarjeta" format="color" />
+    <attr name="temaCuadro" format="color" />
+    <attr name="temaCuadroBorde" format="color" />
+    <attr name="temaCampo" format="color" />
+    <attr name="temaBorde" format="color" />
+    <attr name="temaDivisor" format="color" />
+
+    <attr name="temaPrincipal" format="color" />
+    <attr name="temaTextoSobrePrincipal" format="color" />
+    <attr name="temaAcento" format="color" />
+    <attr name="temaTextoSobreAcento" format="color" />
+
+    <attr name="temaPlaceholder" format="color" />
+    <attr name="temaIconoBarra" format="color" />
+    <attr name="temaOk" format="color" />
+    <attr name="temaFalta" format="color" />
+</resources>

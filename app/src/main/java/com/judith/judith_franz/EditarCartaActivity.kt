@@ -1,7 +1,5 @@
 package com.judith.judith_franz
 
-// Editar o añadir una carta. Los cambios se guardan en
-// CartasRepositorio, así se ven en el detalle y en Home.
 
 import android.app.Activity
 import android.content.Intent
@@ -26,7 +24,7 @@ class EditarCartaActivity : AppCompatActivity() {
         const val EXTRA_MODO_ANADIR = "EXTRA_MODO_ANADIR"
     }
 
-    private var codigoOriginal: String? = null
+    private var cartaOriginal: Carta? = null
 
     private lateinit var etNombre: EditText
     private lateinit var etCodigo: EditText
@@ -56,16 +54,15 @@ class EditarCartaActivity : AppCompatActivity() {
         val carta = intent.getStringExtra(CardActivity.EXTRA_CODIGO)?.let { CartasRepositorio.buscar(it) }
 
         if (modoAnadir || carta == null) {
-            // Carta nueva: formulario vacío
             findViewById<TextView>(R.id.tvEditarTitulo).setText(R.string.anadir_titulo)
             etNombre.setText("")
             etCodigo.setText("")
             etCantidad.setText("1")
+            etEdicion.setText(CartasRepositorio.EDICION)
             swTengo.isChecked = true
         } else {
-            // Editar: se rellenan los campos con los datos actuales
-            codigoOriginal = carta.codigo
-            findViewById<ImageView>(R.id.ivEditarCarta).setImageResource(carta.imagen)
+            cartaOriginal = carta
+            findViewById<ImageView>(R.id.ivEditarCarta).cargarCarta(carta)
             etNombre.setText(carta.nombre)
             etCodigo.setText(carta.codigo)
             actvRareza.setText(carta.rareza, false)
@@ -99,11 +96,13 @@ class EditarCartaActivity : AppCompatActivity() {
             rareza = actvRareza.text.toString(),
             edicion = etEdicion.text.toString().trim(),
             tengo = swTengo.isChecked,
-            cantidad = cantidad
+            cantidad = cantidad,
+            imagenUrl = cartaOriginal?.imagenUrl ?: "",
+            horizontal = cartaOriginal?.horizontal ?: false
         )
         val carta = base.conTengo(swTengo.isChecked)
 
-        if (!CartasRepositorio.guardar(codigoOriginal, carta)) {
+        if (!CartasRepositorio.guardar(cartaOriginal?.codigo, carta)) {
             etCodigo.error = getString(R.string.error_codigo_repetido)
             return
         }

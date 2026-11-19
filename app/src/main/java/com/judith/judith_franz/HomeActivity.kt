@@ -7,13 +7,15 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class HomeActivity : AppCompatActivity() {
 
-    private lateinit var rvCartas: RecyclerView
-    private lateinit var adapter: CartaAdapter
+    private val adapter = CartaAdapter { carta ->
+        val intent = Intent(this, CardActivity::class.java)
+            .putExtra(CardActivity.EXTRA_CODIGO, carta.codigo)
+        startActivity(intent)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,14 +29,7 @@ class HomeActivity : AppCompatActivity() {
 
         BarraInferior.configurar(this, R.id.nav_home)
 
-        adapter = CartaAdapter { carta ->
-            val intent = Intent(this, CardActivity::class.java)
-                .putExtra(CardActivity.EXTRA_CODIGO, carta.codigo)
-            startActivity(intent)
-        }
-        rvCartas = findViewById(R.id.rvCartas)
-        rvCartas.layoutManager = GridLayoutManager(this, 2)
-        rvCartas.adapter = adapter
+        findViewById<RecyclerView>(R.id.rvCartas).adapter = adapter
 
         findViewById<ImageButton>(R.id.btnAnadirCarta).setOnClickListener {
             val intent = Intent(this, EditarCartaActivity::class.java)
@@ -45,6 +40,6 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        adapter.actualizar(CartasRepositorio.todas())
+        adapter.submitList(CartasRepositorio.todas())
     }
 }

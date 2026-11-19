@@ -1,5 +1,6 @@
 package com.judith.judith_franz
 
+
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
@@ -103,7 +104,7 @@ class CardActivity : AppCompatActivity() {
             return
         }
 
-        ivCarta.setImageResource(carta.imagen)
+        ivCarta.cargarCarta(carta)
         ivCarta.contentDescription = getString(R.string.desc_imagen_carta, carta.nombre, carta.codigo)
         ivCarta.alpha = if (carta.tengo) 1f else 0.55f
         tvNombre.text = carta.nombre

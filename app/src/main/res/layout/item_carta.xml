@@ -2,17 +2,15 @@
 <!-- Cartas individuales -->
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="6dp"
     android:clickable="true"
     android:focusable="true"
     android:foreground="?attr/selectableItemBackground"
-    app:cardBackgroundColor="#F8F5FF"
+    app:cardBackgroundColor="?attr/temaTarjeta"
     app:cardCornerRadius="16dp"
-    app:cardElevation="3dp"
-    tools:layout_width="180dp">
+    app:cardElevation="3dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,7 +24,7 @@
             android:layout_height="190dp"
             android:contentDescription="@string/desc_imagen_carta_ejemplo"
             android:scaleType="centerCrop"
-            android:src="@drawable/carta_twilight_sc001" />
+            android:src="@drawable/carta_placeholder" />
 
         <TextView
             android:id="@+id/tvItemNombre"
@@ -37,7 +35,7 @@
             android:fontFamily="@font/nunito_extralight"
             android:maxLines="1"
             android:text="@string/ejemplo_nombre"
-            android:textColor="@color/azulnoche"
+            android:textColor="?attr/temaTexto"
             android:textSize="13sp"
             android:textStyle="bold" />
 
@@ -47,7 +45,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/nunito_extralight"
             android:text="@string/ejemplo_codigo"
-            android:textColor="@color/gris_texto"
+            android:textColor="?attr/temaTextoSecundario"
             android:textSize="11sp" />
 
         <LinearLayout
@@ -61,11 +59,11 @@
                 android:id="@+id/tvItemRareza"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/pildora_rareza"
+                android:background="?attr/temaAcento"
                 android:paddingHorizontal="6dp"
                 android:paddingVertical="2dp"
                 android:text="@string/ejemplo_rareza"
-                android:textColor="#FFFFFF"
+                android:textColor="?attr/temaTextoSobreAcento"
                 android:textSize="11sp"
                 android:textStyle="bold" />
 
@@ -76,7 +74,7 @@
                 android:layout_weight="1"
                 android:gravity="end"
                 android:text="@string/estado_tengo"
-                android:textColor="@color/verde_ok"
+                android:textColor="?attr/temaOk"
                 android:textSize="11sp"
                 android:textStyle="bold" />
         </LinearLayout>

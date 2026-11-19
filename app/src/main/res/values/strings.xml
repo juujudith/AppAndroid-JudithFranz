@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Judith-Franz</string>
+    <string name="app_name">Moon Album</string>
     <string name="logo_desc">Logo de la aplicación</string>
 
     <!-- MainActivity: LOGIN -->
@@ -36,13 +36,32 @@
     <string name="borrar_historial_de_escaneos">Borrar historial de escaneos</string>
 
     <string name="apariencia">Apariencia</string>
-    <string name="modo_oscuro">Modo oscuro</string>
+    <string name="tema">Tema de colores</string>
+    <string name="temas_titulo">Temas</string>
+    <string name="temas_subtitulo">Elige los colores de tu colección. Así se verá la app con cada tema.</string>
+    <string name="tema_claro">☀ Claro</string>
+    <string name="tema_oscuro">☾ Oscuro</string>
+    <string name="tema_en_uso">En uso</string>
+    <string name="tema_preview_carta">Princess Luna</string>
+    <string name="tema_preview_rareza">HR</string>
+    <string name="tema_luna">Luna (original)</string>
+    <string name="tema_applejack_light">Applejack Light · Granja</string>
+    <string name="tema_applejack_dark">Applejack Dark · Granero de noche</string>
+    <string name="tema_fluttershy_light">Fluttershy Light · Mariposa</string>
+    <string name="tema_fluttershy_dark">Fluttershy Dark · Cabaña</string>
+    <string name="tema_pinkiepie_light">Pinkie Pie Light · Fiesta</string>
+    <string name="tema_pinkiepie_dark">Pinkie Pie Dark · Fiesta nocturna</string>
+    <string name="tema_rainbowdash_light">Rainbow Dash Light · Cielo</string>
+    <string name="tema_rainbowdash_dark">Rainbow Dash Dark · Tormenta</string>
+    <string name="tema_rarity_light">Rarity Light · Boutique</string>
+    <string name="tema_rarity_dark">Rarity Dark · Gala</string>
+    <string name="tema_twilight_light">Twilight Sparkle Light · Biblioteca</string>
+    <string name="tema_twilight_dark">Twilight Sparkle Dark · Princesa</string>
     <string name="idioma">Idioma</string>
 
     <string name="cerrar_sesi_n">Cerrar sesión</string>
     <string name="opt_ayuda">Ayuda</string>
 
-    <!-- LOGIN: acceso a la ayuda -->
     <string name="txt_ayuda_login">¿Primera vez? Ver la ayuda</string>
 
     <!-- HOME -->
@@ -55,17 +74,21 @@
     <string name="estado_falta">✖ Falta</string>
     <string name="pronto_escaner">El escáner estará disponible próximamente</string>
 
-    <!-- CARTA DE EJEMPLO (datos del prototipo) -->
     <string name="ejemplo_nombre">Princess Twilight Sparkle</string>
     <string name="ejemplo_codigo">MLPME03-SC-001L5</string>
     <string name="ejemplo_rareza">SC TIER</string>
     <string name="ejemplo_edicion">Moon Edition Series 3</string>
     <string name="desc_imagen_carta_ejemplo">Princess Twilight Sparkle, código MLPME03-SC-001L5</string>
 
-    <!-- DETALLE DE CARTA -->
     <string name="detalle_titulo">Detalle de la carta</string>
     <string name="desc_volver">Volver atrás</string>
     <string name="ejemplo_rareza_detalle">Rareza: SC TIER</string>
+    <!-- MENSAJES Y TEXTOS DE CARTAS (usados desde el código Kotlin) -->
+    <string name="etiqueta_rareza">Rareza: %1$s</string>
+    <string name="desc_imagen_carta">%1$s, código %2$s</string>
+    <string name="error_campo_obligatorio">Este campo es obligatorio</string>
+    <string name="error_codigo_repetido">Ya hay otra carta con este código</string>
+    <string name="carta_guardada">Carta guardada</string>
     <string name="etiqueta_codigo">Código:</string>
     <string name="etiqueta_edicion">Edición:</string>
     <string name="estado_en_coleccion">✔ En mi colección</string>
@@ -76,18 +99,21 @@
     <string name="btn_modificar">Modificar</string>
     <string name="btn_borrar">Borrar</string>
 
-    <!-- EDITAR / AÑADIR CARTA -->
     <string name="editar_titulo">Editar carta</string>
     <string name="anadir_titulo">Añadir carta</string>
 
-    <!-- Opciones de los desplegables -->
     <string-array name="filtro_rareza">
         <item>Todas las rarezas</item>
         <item>R</item>
         <item>SR</item>
         <item>SSR</item>
+        <item>HR</item>
+        <item>LSR</item>
         <item>UR</item>
-        <item>SC TIER</item>
+        <item>SGR</item>
+        <item>ZR</item>
+        <item>SC</item>
+        <item>◇ZR</item>
     </string-array>
     <string-array name="filtro_tengo">
         <item>Todas</item>
@@ -98,8 +124,13 @@
         <item>R</item>
         <item>SR</item>
         <item>SSR</item>
+        <item>HR</item>
+        <item>LSR</item>
         <item>UR</item>
-        <item>SC TIER</item>
+        <item>SGR</item>
+        <item>ZR</item>
+        <item>SC</item>
+        <item>◇ZR</item>
     </string-array>
     <string name="desc_imagen_editar">Imagen de la carta. Pulsa para cambiarla</string>
     <string name="btn_cambiar_imagen">Cambiar imagen</string>
@@ -112,7 +143,6 @@
     <string name="btn_guardar">Guardar</string>
     <string name="btn_cancelar">Cancelar</string>
 
-    <!-- AYUDA -->
     <string name="ayuda_titulo">Ayuda</string>
     <string name="ayuda_intro">Te damos la bienvenida a tu colección de cartas MLP. Así funciona la app:</string>
     <string name="ayuda_paso1_titulo">1. Tu colección</string>
@@ -124,13 +154,6 @@
     <string name="ayuda_paso4_titulo">4. Editar y repetidas</string>
     <string name="ayuda_paso4_texto">Toca una carta para ver su detalle, marcarla como conseguida, sumar repetidas o modificar sus datos.</string>
     <string name="ayuda_paso5_titulo">5. Ajustes</string>
-    <string name="ayuda_paso5_texto">En Ajustes puedes cambiar el modo oscuro, el idioma y las opciones del escáner.</string>
+    <string name="ayuda_paso5_texto">En Ajustes puedes cambiar el tema de colores, el idioma y las opciones del escáner.</string>
     <string name="btn_entendido">Entendido</string>
-
-    <!-- MENSAJES Y TEXTOS DE CARTAS (usados desde el código Kotlin) -->
-    <string name="etiqueta_rareza">Rareza: %1$s</string>
-    <string name="desc_imagen_carta">%1$s, código %2$s</string>
-    <string name="error_campo_obligatorio">Este campo es obligatorio</string>
-    <string name="error_codigo_repetido">Ya existe una carta con ese código</string>
-    <string name="carta_guardada">Carta guardada</string>
 </resources>

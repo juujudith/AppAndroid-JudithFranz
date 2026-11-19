@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:background="@drawable/fondo_degradado">
 
-    <!-- TÍTULO SUPERIOR DE LA PANTALLA + BOTÓN AÑADIR CARTA -->
+    <!-- CUADRO CENTRAL -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
             android:fontFamily="@font/nunito_extralight"
             android:gravity="center"
             android:text="@string/home_titulo"
-            android:textColor="@color/azulnoche"
+            android:textColor="?attr/temaTexto"
             android:textSize="22sp"
             android:textStyle="bold" />
 
@@ -37,10 +37,11 @@
             android:background="@drawable/bg_filtro_input"
             android:contentDescription="@string/desc_anadir_carta"
             android:src="@android:drawable/ic_input_add"
-            app:tint="@color/azulnoche" />
+            app:tint="?attr/temaTexto" />
     </LinearLayout>
 
-    <!-- CUADRO CENTRAL -->
+    <!-- CUADRO CENTRAL (CONTIENE FILTROS ARRIBA + CARTAS CON SCROLL ABAJO) -->
+    <!-- Filtros -->
     <LinearLayout
         android:id="@+id/cuadroContenedorCartas"
         android:layout_width="match_parent"
@@ -54,7 +55,7 @@
         android:orientation="vertical"
         android:padding="12dp">
 
-        <!-- Filtros -->
+        <!-- ================= APARTADO SUPERIOR DE FILTROS ================= -->
         <LinearLayout
             android:id="@+id/layoutFiltros"
             android:layout_width="match_parent"
@@ -62,6 +63,7 @@
             android:orientation="vertical"
             android:paddingBottom="10dp">
 
+            <!-- Fila 1: Buscador por Código o Nombre -->
             <!-- Buscador por código o nombre -->
             <EditText
                 android:id="@+id/etFiltroCodigo"
@@ -69,17 +71,18 @@
                 android:layout_height="42dp"
                 android:background="@drawable/bg_filtro_input"
                 android:drawableEnd="@android:drawable/ic_menu_search"
-                android:drawableTint="@color/azulnoche"
+                android:drawableTint="?attr/temaTexto"
                 android:fontFamily="@font/nunito_extralight"
                 android:hint="@string/hint_buscar"
                 android:imeOptions="actionSearch"
                 android:importantForAutofill="no"
                 android:inputType="text"
                 android:paddingHorizontal="14dp"
-                android:textColor="@color/azulnoche"
-                android:textColorHint="#6E687D"
+                android:textColor="?attr/temaTexto"
+                android:textColorHint="?attr/temaTextoSecundario"
                 android:textSize="13sp" />
 
+            <!-- Fila 2: Desplegables de Rareza/Tier y Posesión (Tengo / No tengo) -->
             <!-- Desplegables de rareza y posesión -->
             <LinearLayout
                 android:layout_width="match_parent"
@@ -88,6 +91,7 @@
                 android:orientation="horizontal">
 
                 <!-- Filtro por Rareza / Tier -->
+                <!-- Filtro por posesión -->
                 <Spinner
                     android:id="@+id/spinnerFiltroRareza"
                     android:entries="@array/filtro_rareza"
@@ -99,7 +103,7 @@
                     android:paddingHorizontal="8dp"
                     android:contentDescription="@string/desc_filtro_rareza" />
 
-                <!-- Filtro por posesión -->
+                <!-- Filtro por Posesión (Las tengo / Me faltan) -->
                 <Spinner
                     android:id="@+id/spinnerFiltroTengo"
                     android:entries="@array/filtro_tengo"
@@ -113,12 +117,13 @@
             </LinearLayout>
         </LinearLayout>
 
+        <!-- Línea divisoria sutil entre filtros y cartas -->
         <!-- Línea entre filtros y cartas -->
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginBottom="8dp"
-            android:background="#337E788C" />
+            android:background="?attr/temaDivisor" />
 
         <!-- Cartas -->
         <androidx.recyclerview.widget.RecyclerView
@@ -127,10 +132,15 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:clipToPadding="false"
-            android:scrollbars="vertical" />
+            android:scrollbars="vertical"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
+            tools:itemCount="4"
+            tools:listitem="@layout/item_carta" />
 
     </LinearLayout>
 
+    <!-- BARRA INFERIOR -->
     <!-- Incluir barra inferior -->
     <include layout="@layout/fragment_bottom_bar" />
 
