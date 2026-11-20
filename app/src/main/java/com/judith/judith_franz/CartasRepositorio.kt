@@ -7,6 +7,7 @@ import androidx.core.content.edit
 import org.json.JSONArray
 import org.json.JSONObject
 
+// Cartas de la coleccion
 object CartasRepositorio {
 
     private const val ARCHIVO_PREFS = "coleccion_cartas"
@@ -18,6 +19,7 @@ object CartasRepositorio {
     private var prefs: SharedPreferences? = null
     private val cartas = mutableListOf<Carta>()
 
+    // Cargar cartas
     fun iniciar(context: Context) {
         if (prefs != null) return
         val p = context.applicationContext.getSharedPreferences(ARCHIVO_PREFS, Context.MODE_PRIVATE)
@@ -40,18 +42,48 @@ object CartasRepositorio {
 
     fun buscar(codigo: String): Carta? = cartas.find { it.codigo == codigo }
 
-    fun guardar(codigoOriginal: String?, carta: Carta): Boolean {
-        val usadoPorOtra = cartas.any { it.codigo == carta.codigo && it.codigo != codigoOriginal }
-        if (usadoPorOtra) return false
+    fun buscarPorCodigo(texto: String): Carta? {
+        val limpio = texto.trim()
+        if (limpio.isEmpty()) return null
+        cartas.find { it.codigo.equals(limpio, ignoreCase = true) }?.let { return it }
+        val parecidas = cartas.filter { it.codigo.contains(limpio, ignoreCase = true) }
+        return parecidas.singleOrNull()
+    }
 
-        val posicion = cartas.indexOfFirst { it.codigo == codigoOriginal }
-        if (codigoOriginal == null || posicion == -1) {
-            cartas.add(carta)
-        } else {
-            cartas[posicion] = carta
-        }
+    fun repetidas(): List<Carta> = cartas.filter { it.cantidad > 1 }
+
+    fun existe(codigo: String): Boolean = cartas.any { it.codigo == codigo }
+
+    // Anadir carta
+    fun anadir(carta: Carta): Boolean {
+        if (existe(carta.codigo)) return false
+        cartas.add(carta)
         guardarEnMovil()
         return true
+    }
+
+    fun modificar(codigoOriginal: String, carta: Carta): Boolean {
+        val posicion = cartas.indexOfFirst { it.codigo == codigoOriginal }
+        if (posicion == -1) return false
+        val usadoPorOtra = cartas.any { it.codigo == carta.codigo && it.codigo != codigoOriginal }
+        if (usadoPorOtra) return false
+        cartas[posicion] = carta
+        guardarEnMovil()
+        return true
+    }
+
+    fun eliminar(codigo: String): Int {
+        val posicion = cartas.indexOfFirst { it.codigo == codigo }
+        if (posicion == -1) return -1
+        cartas.removeAt(posicion)
+        guardarEnMovil()
+        return posicion
+    }
+
+    fun restaurar(carta: Carta, posicion: Int) {
+        if (existe(carta.codigo)) return
+        cartas.add(posicion.coerceIn(0, cartas.size), carta)
+        guardarEnMovil()
     }
 
     private fun guardarEnMovil() {

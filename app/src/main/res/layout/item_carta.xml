@@ -4,24 +4,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="6dp"
+    android:layout_margin="@dimen/espacio_s"
     android:clickable="true"
     android:focusable="true"
     android:foreground="?attr/selectableItemBackground"
     app:cardBackgroundColor="?attr/temaTarjeta"
-    app:cardCornerRadius="16dp"
-    app:cardElevation="3dp">
+    app:cardCornerRadius="@dimen/radio_tarjeta"
+    app:cardElevation="@dimen/elevacion_tarjeta">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="8dp">
+        android:padding="@dimen/espacio_m">
 
         <ImageView
             android:id="@+id/ivItemCarta"
             android:layout_width="match_parent"
-            android:layout_height="190dp"
+            android:layout_height="@dimen/alto_imagen_carta_lista"
             android:contentDescription="@string/desc_imagen_carta_ejemplo"
             android:scaleType="centerCrop"
             android:src="@drawable/carta_placeholder" />
@@ -30,9 +30,9 @@
             android:id="@+id/tvItemNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="@dimen/espacio_s"
             android:ellipsize="end"
-            android:fontFamily="@font/nunito_extralight"
+            android:fontFamily="sans-serif"
             android:maxLines="1"
             android:text="@string/ejemplo_nombre"
             android:textColor="?attr/temaTexto"
@@ -43,7 +43,7 @@
             android:id="@+id/tvItemCodigo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nunito_extralight"
+            android:fontFamily="sans-serif"
             android:text="@string/ejemplo_codigo"
             android:textColor="?attr/temaTextoSecundario"
             android:textSize="11sp" />
@@ -51,7 +51,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="@dimen/espacio_xs"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -60,8 +60,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="?attr/temaAcento"
-                android:paddingHorizontal="6dp"
-                android:paddingVertical="2dp"
+                android:paddingHorizontal="@dimen/espacio_s"
+                android:paddingVertical="@dimen/espacio_xxs"
                 android:text="@string/ejemplo_rareza"
                 android:textColor="?attr/temaTextoSobreAcento"
                 android:textSize="11sp"

@@ -10,52 +10,41 @@
     tools:context=".AyudaActivity">
 
     <!-- Volver + título -->
-    <ImageButton
-        android:id="@+id/btnVolverAyuda"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/bg_filtro_input"
-        android:contentDescription="@string/desc_volver"
-        android:src="?attr/homeAsUpIndicator"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/azulnoche" />
-
-    <TextView
-        android:id="@+id/tvAyudaTitulo"
-        style="@style/TextoTituloPantalla"
-        android:layout_width="wrap_content"
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/barraSuperior"
+        style="@style/BarraSuperior"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/ayuda_titulo"
-        app:layout_constraintBottom_toBottomOf="@id/btnVolverAyuda"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/btnVolverAyuda" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:title="@string/ayuda_titulo" />
 
     <!-- Contenido (scroll) -->
     <ScrollView
         android:id="@+id/scrollAyuda"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="12dp"
         android:fillViewport="true"
         app:layout_constraintBottom_toTopOf="@id/btnEntendido"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnVolverAyuda">
+        app:layout_constraintTop_toBottomOf="@id/barraSuperior">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingHorizontal="20dp"
-            android:paddingBottom="12dp">
+            android:paddingHorizontal="@dimen/espacio_xxl"
+            android:paddingBottom="@dimen/espacio_l">
 
             <ImageView
-                android:layout_width="180dp"
-                android:layout_height="130dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:maxWidth="@dimen/ancho_logo_ayuda"
+                android:maxHeight="@dimen/alto_logo_ayuda"
                 android:layout_gravity="center_horizontal"
                 android:contentDescription="@string/logo_desc"
                 android:src="@drawable/mlp_logo" />
@@ -64,29 +53,29 @@
                 style="@style/TextoCuerpo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="12dp"
+                android:layout_marginVertical="@dimen/espacio_l"
                 android:gravity="center"
                 android:text="@string/ayuda_intro" />
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                app:cardBackgroundColor="@color/campo_fondo"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="3dp"
+                android:layout_marginBottom="@dimen/espacio_l"
+                app:cardBackgroundColor="?attr/temaSuperficie"
+                app:cardCornerRadius="@dimen/radio_tarjeta_ayuda"
+                app:cardElevation="@dimen/elevacion_tarjeta"
                 app:strokeWidth="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="16dp">
+                    android:padding="@dimen/espacio_xl">
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginEnd="12dp"
+                        android:layout_width="@dimen/icono_paso_ayuda"
+                        android:layout_height="@dimen/icono_paso_ayuda"
+                        android:layout_marginEnd="@dimen/espacio_l"
                         android:importantForAccessibility="no"
                         android:src="@drawable/ic_home" />
 
@@ -114,25 +103,25 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                app:cardBackgroundColor="@color/campo_fondo"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="3dp"
+                android:layout_marginBottom="@dimen/espacio_l"
+                app:cardBackgroundColor="?attr/temaSuperficie"
+                app:cardCornerRadius="@dimen/radio_tarjeta_ayuda"
+                app:cardElevation="@dimen/elevacion_tarjeta"
                 app:strokeWidth="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="16dp">
+                    android:padding="@dimen/espacio_xl">
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginEnd="12dp"
+                        android:layout_width="@dimen/icono_paso_ayuda"
+                        android:layout_height="@dimen/icono_paso_ayuda"
+                        android:layout_marginEnd="@dimen/espacio_l"
                         android:importantForAccessibility="no"
                         android:src="@android:drawable/ic_menu_search"
-                        app:tint="@color/azulnoche" />
+                        app:tint="?attr/temaTexto" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -158,22 +147,22 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                app:cardBackgroundColor="@color/campo_fondo"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="3dp"
+                android:layout_marginBottom="@dimen/espacio_l"
+                app:cardBackgroundColor="?attr/temaSuperficie"
+                app:cardCornerRadius="@dimen/radio_tarjeta_ayuda"
+                app:cardElevation="@dimen/elevacion_tarjeta"
                 app:strokeWidth="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="16dp">
+                    android:padding="@dimen/espacio_xl">
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginEnd="12dp"
+                        android:layout_width="@dimen/icono_paso_ayuda"
+                        android:layout_height="@dimen/icono_paso_ayuda"
+                        android:layout_marginEnd="@dimen/espacio_l"
                         android:importantForAccessibility="no"
                         android:src="@drawable/ic_scan" />
 
@@ -201,25 +190,25 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                app:cardBackgroundColor="@color/campo_fondo"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="3dp"
+                android:layout_marginBottom="@dimen/espacio_l"
+                app:cardBackgroundColor="?attr/temaSuperficie"
+                app:cardCornerRadius="@dimen/radio_tarjeta_ayuda"
+                app:cardElevation="@dimen/elevacion_tarjeta"
                 app:strokeWidth="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="16dp">
+                    android:padding="@dimen/espacio_xl">
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginEnd="12dp"
+                        android:layout_width="@dimen/icono_paso_ayuda"
+                        android:layout_height="@dimen/icono_paso_ayuda"
+                        android:layout_marginEnd="@dimen/espacio_l"
                         android:importantForAccessibility="no"
                         android:src="@android:drawable/ic_menu_edit"
-                        app:tint="@color/azulnoche" />
+                        app:tint="?attr/temaTexto" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -245,21 +234,21 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/campo_fondo"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="3dp"
+                app:cardBackgroundColor="?attr/temaSuperficie"
+                app:cardCornerRadius="@dimen/radio_tarjeta_ayuda"
+                app:cardElevation="@dimen/elevacion_tarjeta"
                 app:strokeWidth="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="16dp">
+                    android:padding="@dimen/espacio_xl">
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginEnd="12dp"
+                        android:layout_width="@dimen/icono_paso_ayuda"
+                        android:layout_height="@dimen/icono_paso_ayuda"
+                        android:layout_marginEnd="@dimen/espacio_l"
                         android:importantForAccessibility="no"
                         android:src="@drawable/ic_settings" />
 
@@ -291,9 +280,10 @@
     <Button
         android:id="@+id/btnEntendido"
         style="@style/BotonPrincipal"
-        android:layout_width="220dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:minWidth="@dimen/ancho_boton_destacado"
+        android:layout_marginBottom="@dimen/espacio_xxxl"
         android:text="@string/btn_entendido"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

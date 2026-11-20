@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="alto_imagen_carta_lista">130dp</dimen>
+    <dimen name="carta_detalle_ancho">150dp</dimen>
+    <dimen name="carta_detalle_alto">210dp</dimen>
+    <dimen name="carta_editar_ancho">100dp</dimen>
+    <dimen name="carta_editar_alto">140dp</dimen>
+    <dimen name="icono_barra_inferior">28dp</dimen>
+    <dimen name="margen_barra_inferior">4dp</dimen>
+    <dimen name="alto_logo_login">140dp</dimen>
+    <dimen name="alto_logo_registro">120dp</dimen>
+</resources>

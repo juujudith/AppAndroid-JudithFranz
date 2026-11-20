@@ -9,32 +9,13 @@
     android:orientation="vertical"
     tools:context=".TemasActivity">
 
-    <LinearLayout
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/barraSuperior"
+        style="@style/BarraSuperior"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingHorizontal="16dp">
-
-        <ImageButton
-            android:id="@+id/btnVolverTemas"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="@drawable/bg_filtro_input"
-            android:contentDescription="@string/desc_volver"
-            android:src="?attr/homeAsUpIndicator"
-            app:tint="?attr/temaTexto" />
-
-        <TextView
-            style="@style/TextoTituloPantalla"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="48dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/temas_titulo" />
-    </LinearLayout>
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:title="@string/temas_titulo" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -47,13 +28,13 @@
             android:layout_height="wrap_content"
             android:clipToPadding="false"
             android:orientation="vertical"
-            android:padding="12dp">
+            android:padding="@dimen/espacio_l">
 
             <TextView
                 style="@style/TextoCuerpo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="@dimen/espacio_m"
                 android:gravity="center"
                 android:text="@string/temas_subtitulo" />
 

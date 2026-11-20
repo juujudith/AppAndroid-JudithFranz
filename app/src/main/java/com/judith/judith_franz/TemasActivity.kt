@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.GridLayout
-import android.widget.ImageButton
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -20,7 +19,7 @@ class TemasActivity : AppCompatActivity() {
         setContentView(R.layout.activity_temas)
         findViewById<View>(R.id.main).ajustarABarrasYTeclado()
 
-        findViewById<ImageButton>(R.id.btnVolverTemas).setOnClickListener { finish() }
+        BarraSuperior.configurar(this, conAtras = true)
 
         val grid = findViewById<GridLayout>(R.id.gridTemas)
         val actual = Temas.actual(this)

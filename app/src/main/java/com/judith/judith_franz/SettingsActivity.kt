@@ -10,6 +10,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.materialswitch.MaterialSwitch
 
 class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,13 +23,29 @@ class SettingsActivity : AppCompatActivity() {
             insets
         }
 
+        BarraSuperior.configurar(this, conAtras = true)
         BarraInferior.configurar(this, R.id.nav_settings)
+
+        val swGuardarAuto = findViewById<MaterialSwitch>(R.id.swGuardarAuto)
+        swGuardarAuto.isChecked = PreferenciasApp.guardarAutomaticamente(this)
+        swGuardarAuto.setOnCheckedChangeListener { _, marcado ->
+            PreferenciasApp.ponerGuardarAutomaticamente(this, marcado)
+        }
+
+        val swVibracion = findViewById<MaterialSwitch>(R.id.swVibracion)
+        swVibracion.isChecked = PreferenciasApp.vibrar(this)
+        swVibracion.setOnCheckedChangeListener { _, marcado ->
+            PreferenciasApp.ponerVibrar(this, marcado)
+        }
+
+        findViewById<View>(R.id.optRepetidas).setOnClickListener {
+            startActivity(Intent(this, RepetidasActivity::class.java))
+        }
 
         findViewById<View>(R.id.optAyuda).setOnClickListener {
             startActivity(Intent(this, AyudaActivity::class.java))
         }
 
-        findViewById<TextView>(R.id.tvTemaActual).setText(Temas.actual(this).nombre)
         findViewById<View>(R.id.optTema).setOnClickListener {
             startActivity(Intent(this, TemasActivity::class.java))
         }
@@ -38,5 +55,13 @@ class SettingsActivity : AppCompatActivity() {
                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
             startActivity(intent)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val temaActual = Temas.actual(this)
+        findViewById<TextView>(R.id.tvTemaActual).setText(temaActual.nombre)
+        findViewById<View>(R.id.optTema).contentDescription =
+            getString(R.string.desc_opt_tema, getString(temaActual.nombre))
     }
 }

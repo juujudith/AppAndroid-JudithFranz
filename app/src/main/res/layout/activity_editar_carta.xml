@@ -11,33 +11,13 @@
     tools:context=".EditarCartaActivity">
 
     <!-- Rareza y cantidad -->
-    <LinearLayout
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/barraSuperior"
+        style="@style/BarraSuperior"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingHorizontal="16dp">
-
-        <ImageButton
-            android:id="@+id/btnVolverEditar"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="@drawable/bg_filtro_input"
-            android:contentDescription="@string/desc_volver"
-            android:src="?attr/homeAsUpIndicator"
-            app:tint="?attr/temaTexto" />
-
-        <TextView
-            android:id="@+id/tvEditarTitulo"
-            style="@style/TextoTituloPantalla"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="48dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/editar_titulo" />
-    </LinearLayout>
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:title="@string/editar_titulo" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -48,18 +28,18 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/espacio_xl"
             android:background="@drawable/bg_cuadro_cartas"
-            android:elevation="6dp"
+            android:elevation="@dimen/elevacion_cuadro"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:padding="18dp">
+            android:padding="@dimen/espacio_xl_plus">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="140dp"
-                android:layout_height="196dp"
-                app:cardCornerRadius="14dp"
-                app:cardElevation="6dp">
+                android:layout_width="@dimen/carta_editar_ancho"
+                android:layout_height="@dimen/carta_editar_alto"
+                app:cardCornerRadius="@dimen/radio_carta_editar"
+                app:cardElevation="@dimen/elevacion_cuadro">
 
                 <ImageView
                     android:id="@+id/ivEditarCarta"
@@ -70,26 +50,19 @@
                     android:src="@drawable/carta_placeholder" />
             </androidx.cardview.widget.CardView>
 
-            <Button
-                android:id="@+id/btnCambiarImagen"
-                style="@style/BotonSecundario"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/btn_cambiar_imagen" />
-
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/CampoTexto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="@dimen/espacio_xl"
                 android:hint="@string/hint_nombre_carta">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etNombreCarta"
+                    android:importantForAutofill="no"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/nunito_extralight"
+                    android:fontFamily="sans-serif"
                     android:inputType="textCapWords"
                     android:text="@string/ejemplo_nombre"
                     android:textColor="?attr/temaTexto" />
@@ -99,14 +72,15 @@
                 style="@style/CampoTexto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="@dimen/espacio_l"
                 android:hint="@string/hint_codigo_carta">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etCodigoCarta"
+                    android:importantForAutofill="no"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/nunito_extralight"
+                    android:fontFamily="sans-serif"
                     android:inputType="textCapCharacters"
                     android:text="@string/ejemplo_codigo"
                     android:textColor="?attr/temaTexto" />
@@ -115,54 +89,56 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="@dimen/espacio_l"
                 android:baselineAligned="false"
                 android:orientation="horizontal">
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilRarezaCarta"
                     style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="6dp"
+                    android:layout_marginEnd="@dimen/espacio_s"
                     android:layout_weight="2"
                     android:hint="@string/hint_rareza_carta"
                     app:boxBackgroundColor="?attr/temaSuperficie"
-                    app:boxCornerRadiusBottomEnd="16dp"
-                    app:boxCornerRadiusBottomStart="16dp"
-                    app:boxCornerRadiusTopEnd="16dp"
-                    app:boxCornerRadiusTopStart="16dp"
+                    app:boxCornerRadiusBottomEnd="@dimen/radio_tarjeta"
+                    app:boxCornerRadiusBottomStart="@dimen/radio_tarjeta"
+                    app:boxCornerRadiusTopEnd="@dimen/radio_tarjeta"
+                    app:boxCornerRadiusTopStart="@dimen/radio_tarjeta"
                     app:boxStrokeColor="?attr/temaPrincipal">
 
                     <com.google.android.material.textfield.MaterialAutoCompleteTextView
                         android:id="@+id/actvRarezaCarta"
+                        android:importantForAutofill="no"
                         app:simpleItems="@array/rarezas_carta"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/nunito_extralight"
+                        android:fontFamily="sans-serif"
                         android:inputType="none"
-                        android:minHeight="48dp"
-                        android:paddingHorizontal="16dp"
-                        android:text="@string/ejemplo_rareza"
-                        android:textColor="?attr/temaTexto" />
+                        android:minHeight="@dimen/objetivo_tactil_minimo"
+                        android:paddingHorizontal="@dimen/espacio_xl"
+                        android:textColor="?attr/temaTexto"
+                        tools:text="@string/ejemplo_rareza" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/CampoTexto"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
+                    android:layout_marginStart="@dimen/espacio_s"
                     android:layout_weight="1"
                     android:hint="@string/hint_cantidad_carta">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etCantidadCarta"
+                        android:importantForAutofill="no"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/nunito_extralight"
+                        android:fontFamily="sans-serif"
                         android:inputType="number"
-                        android:text="1"
                         android:textColor="?attr/temaTexto"
-                        tools:ignore="HardcodedText" />
+                        tools:text="@string/ejemplo_cantidad" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
@@ -170,14 +146,15 @@
                 style="@style/CampoTexto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="@dimen/espacio_l"
                 android:hint="@string/hint_edicion_carta">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etEdicionCarta"
+                    android:importantForAutofill="no"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/nunito_extralight"
+                    android:fontFamily="sans-serif"
                     android:inputType="textCapWords"
                     android:text="@string/ejemplo_edicion"
                     android:textColor="?attr/temaTexto" />
@@ -187,10 +164,10 @@
                 android:id="@+id/swTengoEditar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="@dimen/espacio_l"
                 android:checked="true"
-                android:fontFamily="@font/nunito_extralight"
-                android:minHeight="48dp"
+                android:fontFamily="sans-serif"
+                android:minHeight="@dimen/objetivo_tactil_minimo"
                 android:text="@string/switch_la_tengo"
                 android:textColor="?attr/temaTexto"
                 android:textSize="16sp" />
@@ -198,7 +175,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="@dimen/espacio_xl"
                 android:orientation="horizontal">
 
                 <Button
@@ -206,7 +183,7 @@
                     style="@style/BotonSecundario"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="6dp"
+                    android:layout_marginEnd="@dimen/espacio_s"
                     android:layout_weight="1"
                     android:text="@string/btn_cancelar" />
 
@@ -215,7 +192,7 @@
                     style="@style/BotonPrincipal"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
+                    android:layout_marginStart="@dimen/espacio_s"
                     android:layout_weight="1"
                     android:text="@string/btn_guardar" />
             </LinearLayout>

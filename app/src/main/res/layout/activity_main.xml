@@ -12,13 +12,16 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
-        android:padding="24dp"
+        android:padding="@dimen/espacio_xxxl"
         android:background="@drawable/fondo_degradado">
 
         <!-- LOGO -->
         <ImageView
-            android:layout_width="389dp"
-            android:layout_height="281dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:maxWidth="@dimen/ancho_logo_login"
+            android:maxHeight="@dimen/alto_logo_login"
             android:contentDescription="@string/logo_desc"
             android:src="@drawable/mlp_logo" />
 
@@ -26,7 +29,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/espacio_xl"
             android:fontFamily="@font/nunito_extralight"
             android:text="@string/login_titulo"
             android:textColor="?attr/temaTexto"
@@ -35,23 +38,26 @@
 
         <!-- CORREO ELECTRÓNICO -->
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilEmail"
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            android:layout_width="330dp"
+            android:layout_width="@dimen/ancho_formulario"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="@dimen/espacio_enorme"
             android:hint="@string/hint_email"
             android:textColor="?attr/temaTexto"
             android:textColorHint="?attr/temaTexto"
             app:hintTextColor="?attr/temaTexto"
             app:boxBackgroundColor="?attr/temaSuperficie"
-            app:boxCornerRadiusTopStart="16dp"
-            app:boxCornerRadiusTopEnd="16dp"
-            app:boxCornerRadiusBottomStart="16dp"
-            app:boxCornerRadiusBottomEnd="16dp"
+            app:boxCornerRadiusTopStart="@dimen/radio_tarjeta"
+            app:boxCornerRadiusTopEnd="@dimen/radio_tarjeta"
+            app:boxCornerRadiusBottomStart="@dimen/radio_tarjeta"
+            app:boxCornerRadiusBottomEnd="@dimen/radio_tarjeta"
             app:boxStrokeColor="?attr/temaPrincipal">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etEmail"
+                android:autofillHints="emailAddress"
+                android:importantForAutofill="yes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nunito_extralight"
@@ -62,24 +68,27 @@
 
         <!-- CONTRASEÑA -->
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilPassword"
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-            android:layout_width="330dp"
+            android:layout_width="@dimen/ancho_formulario"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/espacio_xl"
             android:hint="@string/hint_password"
             android:textColor="?attr/temaTexto"
             android:textColorHint="?attr/temaTexto"
             app:hintTextColor="?attr/temaTexto"
             app:endIconMode="password_toggle"
             app:boxBackgroundColor="?attr/temaSuperficie"
-            app:boxCornerRadiusTopStart="16dp"
-            app:boxCornerRadiusTopEnd="16dp"
-            app:boxCornerRadiusBottomStart="16dp"
-            app:boxCornerRadiusBottomEnd="16dp"
+            app:boxCornerRadiusTopStart="@dimen/radio_tarjeta"
+            app:boxCornerRadiusTopEnd="@dimen/radio_tarjeta"
+            app:boxCornerRadiusBottomStart="@dimen/radio_tarjeta"
+            app:boxCornerRadiusBottomEnd="@dimen/radio_tarjeta"
             app:boxStrokeColor="?attr/temaPrincipal">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPassword"
+                android:autofillHints="password"
+                android:importantForAutofill="yes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nunito_extralight"
@@ -91,9 +100,11 @@
         <!-- ENTRAR (LOGIN) -->
         <Button
             android:id="@+id/btnLogin"
-            android:layout_width="200dp"
-            android:layout_height="56dp"
-            android:layout_marginTop="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/ancho_boton_principal"
+            android:minHeight="@dimen/alto_boton_principal"
+            android:layout_marginTop="@dimen/espacio_xxxl"
             android:text="@string/btn_login"
             android:textSize="24sp"
             android:fontFamily="@font/nunito_extralight"
@@ -105,10 +116,10 @@
             android:id="@+id/tvRegistro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:padding="8dp"
+            android:layout_marginTop="@dimen/espacio_xl"
+            android:padding="@dimen/espacio_m"
             android:text="@string/txt_registro"
-            android:fontFamily="@font/nunito_extralight"
+            android:fontFamily="sans-serif"
             android:textSize="16sp"
             android:textColor="?attr/temaTexto" />
 
@@ -116,11 +127,11 @@
             android:id="@+id/tvAyuda"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minHeight="48dp"
+            android:minHeight="@dimen/objetivo_tactil_minimo"
             android:gravity="center"
-            android:padding="8dp"
+            android:padding="@dimen/espacio_m"
             android:text="@string/txt_ayuda_login"
-            android:fontFamily="@font/nunito_extralight"
+            android:fontFamily="sans-serif"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="?attr/temaTexto" />

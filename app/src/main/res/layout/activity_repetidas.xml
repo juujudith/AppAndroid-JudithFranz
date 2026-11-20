@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_degradado"
+    android:orientation="vertical"
+    tools:context=".RepetidasActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/barraSuperior"
+        style="@style/BarraSuperior"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:title="@string/repetidas_titulo" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginHorizontal="@dimen/margen_pantalla"
+        android:layout_marginTop="@dimen/espacio_m"
+        android:layout_marginBottom="@dimen/espacio_m"
+        android:background="@drawable/bg_cuadro_cartas"
+        android:elevation="@dimen/elevacion_cuadro"
+        android:padding="@dimen/espacio_l">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvRepetidas"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:scrollbars="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_repetida" />
+
+        <TextView
+            android:id="@+id/tvRepetidasVacio"
+            style="@style/TextoCuerpo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:accessibilityLiveRegion="polite"
+            android:gravity="center"
+            android:padding="@dimen/relleno_cuadro"
+            android:text="@string/repetidas_vacio"
+            android:textColor="?attr/temaTexto"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <include layout="@layout/fragment_bottom_bar" />
+
+</LinearLayout>

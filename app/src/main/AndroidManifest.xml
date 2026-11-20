@@ -17,7 +17,8 @@
 
         <activity
             android:name=".SplashActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.JudithFranz.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,7 +39,7 @@
         <activity
             android:name=".HomeActivity"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
         <activity
             android:name=".CardActivity"
             android:exported="false" />
@@ -51,6 +52,13 @@
             android:exported="false" />
         <activity
             android:name=".TemasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EscanerActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".RepetidasActivity"
             android:exported="false" />
     </application>
 

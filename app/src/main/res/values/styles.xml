@@ -3,29 +3,29 @@
 
     <style name="TextoTituloPantalla">
         <item name="android:fontFamily">@font/nunito_extralight</item>
-        <item name="android:textColor">@color/azulnoche</item>
+        <item name="android:textColor">?attr/temaTexto</item>
         <item name="android:textSize">26sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="TextoSeccion">
         <item name="android:fontFamily">@font/nunito_extralight</item>
-        <item name="android:textColor">@color/azulnoche</item>
+        <item name="android:textColor">?attr/temaTexto</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="TextoCuerpo">
-        <item name="android:fontFamily">@font/nunito_extralight</item>
-        <item name="android:textColor">@color/azulnoche</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">?attr/temaTexto</item>
         <item name="android:textSize">16sp</item>
     </style>
 
     <style name="CampoTexto" parent="Widget.Material3.TextInputLayout.OutlinedBox">
-        <item name="boxBackgroundColor">@color/campo_fondo</item>
-        <item name="boxStrokeColor">@color/morado</item>
-        <item name="hintTextColor">@color/azulnoche</item>
-        <item name="android:textColorHint">@color/azulnoche</item>
+        <item name="boxBackgroundColor">?attr/temaSuperficie</item>
+        <item name="boxStrokeColor">?attr/temaPrincipal</item>
+        <item name="hintTextColor">?attr/temaTexto</item>
+        <item name="android:textColorHint">?attr/temaTexto</item>
         <item name="boxCornerRadiusTopStart">16dp</item>
         <item name="boxCornerRadiusTopEnd">16dp</item>
         <item name="boxCornerRadiusBottomStart">16dp</item>
@@ -35,19 +35,42 @@
     <style name="BotonPrincipal" parent="Widget.Material3.Button">
         <item name="android:fontFamily">@font/nunito_extralight</item>
         <item name="android:textSize">18sp</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">?attr/temaTextoSobrePrincipal</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:minHeight">56dp</item>
-        <item name="backgroundTint">@color/morado</item>
+        <item name="backgroundTint">?attr/temaPrincipal</item>
     </style>
 
     <style name="BotonSecundario" parent="Widget.Material3.Button.OutlinedButton">
         <item name="android:fontFamily">@font/nunito_extralight</item>
         <item name="android:textSize">18sp</item>
-        <item name="android:textColor">@color/azulnoche</item>
+        <item name="android:textColor">?attr/temaTexto</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:minHeight">56dp</item>
-        <item name="strokeColor">@color/morado</item>
+        <item name="strokeColor">?attr/temaPrincipal</item>
+    </style>
+
+    <style name="TextoBarraSuperior" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:fontFamily">@font/nunito_extralight</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?attr/temaTexto</item>
+    </style>
+
+    <style name="BarraSuperior" parent="Widget.Material3.Toolbar">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="titleCentered">true</item>
+        <item name="titleTextAppearance">@style/TextoBarraSuperior</item>
+        <item name="titleTextColor">?attr/temaTexto</item>
+        <item name="navigationIconTint">?attr/temaTexto</item>
+        <item name="navigationContentDescription">@string/desc_volver</item>
+    </style>
+
+    <style name="Theme.JudithFranz.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/md_splash_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_sin_icono</item>
+        <item name="postSplashScreenTheme">@style/Theme.JudithFranz</item>
     </style>
 
 </resources>

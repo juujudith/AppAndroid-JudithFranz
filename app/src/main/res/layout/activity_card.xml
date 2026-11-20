@@ -11,36 +11,13 @@
 
     <!-- ================= CABECERA CON BOTÓN VOLVER ================= -->
     <!-- Cabecera + botón volver -->
-    <LinearLayout
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/barraSuperior"
+        style="@style/BarraSuperior"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:paddingHorizontal="16dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:id="@+id/btnVolverHome"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="@drawable/bg_filtro_input"
-            android:src="?attr/homeAsUpIndicator"
-            app:tint="@color/azulnoche"
-            android:contentDescription="@string/desc_volver" />
-
-        <TextView
-            android:id="@+id/tvCardScreenTitle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginEnd="48dp"
-            android:gravity="center"
-            android:fontFamily="@font/nunito_extralight"
-            android:text="@string/detalle_titulo"
-            android:textColor="@color/azulnoche"
-            android:textSize="22sp"
-            android:textStyle="bold" />
-    </LinearLayout>
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:title="@string/detalle_titulo" />
 
     <!-- ================= CONTENIDO SCROLLABLE DE LA FICHA ================= -->
     <!-- Información de la carta -->
@@ -56,18 +33,18 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center_horizontal"
-            android:paddingHorizontal="16dp"
-            android:paddingTop="12dp"
-            android:paddingBottom="12dp">
+            android:paddingHorizontal="@dimen/espacio_xl"
+            android:paddingTop="@dimen/espacio_l"
+            android:paddingBottom="@dimen/espacio_l">
 
             <!-- ILUSTRACIÓN DESTACADA DE LA CARTA (Con recorte limpio de esquinas) -->
             <!-- Imagen de la carta -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewImagen"
-                android:layout_width="220dp"
-                android:layout_height="308dp"
-                app:cardCornerRadius="18dp"
-                app:cardElevation="8dp"
+                android:layout_width="@dimen/carta_detalle_ancho"
+                android:layout_height="@dimen/carta_detalle_alto"
+                app:cardCornerRadius="@dimen/radio_carta_detalle"
+                app:cardElevation="@dimen/elevacion_alta"
                 app:cardBackgroundColor="@android:color/transparent">
 
                 <ImageView
@@ -86,11 +63,11 @@
                 android:id="@+id/cuadroInfoCarta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="@dimen/espacio_xl"
                 android:background="@drawable/bg_cuadro_cartas"
-                android:elevation="6dp"
+                android:elevation="@dimen/elevacion_cuadro"
                 android:orientation="vertical"
-                android:padding="18dp"
+                android:padding="@dimen/espacio_xl_plus"
                 android:gravity="center_horizontal">
 
                 <!-- Nombre de la carta (Name) -->
@@ -102,7 +79,7 @@
                     android:gravity="center"
                     android:fontFamily="@font/nunito_extralight"
                     android:text="@string/ejemplo_nombre"
-                    android:textColor="@color/azulnoche"
+                    android:textColor="?attr/temaTexto"
                     android:textSize="22sp"
                     android:textStyle="bold" />
 
@@ -112,13 +89,13 @@
                     android:id="@+id/tvDetalleRareza"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="@dimen/espacio_m"
                     android:background="@drawable/bg_boton_morado"
-                    android:paddingHorizontal="18dp"
-                    android:paddingVertical="5dp"
-                    android:fontFamily="@font/nunito_extralight"
+                    android:paddingHorizontal="@dimen/espacio_xl_plus"
+                    android:paddingVertical="@dimen/espacio_xs_plus"
+                    android:fontFamily="sans-serif"
                     android:text="@string/ejemplo_rareza_detalle"
-                    android:textColor="#FFFFFF"
+                    android:textColor="?attr/temaTextoSobrePrincipal"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     android:contentDescription="@string/ejemplo_rareza_detalle" />
@@ -126,9 +103,9 @@
                 <!-- Línea divisoria sutil -->
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginVertical="12dp"
-                    android:background="#337E788C" />
+                    android:layout_height="@dimen/grosor_divisor"
+                    android:layout_marginVertical="@dimen/espacio_l"
+                    android:background="?attr/temaDivisor" />
 
                 <!-- Fila de Código (Code) -->
                 <!-- Código -->
@@ -141,9 +118,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/nunito_extralight"
+                        android:fontFamily="sans-serif"
                         android:text="@string/etiqueta_codigo"
-                        android:textColor="@color/gris_texto"
+                        android:textColor="?attr/temaTextoSecundario"
                         android:textSize="15sp"
                         android:textStyle="bold" />
 
@@ -153,9 +130,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="end"
-                        android:fontFamily="@font/nunito_extralight"
+                        android:fontFamily="sans-serif"
                         android:text="@string/ejemplo_codigo"
-                        android:textColor="@color/azulnoche"
+                        android:textColor="?attr/temaTexto"
                         android:textSize="15sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -165,16 +142,16 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
+                    android:layout_marginTop="@dimen/espacio_s"
                     android:orientation="horizontal"
                     android:gravity="center_vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/nunito_extralight"
+                        android:fontFamily="sans-serif"
                         android:text="@string/etiqueta_edicion"
-                        android:textColor="@color/gris_texto"
+                        android:textColor="?attr/temaTextoSecundario"
                         android:textSize="15sp"
                         android:textStyle="bold" />
 
@@ -184,18 +161,18 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="end"
-                        android:fontFamily="@font/nunito_extralight"
+                        android:fontFamily="sans-serif"
                         android:text="@string/ejemplo_edicion"
-                        android:textColor="@color/azulnoche"
+                        android:textColor="?attr/temaTexto"
                         android:textSize="15sp" />
                 </LinearLayout>
 
                 <!-- Línea divisoria sutil -->
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginVertical="12dp"
-                    android:background="#337E788C" />
+                    android:layout_height="@dimen/grosor_divisor"
+                    android:layout_marginVertical="@dimen/espacio_l"
+                    android:background="?attr/temaDivisor" />
 
                 <!-- Interruptor para marcar posesión (Owned / Unowned) -->
                 <!-- Marcar que tenemos la carta -->
@@ -203,8 +180,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_filtro_input"
-                    android:paddingHorizontal="14dp"
-                    android:paddingVertical="6dp"
+                    android:paddingHorizontal="@dimen/espacio_lx"
+                    android:paddingVertical="@dimen/espacio_s"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
@@ -213,16 +190,17 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:fontFamily="@font/nunito_extralight"
+                        android:fontFamily="sans-serif"
                         android:text="@string/estado_en_coleccion"
-                        android:textColor="@color/verde_ok"
+                        android:textColor="?attr/temaOk"
                         android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <androidx.appcompat.widget.SwitchCompat
                         android:id="@+id/switchTengoCarta"
                         android:layout_width="wrap_content"
-                        android:layout_height="48dp"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/objetivo_tactil_minimo"
                         android:checked="true"
                         android:contentDescription="@string/desc_switch_tengo" />
                 </LinearLayout>
@@ -232,7 +210,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="@dimen/espacio_ml"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
@@ -240,40 +218,44 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:fontFamily="@font/nunito_extralight"
+                        android:fontFamily="sans-serif"
                         android:text="@string/etiqueta_cantidad"
-                        android:textColor="@color/azulnoche"
+                        android:textColor="?attr/temaTexto"
                         android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <ImageButton
                         android:id="@+id/btnRestarRepetida"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="@dimen/objetivo_tactil_minimo"
+                        android:minHeight="@dimen/objetivo_tactil_minimo"
                         android:background="@drawable/bg_filtro_input"
-                        android:src="@android:drawable/ic_media_previous"
-                        app:tint="@color/azulnoche"
+                        android:src="@drawable/ic_menos"
+                        app:tint="?attr/temaTexto"
                         android:contentDescription="@string/desc_restar" />
 
                     <TextView
                         android:id="@+id/tvCantidadCarta"
-                        android:layout_width="44dp"
+                        android:layout_width="wrap_content"
+                        android:minWidth="@dimen/ancho_minimo_contador"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:fontFamily="@font/nunito_extralight"
-                        android:text="1"
-                        tools:ignore="HardcodedText"
-                        android:textColor="@color/azulnoche"
+                        tools:text="@string/ejemplo_cantidad"
+                        android:textColor="?attr/temaTexto"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <ImageButton
                         android:id="@+id/btnSumarRepetida"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="@dimen/objetivo_tactil_minimo"
+                        android:minHeight="@dimen/objetivo_tactil_minimo"
                         android:background="@drawable/bg_filtro_input"
-                        android:src="@android:drawable/ic_input_add"
-                        app:tint="@color/azulnoche"
+                        android:src="@drawable/ic_mas"
+                        app:tint="?attr/temaTexto"
                         android:contentDescription="@string/desc_sumar" />
                 </LinearLayout>
 
@@ -282,34 +264,36 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="@dimen/espacio_xl"
                     android:orientation="horizontal">
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btnModificarCarta"
                         android:layout_width="0dp"
-                        android:layout_height="48dp"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/objetivo_tactil_minimo"
                         android:layout_weight="1"
-                        android:layout_marginEnd="6dp"
+                        android:layout_marginEnd="@dimen/espacio_s"
                         android:background="@drawable/bg_boton_morado"
-                        android:fontFamily="@font/nunito_extralight"
+                        android:fontFamily="sans-serif"
                         android:text="@string/btn_modificar"
                         android:textAllCaps="false"
-                        android:textColor="#FFFFFF"
+                        android:textColor="?attr/temaTextoSobrePrincipal"
                         android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btnBorrarCarta"
                         android:layout_width="0dp"
-                        android:layout_height="48dp"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/objetivo_tactil_minimo"
                         android:layout_weight="1"
-                        android:layout_marginStart="6dp"
+                        android:layout_marginStart="@dimen/espacio_s"
                         android:background="@drawable/bg_boton_borrar"
-                        android:fontFamily="@font/nunito_extralight"
+                        android:fontFamily="sans-serif"
                         android:text="@string/btn_borrar"
                         android:textAllCaps="false"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/md_on_error"
                         android:textSize="15sp"
                         android:textStyle="bold" />
                 </LinearLayout>

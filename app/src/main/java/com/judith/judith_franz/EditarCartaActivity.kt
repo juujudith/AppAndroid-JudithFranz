@@ -4,27 +4,30 @@ package com.judith.judith_franz
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageButton
 import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.widget.doAfterTextChanged
 import com.google.android.material.materialswitch.MaterialSwitch
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
+import com.google.android.material.textfield.TextInputLayout
 import java.util.Locale
 
 class EditarCartaActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_MODO_ANADIR = "EXTRA_MODO_ANADIR"
+        private const val TAG = "EditarCartaActivity"
     }
 
     private var cartaOriginal: Carta? = null
+    private var sincronizando = false
 
     private lateinit var etNombre: EditText
     private lateinit var etCodigo: EditText
@@ -43,6 +46,8 @@ class EditarCartaActivity : AppCompatActivity() {
             insets
         }
 
+        val barra = BarraSuperior.configurar(this, conAtras = true)
+
         etNombre = findViewById(R.id.etNombreCarta)
         etCodigo = findViewById(R.id.etCodigoCarta)
         actvRareza = findViewById(R.id.actvRarezaCarta)
@@ -54,11 +59,12 @@ class EditarCartaActivity : AppCompatActivity() {
         val carta = intent.getStringExtra(CardActivity.EXTRA_CODIGO)?.let { CartasRepositorio.buscar(it) }
 
         if (modoAnadir || carta == null) {
-            findViewById<TextView>(R.id.tvEditarTitulo).setText(R.string.anadir_titulo)
+            barra.setTitle(R.string.anadir_titulo)
             etNombre.setText("")
             etCodigo.setText("")
-            etCantidad.setText("1")
+            etCantidad.setText(String.format(Locale.US, "%d", 1))
             etEdicion.setText(CartasRepositorio.EDICION)
+            actvRareza.setText(resources.getStringArray(R.array.rarezas_carta).first(), false)
             swTengo.isChecked = true
         } else {
             cartaOriginal = carta
@@ -71,9 +77,31 @@ class EditarCartaActivity : AppCompatActivity() {
             swTengo.isChecked = carta.tengo
         }
 
-        findViewById<ImageButton>(R.id.btnVolverEditar).setOnClickListener { finish() }
+        sincronizarCantidadYTengo()
+
         findViewById<Button>(R.id.btnCancelarEditar).setOnClickListener { finish() }
         findViewById<Button>(R.id.btnGuardarCarta).setOnClickListener { guardar() }
+    }
+
+    private fun sincronizarCantidadYTengo() {
+        etCantidad.doAfterTextChanged { texto ->
+            val numero = texto?.toString()?.toIntOrNull() ?: return@doAfterTextChanged
+            if (sincronizando) return@doAfterTextChanged
+            sincronizando = true
+            swTengo.isChecked = numero > 0
+            sincronizando = false
+        }
+        swTengo.setOnCheckedChangeListener { _, marcado ->
+            if (sincronizando) return@setOnCheckedChangeListener
+            sincronizando = true
+            val numero = etCantidad.text.toString().toIntOrNull() ?: 0
+            if (marcado && numero == 0) {
+                etCantidad.setText(String.format(Locale.US, "%d", 1))
+            } else if (!marcado && numero > 0) {
+                etCantidad.setText(String.format(Locale.US, "%d", 0))
+            }
+            sincronizando = false
+        }
     }
 
     private fun guardar() {
@@ -89,25 +117,48 @@ class EditarCartaActivity : AppCompatActivity() {
             return
         }
 
-        val cantidad = etCantidad.text.toString().toIntOrNull() ?: 0
+        val tilRareza = findViewById<TextInputLayout>(R.id.tilRarezaCarta)
+        val rareza = actvRareza.text.toString().trim()
+        if (rareza.isEmpty()) {
+            tilRareza.error = getString(R.string.error_campo_obligatorio)
+            return
+        }
+        tilRareza.error = null
+
+        val cantidad = etCantidad.text.toString().toIntOrNull()
+        if (cantidad == null || cantidad < 0) {
+            etCantidad.error = getString(R.string.error_cantidad_invalida)
+            return
+        }
+
         val base = Carta(
             codigo = codigo,
             nombre = nombre,
-            rareza = actvRareza.text.toString(),
+            rareza = rareza,
             edicion = etEdicion.text.toString().trim(),
             tengo = swTengo.isChecked,
             cantidad = cantidad,
             imagenUrl = cartaOriginal?.imagenUrl ?: "",
             horizontal = cartaOriginal?.horizontal ?: false
         )
-        val carta = base.conTengo(swTengo.isChecked)
+        val carta = base.conCantidad(if (swTengo.isChecked) maxOf(1, cantidad) else cantidad)
 
-        if (!CartasRepositorio.guardar(cartaOriginal?.codigo, carta)) {
-            etCodigo.error = getString(R.string.error_codigo_repetido)
-            return
+        val original = cartaOriginal
+        if (original == null) {
+            if (!CartasRepositorio.anadir(carta)) {
+                etCodigo.error = getString(R.string.error_codigo_repetido)
+                return
+            }
+            Log.d(TAG, "Carta añadida: ${carta.codigo} (${carta.nombre})")
+            Toast.makeText(this, R.string.carta_anadida, Toast.LENGTH_SHORT).show()
+        } else {
+            if (!CartasRepositorio.modificar(original.codigo, carta)) {
+                etCodigo.error = getString(R.string.error_codigo_repetido)
+                return
+            }
+            Log.d(TAG, "Carta modificada: ${original.codigo} -> ${carta.codigo} (${carta.nombre})")
+            Toast.makeText(this, R.string.carta_modificada, Toast.LENGTH_SHORT).show()
         }
-
-        Toast.makeText(this, R.string.carta_guardada, Toast.LENGTH_SHORT).show()
         setResult(Activity.RESULT_OK, Intent().putExtra(CardActivity.EXTRA_CODIGO, carta.codigo))
         finish()
     }

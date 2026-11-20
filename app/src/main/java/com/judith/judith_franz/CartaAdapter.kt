@@ -6,13 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.ViewCompat
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat
 import com.google.android.material.color.MaterialColors
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 
+// Adapter de cartas
 class CartaAdapter(
-    private val alPulsar: (Carta) -> Unit
+    private val alPulsar: (Carta) -> Unit,
+    private val alMantener: ((Carta) -> Unit)? = null
 ) : ListAdapter<Carta, CartaAdapter.CartaViewHolder>(Diferencias) {
 
     class CartaViewHolder(vista: View) : RecyclerView.ViewHolder(vista) {
@@ -22,7 +26,8 @@ class CartaAdapter(
         private val tvRareza: TextView = vista.findViewById(R.id.tvItemRareza)
         private val tvEstado: TextView = vista.findViewById(R.id.tvItemEstado)
 
-        fun mostrar(carta: Carta, alPulsar: (Carta) -> Unit) {
+        // Poner datos
+        fun mostrar(carta: Carta, alPulsar: (Carta) -> Unit, alMantener: ((Carta) -> Unit)?) {
             val contexto = itemView.context
 
             ivImagen.cargarCarta(carta)
@@ -43,6 +48,22 @@ class CartaAdapter(
             }
 
             itemView.setOnClickListener { alPulsar(carta) }
+
+            if (alMantener == null) {
+                itemView.setOnLongClickListener(null)
+                itemView.isLongClickable = false
+            } else {
+                itemView.setOnLongClickListener {
+                    alMantener(carta)
+                    true
+                }
+                ViewCompat.replaceAccessibilityAction(
+                    itemView,
+                    AccessibilityActionCompat.ACTION_LONG_CLICK,
+                    contexto.getString(R.string.desc_acciones_carta),
+                    null
+                )
+            }
         }
     }
 
@@ -52,7 +73,7 @@ class CartaAdapter(
     }
 
     override fun onBindViewHolder(holder: CartaViewHolder, position: Int) {
-        holder.mostrar(getItem(position), alPulsar)
+        holder.mostrar(getItem(position), alPulsar, alMantener)
     }
 
     private object Diferencias : DiffUtil.ItemCallback<Carta>() {

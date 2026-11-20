@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="6dp"
+    android:layout_margin="@dimen/espacio_s"
     android:clickable="true"
     android:focusable="true"
     app:cardBackgroundColor="?attr/temaSuperficie"
-    app:cardCornerRadius="22dp"
-    app:cardElevation="4dp"
+    app:cardCornerRadius="@dimen/radio_tarjeta_tema"
+    app:cardElevation="@dimen/elevacion_media"
     app:strokeColor="?attr/temaPrincipal"
     app:strokeWidth="0dp">
 
@@ -16,12 +16,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="8dp">
+        android:padding="@dimen/espacio_m">
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="16dp"
+            app:cardCornerRadius="@dimen/radio_tarjeta"
             app:cardElevation="0dp"
             app:strokeWidth="0dp">
 
@@ -30,31 +30,31 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/fondo_degradado"
                 android:orientation="vertical"
-                android:padding="8dp">
+                android:padding="@dimen/espacio_m">
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="34dp"
+                    android:layout_height="@dimen/alto_logo_preview_tema"
                     android:importantForAccessibility="no"
                     android:src="@drawable/mlp_logo" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
+                    android:layout_marginTop="@dimen/espacio_s"
                     android:orientation="horizontal">
 
                     <View
                         android:layout_width="0dp"
-                        android:layout_height="52dp"
-                        android:layout_marginEnd="4dp"
+                        android:layout_height="@dimen/alto_carta_preview_tema"
+                        android:layout_marginEnd="@dimen/espacio_xs"
                         android:layout_weight="1"
                         android:background="@drawable/carta_placeholder" />
 
                     <View
                         android:layout_width="0dp"
-                        android:layout_height="52dp"
-                        android:layout_marginStart="4dp"
+                        android:layout_height="@dimen/alto_carta_preview_tema"
+                        android:layout_marginStart="@dimen/espacio_xs"
                         android:layout_weight="1"
                         android:background="@drawable/carta_placeholder" />
                 </LinearLayout>
@@ -62,17 +62,17 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
+                    android:layout_marginTop="@dimen/espacio_s"
                     android:background="@drawable/bg_cuadro_cartas"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="6dp">
+                    android:padding="@dimen/espacio_s">
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:fontFamily="@font/nunito_extralight"
+                        android:fontFamily="sans-serif"
                         android:maxLines="1"
                         android:text="@string/tema_preview_carta"
                         android:textColor="?attr/temaTexto"
@@ -83,7 +83,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="?attr/temaAcento"
-                        android:paddingHorizontal="4dp"
+                        android:paddingHorizontal="@dimen/espacio_xs"
                         android:text="@string/tema_preview_rareza"
                         android:textColor="?attr/temaTextoSobreAcento"
                         android:textSize="11sp"
@@ -93,11 +93,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
+                    android:layout_marginTop="@dimen/espacio_s"
                     android:background="@drawable/bg_boton_morado"
-                    android:fontFamily="@font/nunito_extralight"
+                    android:fontFamily="sans-serif"
                     android:gravity="center"
-                    android:paddingVertical="3dp"
+                    android:paddingVertical="@dimen/espacio_xxs_plus"
                     android:text="@string/btn_modificar"
                     android:textColor="?attr/temaTextoSobrePrincipal"
                     android:textSize="11sp"
@@ -106,15 +106,15 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="@dimen/espacio_m"
                     android:background="@drawable/bg_barra_mini"
                     android:gravity="center"
                     android:orientation="horizontal"
-                    android:paddingVertical="4dp">
+                    android:paddingVertical="@dimen/espacio_xs">
 
                     <ImageView
                         android:layout_width="0dp"
-                        android:layout_height="16dp"
+                        android:layout_height="@dimen/icono_preview_barra"
                         android:layout_weight="1"
                         android:importantForAccessibility="no"
                         android:src="@drawable/ic_home"
@@ -122,7 +122,7 @@
 
                     <ImageView
                         android:layout_width="0dp"
-                        android:layout_height="16dp"
+                        android:layout_height="@dimen/icono_preview_barra"
                         android:layout_weight="1"
                         android:importantForAccessibility="no"
                         android:src="@drawable/ic_scan"
@@ -130,7 +130,7 @@
 
                     <ImageView
                         android:layout_width="0dp"
-                        android:layout_height="16dp"
+                        android:layout_height="@dimen/icono_preview_barra"
                         android:layout_weight="1"
                         android:importantForAccessibility="no"
                         android:src="@drawable/ic_settings"
@@ -143,9 +143,9 @@
             android:id="@+id/tvTemaNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/nunito_extralight"
-            android:paddingHorizontal="4dp"
+            android:layout_marginTop="@dimen/espacio_m"
+            android:fontFamily="sans-serif"
+            android:paddingHorizontal="@dimen/espacio_xs"
             android:text="@string/tema_luna"
             android:textColor="?attr/temaTexto"
             android:textSize="14sp"
@@ -156,14 +156,14 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingHorizontal="4dp">
+            android:paddingHorizontal="@dimen/espacio_xs">
 
             <TextView
                 android:id="@+id/tvTemaModo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="@font/nunito_extralight"
+                android:fontFamily="sans-serif"
                 android:text="@string/tema_claro"
                 android:textColor="?attr/temaTextoSecundario"
                 android:textSize="12sp" />
@@ -173,9 +173,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_boton_morado"
-                android:fontFamily="@font/nunito_extralight"
-                android:paddingHorizontal="8dp"
-                android:paddingVertical="1dp"
+                android:fontFamily="sans-serif"
+                android:paddingHorizontal="@dimen/espacio_m"
+                android:paddingVertical="@dimen/espacio_xxxs"
                 android:text="@string/tema_en_uso"
                 android:textColor="?attr/temaTextoSobrePrincipal"
                 android:textSize="11sp"

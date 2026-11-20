@@ -3,7 +3,6 @@ package com.judith.judith_franz
 
 import android.os.Bundle
 import android.widget.Button
-import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -20,7 +19,7 @@ class AyudaActivity : AppCompatActivity() {
             insets
         }
 
-        findViewById<ImageButton>(R.id.btnVolverAyuda).setOnClickListener { finish() }
+        BarraSuperior.configurar(this, conAtras = true)
         findViewById<Button>(R.id.btnEntendido).setOnClickListener { finish() }
     }
 }

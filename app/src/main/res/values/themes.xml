@@ -58,14 +58,14 @@
         <item name="temaCampo">#80FFFFFF</item>
         <item name="temaBorde">#7E788C</item>
         <item name="temaDivisor">#337E788C</item>
-        <item name="temaPrincipal">#8188E8</item>
+        <item name="temaPrincipal">#5C63C9</item>
         <item name="temaTextoSobrePrincipal">#FFFFFF</item>
         <item name="temaAcento">#5C63C9</item>
         <item name="temaTextoSobreAcento">#FFFFFF</item>
         <item name="temaPlaceholder">#E8E5FF</item>
         <item name="temaIconoBarra">#000000</item>
-        <item name="temaOk">#2E7D32</item>
-        <item name="temaFalta">#C62828</item>
+        <item name="temaOk">#2B742E</item>
+        <item name="temaFalta">#C22727</item>
     </style>
 
     <style name="Theme.JudithFranz.Applejack.Light" parent="Tema.Base.Claro">
@@ -82,11 +82,11 @@
         <item name="temaDivisor">#337A5A44</item>
         <item name="temaPrincipal">#E07A2E</item>
         <item name="temaTextoSobrePrincipal">#3B1F0E</item>
-        <item name="temaAcento">#D9433A</item>
+        <item name="temaAcento">#D24138</item>
         <item name="temaTextoSobreAcento">#FFFFFF</item>
         <item name="temaPlaceholder">#FDE2C2</item>
         <item name="temaIconoBarra">#3B1F0E</item>
-        <item name="temaOk">#2E7D32</item>
+        <item name="temaOk">#2D7A31</item>
         <item name="temaFalta">#C62828</item>
     </style>
 
@@ -168,13 +168,13 @@
         <item name="temaCampo">#80FFFFFF</item>
         <item name="temaBorde">#7A4F63</item>
         <item name="temaDivisor">#337A4F63</item>
-        <item name="temaPrincipal">#E4418A</item>
+        <item name="temaPrincipal">#E65295</item>
         <item name="temaTextoSobrePrincipal">#3D0F25</item>
         <item name="temaAcento">#3FA3D9</item>
         <item name="temaTextoSobreAcento">#3D0F25</item>
         <item name="temaPlaceholder">#FBD3E5</item>
         <item name="temaIconoBarra">#3D0F25</item>
-        <item name="temaOk">#2E7D32</item>
+        <item name="temaOk">#2C7730</item>
         <item name="temaFalta">#C62828</item>
     </style>
 
@@ -214,11 +214,11 @@
         <item name="temaDivisor">#334A6476</item>
         <item name="temaPrincipal">#1E98D3</item>
         <item name="temaTextoSobrePrincipal">#0B2638</item>
-        <item name="temaAcento">#EE4144</item>
+        <item name="temaAcento">#F0585A</item>
         <item name="temaTextoSobreAcento">#0B2638</item>
         <item name="temaPlaceholder">#CDEBFA</item>
         <item name="temaIconoBarra">#0B2638</item>
-        <item name="temaOk">#2E7D32</item>
+        <item name="temaOk">#2D7A31</item>
         <item name="temaFalta">#C62828</item>
     </style>
 
@@ -306,7 +306,7 @@
         <item name="temaTextoSobreAcento">#23163A</item>
         <item name="temaPlaceholder">#E8DAF5</item>
         <item name="temaIconoBarra">#23163A</item>
-        <item name="temaOk">#2E7D32</item>
+        <item name="temaOk">#2C7830</item>
         <item name="temaFalta">#C62828</item>
     </style>
 

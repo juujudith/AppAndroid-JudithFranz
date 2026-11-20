@@ -9,36 +9,14 @@
     android:background="@drawable/fondo_degradado">
 
     <!-- CUADRO CENTRAL -->
-    <LinearLayout
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/barraSuperior"
+        style="@style/BarraSuperior"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingHorizontal="16dp">
-
-        <TextView
-            android:id="@+id/tvHeaderTitle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="48dp"
-            android:layout_weight="1"
-            android:fontFamily="@font/nunito_extralight"
-            android:gravity="center"
-            android:text="@string/home_titulo"
-            android:textColor="?attr/temaTexto"
-            android:textSize="22sp"
-            android:textStyle="bold" />
-
-        <ImageButton
-            android:id="@+id/btnAnadirCarta"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="@drawable/bg_filtro_input"
-            android:contentDescription="@string/desc_anadir_carta"
-            android:src="@android:drawable/ic_input_add"
-            app:tint="?attr/temaTexto" />
-    </LinearLayout>
+        app:menu="@menu/menu_home"
+        app:title="@string/home_titulo"
+        app:titleCentered="false" />
 
     <!-- CUADRO CENTRAL (CONTIENE FILTROS ARRIBA + CARTAS CON SCROLL ABAJO) -->
     <!-- Filtros -->
@@ -47,13 +25,13 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginHorizontal="@dimen/espacio_xl"
+        android:layout_marginTop="@dimen/espacio_l"
+        android:layout_marginBottom="@dimen/espacio_m"
         android:background="@drawable/bg_cuadro_cartas"
-        android:elevation="6dp"
+        android:elevation="@dimen/elevacion_cuadro"
         android:orientation="vertical"
-        android:padding="12dp">
+        android:padding="@dimen/espacio_l">
 
         <!-- ================= APARTADO SUPERIOR DE FILTROS ================= -->
         <LinearLayout
@@ -61,33 +39,52 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="10dp">
+            android:paddingBottom="@dimen/espacio_ml">
 
             <!-- Fila 1: Buscador por Código o Nombre -->
             <!-- Buscador por código o nombre -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
             <EditText
                 android:id="@+id/etFiltroCodigo"
-                android:layout_width="match_parent"
-                android:layout_height="42dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:minHeight="@dimen/objetivo_tactil_minimo"
                 android:background="@drawable/bg_filtro_input"
-                android:drawableEnd="@android:drawable/ic_menu_search"
-                android:drawableTint="?attr/temaTexto"
-                android:fontFamily="@font/nunito_extralight"
+                android:fontFamily="sans-serif"
                 android:hint="@string/hint_buscar"
                 android:imeOptions="actionSearch"
                 android:importantForAutofill="no"
                 android:inputType="text"
-                android:paddingHorizontal="14dp"
+                android:paddingHorizontal="@dimen/espacio_lx"
                 android:textColor="?attr/temaTexto"
                 android:textColorHint="?attr/temaTextoSecundario"
-                android:textSize="13sp" />
+                android:textSize="14sp" />
+
+                <ImageButton
+                    android:id="@+id/btnBuscarFiltro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/espacio_xs"
+                    android:minWidth="@dimen/objetivo_tactil_minimo"
+                    android:minHeight="@dimen/objetivo_tactil_minimo"
+                    android:background="@drawable/bg_filtro_input"
+                    android:contentDescription="@string/desc_buscar"
+                    android:src="@android:drawable/ic_menu_search"
+                    app:tint="?attr/temaTexto" />
+            </LinearLayout>
 
             <!-- Fila 2: Desplegables de Rareza/Tier y Posesión (Tengo / No tengo) -->
             <!-- Desplegables de rareza y posesión -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="@dimen/espacio_m"
                 android:orientation="horizontal">
 
                 <!-- Filtro por Rareza / Tier -->
@@ -96,11 +93,12 @@
                     android:id="@+id/spinnerFiltroRareza"
                     android:entries="@array/filtro_rareza"
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/objetivo_tactil_minimo"
                     android:layout_weight="1"
-                    android:layout_marginEnd="4dp"
+                    android:layout_marginEnd="@dimen/espacio_xs"
                     android:background="@drawable/bg_filtro_input"
-                    android:paddingHorizontal="8dp"
+                    android:paddingHorizontal="@dimen/espacio_m"
                     android:contentDescription="@string/desc_filtro_rareza" />
 
                 <!-- Filtro por Posesión (Las tengo / Me faltan) -->
@@ -108,11 +106,12 @@
                     android:id="@+id/spinnerFiltroTengo"
                     android:entries="@array/filtro_tengo"
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/objetivo_tactil_minimo"
                     android:layout_weight="1"
-                    android:layout_marginStart="4dp"
+                    android:layout_marginStart="@dimen/espacio_xs"
                     android:background="@drawable/bg_filtro_input"
-                    android:paddingHorizontal="8dp"
+                    android:paddingHorizontal="@dimen/espacio_m"
                     android:contentDescription="@string/desc_filtro_tengo" />
             </LinearLayout>
         </LinearLayout>
@@ -121,22 +120,40 @@
         <!-- Línea entre filtros y cartas -->
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginBottom="8dp"
+            android:layout_height="@dimen/grosor_divisor"
+            android:layout_marginBottom="@dimen/espacio_m"
             android:background="?attr/temaDivisor" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
         <!-- Cartas -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvCartas"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="match_parent"
             android:clipToPadding="false"
             android:scrollbars="vertical"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:spanCount="2"
+            app:spanCount="@integer/columnas_cartas"
             tools:itemCount="4"
             tools:listitem="@layout/item_carta" />
+
+            <TextView
+                android:id="@+id/tvHomeVacio"
+                style="@style/TextoCuerpo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:accessibilityLiveRegion="polite"
+                android:gravity="center"
+                android:padding="@dimen/espacio_xl"
+                android:text="@string/home_vacio"
+                android:textColor="?attr/temaTexto"
+                android:visibility="gone" />
+        </FrameLayout>
 
     </LinearLayout>
 

@@ -23,17 +23,12 @@
     <!-- AJUSTES -->
     <string name="ajustes">Ajustes</string>
 
-    <string name="cuenta">Cuenta</string>
-    <string name="editar_perfil">Editar perfil</string>
-    <string name="cambiar_contrase_a">Cambiar contraseña</string>
 
     <string name="esc_ner">Escáner</string>
-    <string name="guardar_cartas_autom_ticamente">Guardar cartas automáticamente</string>
-    <string name="vibrar_al_reconocer_una_carta">Vibrar al reconocer una carta</string>
+    <string name="guardar_cartas_autom_ticamente">Marcar como conseguida la carta que encuentre</string>
+    <string name="vibrar_al_reconocer_una_carta">Vibrar al encontrar una carta</string>
 
     <string name="colecci_n">Colección</string>
-    <string name="ordenar_colecci_n_por">Ordenar colección por…</string>
-    <string name="borrar_historial_de_escaneos">Borrar historial de escaneos</string>
 
     <string name="apariencia">Apariencia</string>
     <string name="tema">Tema de colores</string>
@@ -57,7 +52,6 @@
     <string name="tema_rarity_dark">Rarity Dark · Gala</string>
     <string name="tema_twilight_light">Twilight Sparkle Light · Biblioteca</string>
     <string name="tema_twilight_dark">Twilight Sparkle Dark · Princesa</string>
-    <string name="idioma">Idioma</string>
 
     <string name="cerrar_sesi_n">Cerrar sesión</string>
     <string name="opt_ayuda">Ayuda</string>
@@ -72,7 +66,6 @@
     <string name="desc_anadir_carta">Añadir una carta nueva</string>
     <string name="estado_tengo">✔ La tengo</string>
     <string name="estado_falta">✖ Falta</string>
-    <string name="pronto_escaner">El escáner estará disponible próximamente</string>
 
     <string name="ejemplo_nombre">Princess Twilight Sparkle</string>
     <string name="ejemplo_codigo">MLPME03-SC-001L5</string>
@@ -88,7 +81,6 @@
     <string name="desc_imagen_carta">%1$s, código %2$s</string>
     <string name="error_campo_obligatorio">Este campo es obligatorio</string>
     <string name="error_codigo_repetido">Ya hay otra carta con este código</string>
-    <string name="carta_guardada">Carta guardada</string>
     <string name="etiqueta_codigo">Código:</string>
     <string name="etiqueta_edicion">Edición:</string>
     <string name="estado_en_coleccion">✔ En mi colección</string>
@@ -132,8 +124,7 @@
         <item>SC</item>
         <item>◇ZR</item>
     </string-array>
-    <string name="desc_imagen_editar">Imagen de la carta. Pulsa para cambiarla</string>
-    <string name="btn_cambiar_imagen">Cambiar imagen</string>
+    <string name="desc_imagen_editar">Imagen de la carta</string>
     <string name="hint_nombre_carta">Nombre de la carta</string>
     <string name="hint_codigo_carta">Código (ej. MLPME03-SC-001L5)</string>
     <string name="hint_rareza_carta">Rareza</string>
@@ -150,10 +141,56 @@
     <string name="ayuda_paso2_titulo">2. Buscar y filtrar</string>
     <string name="ayuda_paso2_texto">Escribe un nombre o un código en el buscador, o usa los desplegables para filtrar por rareza o por las cartas que tienes.</string>
     <string name="ayuda_paso3_titulo">3. Escanear una carta</string>
-    <string name="ayuda_paso3_texto">Pulsa el icono de la cámara en la barra inferior y apunta al código de la carta para añadirla a tu colección.</string>
+    <string name="ayuda_paso3_texto">Pulsa el icono del escáner en la barra inferior y escribe o pega el código de la carta para abrir su ficha.</string>
     <string name="ayuda_paso4_titulo">4. Editar y repetidas</string>
-    <string name="ayuda_paso4_texto">Toca una carta para ver su detalle, marcarla como conseguida, sumar repetidas o modificar sus datos.</string>
+    <string name="ayuda_paso4_texto">Toca una carta para ver su detalle, marcarla como conseguida, sumar repetidas, modificarla o borrarla. Si mantienes pulsada una carta de la lista verás más acciones.</string>
     <string name="ayuda_paso5_titulo">5. Ajustes</string>
-    <string name="ayuda_paso5_texto">En Ajustes puedes cambiar el tema de colores, el idioma y las opciones del escáner.</string>
+    <string name="ayuda_paso5_texto">En Ajustes puedes cambiar el tema de colores, ver tus cartas repetidas y elegir las opciones del escáner.</string>
     <string name="btn_entendido">Entendido</string>
+    <string name="carta_anadida">Carta añadida a tu colección</string>
+    <string name="carta_modificada">Carta modificada</string>
+    <string name="carta_eliminada">Carta eliminada</string>
+    <string name="carta_restaurada">Carta restaurada</string>
+    <string name="dialogo_eliminar_titulo">¿Eliminar carta?</string>
+    <string name="dialogo_eliminar_mensaje">Se eliminará «%1$s» (%2$s) de tu álbum.</string>
+    <string name="btn_eliminar">Eliminar</string>
+    <string name="btn_deshacer">Deshacer</string>
+    <string name="desc_acciones_carta">Más acciones</string>
+    <string-array name="acciones_carta">
+        <item>Abrir</item>
+        <item>Modificar</item>
+        <item>Eliminar</item>
+    </string-array>
+    <string name="ejemplo_cantidad">1</string>
+
+    <string name="menu_repetidas">Cartas repetidas</string>
+    <string name="menu_ayuda">Ayuda</string>
+    <string name="menu_ajustes">Ajustes</string>
+
+    <string name="escaner_instrucciones">Escribe o pega el código que aparece en la carta y abriremos su ficha.</string>
+    <string name="hint_codigo_escaner">Código de la carta</string>
+    <string name="btn_buscar_carta">Buscar carta</string>
+    <string name="btn_pegar">Pegar</string>
+    <string name="desc_pegar">Pegar el código desde el portapapeles</string>
+    <string name="portapapeles_vacio">No hay ningún texto copiado</string>
+    <string name="error_carta_no_existe">No existe ninguna carta con el código %1$s</string>
+
+    <string name="repetidas_titulo">Cartas repetidas</string>
+    <string name="repetidas_vacio">Todavía no tienes cartas repetidas. Cuando tengas más de una copia de una carta aparecerá aquí.</string>
+    <string name="repetidas_cantidad">×%1$d</string>
+    <string name="desc_item_repetida">%1$s, código %2$s, %3$d copias</string>
+    <string name="opt_repetidas">Ver cartas repetidas</string>
+
+    <string name="desc_barra_inferior">Navegación principal</string>
+    <string name="desc_nav_home">Ir a tu colección de cartas</string>
+    <string name="desc_nav_scan">Abrir el escáner de cartas</string>
+    <string name="desc_nav_settings">Abrir los ajustes</string>
+    <string name="desc_opt_tema">Tema de colores: %1$s. Pulsa para cambiarlo</string>
+    <string name="desc_buscar">Buscar cartas</string>
+    <string name="home_vacio">No hay ninguna carta que coincida con la búsqueda o los filtros.</string>
+    <string name="error_email_invalido">Escribe un correo electrónico válido</string>
+    <string name="error_password_corta">La contraseña debe tener al menos 6 caracteres</string>
+    <string name="error_password_distinta">Las contraseñas no coinciden</string>
+    <string name="registro_correcto">Cuenta creada. Ya puedes iniciar sesión</string>
+    <string name="error_cantidad_invalida">Escribe una cantidad válida (0 o más)</string>
 </resources>

@@ -4,23 +4,27 @@ package com.judith.judith_franz
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
-import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.color.MaterialColors
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.util.Locale
 
 class CardActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_CODIGO = "EXTRA_CODIGO"
+        private const val TAG = "CardActivity"
     }
 
     private lateinit var codigo: String
@@ -59,6 +63,7 @@ class CardActivity : AppCompatActivity() {
         }
         codigo = codigoRecibido
 
+        BarraSuperior.configurar(this, conAtras = true)
         BarraInferior.configurar(this, R.id.nav_home)
 
         ivCarta = findViewById(R.id.ivDetalleCarta)
@@ -69,8 +74,6 @@ class CardActivity : AppCompatActivity() {
         tvEstado = findViewById(R.id.tvEstadoPosesion)
         switchTengo = findViewById(R.id.switchTengoCarta)
         tvCantidad = findViewById(R.id.tvCantidadCarta)
-
-        findViewById<ImageButton>(R.id.btnVolverHome).setOnClickListener { finish() }
 
         findViewById<ImageButton>(R.id.btnSumarRepetida).setOnClickListener {
             actualizar { it.conCantidad(it.cantidad + 1) }
@@ -84,6 +87,28 @@ class CardActivity : AppCompatActivity() {
                 .putExtra(EXTRA_CODIGO, codigo)
             editarCarta.launch(intent)
         }
+
+        findViewById<Button>(R.id.btnBorrarCarta).setOnClickListener { confirmarEliminar() }
+    }
+
+    private fun confirmarEliminar() {
+        val carta = CartasRepositorio.buscar(codigo) ?: return
+        MaterialAlertDialogBuilder(this)
+            .setTitle(R.string.dialogo_eliminar_titulo)
+            .setMessage(getString(R.string.dialogo_eliminar_mensaje, carta.nombre, carta.codigo))
+            .setNegativeButton(R.string.btn_cancelar, null)
+            .setPositiveButton(R.string.btn_eliminar) { _, _ -> eliminar(carta) }
+            .show()
+    }
+
+    private fun eliminar(carta: Carta) {
+        if (CartasRepositorio.eliminar(carta.codigo) == -1) return
+        Log.d(TAG, "Carta eliminada: ${carta.codigo} (${carta.nombre})")
+        Toast.makeText(this, R.string.carta_eliminada, Toast.LENGTH_SHORT).show()
+        val intent = Intent(this, HomeActivity::class.java)
+            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+        startActivity(intent)
+        finish()
     }
 
     override fun onResume() {
@@ -93,7 +118,10 @@ class CardActivity : AppCompatActivity() {
 
     private fun actualizar(cambio: (Carta) -> Carta) {
         val carta = CartasRepositorio.buscar(codigo) ?: return
-        CartasRepositorio.guardar(codigo, cambio(carta))
+        val nueva = cambio(carta)
+        if (CartasRepositorio.modificar(codigo, nueva)) {
+            Log.d(TAG, "Carta modificada desde el detalle: ${nueva.codigo} cantidad=${nueva.cantidad} tengo=${nueva.tengo}")
+        }
         mostrarCarta()
     }
 
@@ -116,10 +144,10 @@ class CardActivity : AppCompatActivity() {
 
         if (carta.tengo) {
             tvEstado.setText(R.string.estado_en_coleccion)
-            tvEstado.setTextColor(ContextCompat.getColor(this, R.color.verde_ok))
+            tvEstado.setTextColor(MaterialColors.getColor(tvEstado, R.attr.temaOk))
         } else {
             tvEstado.setText(R.string.estado_falta)
-            tvEstado.setTextColor(ContextCompat.getColor(this, R.color.rojo_error))
+            tvEstado.setTextColor(MaterialColors.getColor(tvEstado, R.attr.temaFalta))
         }
 
         switchTengo.setOnCheckedChangeListener(null)
