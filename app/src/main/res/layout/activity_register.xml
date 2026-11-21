@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/espacio_xl"
-            android:fontFamily="@font/nunito_extralight"
+            android:fontFamily="sans-serif-medium"
             android:text="@string/registro_titulo"
             android:textColor="?attr/temaTexto"
             android:textColorHint="?attr/temaTexto"
@@ -62,7 +62,7 @@
                 android:importantForAutofill="yes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito_extralight"
+                android:fontFamily="sans-serif-medium"
                 android:textSize="18sp"
                 android:textColor="?attr/temaTexto"
                 android:inputType="textPersonName" />
@@ -92,7 +92,7 @@
                 android:importantForAutofill="yes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito_extralight"
+                android:fontFamily="sans-serif-medium"
                 android:textSize="18sp"
                 android:textColor="?attr/temaTexto"
                 android:inputType="textEmailAddress" />
@@ -123,7 +123,7 @@
                 android:importantForAutofill="yes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito_extralight"
+                android:fontFamily="sans-serif-medium"
                 android:textSize="18sp"
                 android:textColor="?attr/temaTexto"
                 android:inputType="textPassword" />
@@ -154,7 +154,7 @@
                 android:importantForAutofill="yes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito_extralight"
+                android:fontFamily="sans-serif-medium"
                 android:textSize="18sp"
                 android:textColor="?attr/temaTexto"
                 android:inputType="textPassword" />
@@ -170,13 +170,15 @@
             android:layout_marginTop="@dimen/espacio_xxxl"
             android:text="@string/btn_registro"
             android:textSize="24sp"
-            android:fontFamily="@font/nunito_extralight"
+            android:fontFamily="sans-serif-medium"
             app:backgroundTint="?attr/temaPrincipal"
             android:textColor="?attr/temaTextoSobrePrincipal" />
 
         <!-- VOLVER AL LOGIN -->
         <TextView
             android:id="@+id/tvYaCuenta"
+            android:minHeight="@dimen/objetivo_tactil_minimo"
+            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/espacio_m"

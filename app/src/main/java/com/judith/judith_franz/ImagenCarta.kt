@@ -4,6 +4,7 @@ package com.judith.judith_franz
 import android.widget.ImageView
 import coil.load
 
+// Pone la imagen
 fun ImageView.cargarCarta(carta: Carta) {
     scaleType = if (carta.horizontal) ImageView.ScaleType.FIT_CENTER else ImageView.ScaleType.CENTER_CROP
 

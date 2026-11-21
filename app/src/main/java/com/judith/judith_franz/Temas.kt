@@ -10,12 +10,13 @@ import androidx.annotation.StyleRes
 import androidx.core.content.edit
 import androidx.core.view.WindowCompat
 
+// Los temas de la app
 object Temas {
 
     data class Tema(
         val id: String,
-        @StringRes val nombre: Int,
-        @StyleRes val estilo: Int,
+        @param:StringRes val nombre: Int,
+        @param:StyleRes val estilo: Int,
         val oscuro: Boolean
     )
 
@@ -38,12 +39,14 @@ object Temas {
     private const val ARCHIVO_PREFS = "ajustes"
     private const val CLAVE_TEMA = "tema"
 
+    // Tema que esta puesto
     fun actual(context: Context): Tema {
         val id = context.getSharedPreferences(ARCHIVO_PREFS, Context.MODE_PRIVATE)
             .getString(CLAVE_TEMA, null)
         return lista.find { it.id == id } ?: lista.first()
     }
 
+    // Guarda el tema
     fun guardar(context: Context, tema: Tema) {
         context.getSharedPreferences(ARCHIVO_PREFS, Context.MODE_PRIVATE)
             .edit { putString(CLAVE_TEMA, tema.id) }

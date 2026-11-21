@@ -3,6 +3,7 @@ package com.judith.judith_franz
 import android.content.Context
 import androidx.core.content.edit
 
+// Guarda los ajustes
 object PreferenciasApp {
 
     private const val ARCHIVO_PREFS = "ajustes"
@@ -16,6 +17,7 @@ object PreferenciasApp {
         prefs(context).edit { putBoolean(CLAVE_GUARDAR_AUTO, activado) }
     }
 
+    // Mira si vibra
     fun vibrar(context: Context): Boolean =
         prefs(context).getBoolean(CLAVE_VIBRAR, true)
 

@@ -33,7 +33,7 @@
             android:layout_marginTop="@dimen/espacio_s"
             android:ellipsize="end"
             android:fontFamily="sans-serif"
-            android:maxLines="1"
+            android:maxLines="2"
             android:text="@string/ejemplo_nombre"
             android:textColor="?attr/temaTexto"
             android:textSize="13sp"

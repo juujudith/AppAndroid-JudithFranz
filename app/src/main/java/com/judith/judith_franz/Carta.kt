@@ -1,6 +1,7 @@
 package com.judith.judith_franz
 
 
+// Datos de una carta
 data class Carta(
     val codigo: String,
     val nombre: String,
@@ -11,6 +12,7 @@ data class Carta(
     val imagenUrl: String = "",
     val horizontal: Boolean = false
 ) {
+    // Cambia si la tengo
     fun conTengo(nuevoTengo: Boolean): Carta =
         copy(tengo = nuevoTengo, cantidad = if (nuevoTengo) maxOf(1, cantidad) else 0)
 

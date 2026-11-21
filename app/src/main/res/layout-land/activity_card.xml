@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainCard"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/fondo_degradado"
+    tools:context=".CardActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/barraSuperior"
+        style="@style/BarraSuperior"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:title="@string/detalle_titulo" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/espacio_xl"
+        android:paddingBottom="@dimen/espacio_m">
+
+        <androidx.cardview.widget.CardView
+            android:layout_gravity="center_vertical"
+            android:id="@+id/cardViewImagen"
+            android:layout_width="@dimen/carta_detalle_ancho"
+            android:layout_height="@dimen/carta_detalle_alto"
+            app:cardCornerRadius="@dimen/radio_carta_detalle"
+            app:cardElevation="@dimen/elevacion_alta"
+            app:cardBackgroundColor="@android:color/transparent">
+
+            <ImageView
+                android:id="@+id/ivDetalleCarta"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:scaleX="1.05"
+                android:scaleY="1.05"
+                android:src="@drawable/carta_placeholder"
+                android:contentDescription="@string/desc_imagen_carta_ejemplo" />
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/espacio_xl"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:id="@+id/cuadroInfoCarta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_cuadro_cartas"
+                    android:elevation="@dimen/elevacion_cuadro"
+                    android:orientation="vertical"
+                    android:padding="@dimen/espacio_xl_plus"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:id="@+id/tvDetalleNombre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/ejemplo_nombre"
+                        android:textColor="?attr/temaTexto"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvDetalleRareza"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/espacio_m"
+                        android:background="@drawable/bg_boton_morado"
+                        android:paddingHorizontal="@dimen/espacio_xl_plus"
+                        android:paddingVertical="@dimen/espacio_xs_plus"
+                        android:fontFamily="sans-serif"
+                        android:text="@string/ejemplo_rareza_detalle"
+                        android:textColor="?attr/temaTextoSobrePrincipal"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:contentDescription="@string/ejemplo_rareza_detalle" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/grosor_divisor"
+                        android:layout_marginVertical="@dimen/espacio_l"
+                        android:background="?attr/temaDivisor" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif"
+                            android:text="@string/etiqueta_codigo"
+                            android:textColor="?attr/temaTextoSecundario"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvDetalleCodigo"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:fontFamily="sans-serif"
+                            android:text="@string/ejemplo_codigo"
+                            android:textColor="?attr/temaTexto"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/espacio_s"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif"
+                            android:text="@string/etiqueta_edicion"
+                            android:textColor="?attr/temaTextoSecundario"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvDetalleEdicion"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:fontFamily="sans-serif"
+                            android:text="@string/ejemplo_edicion"
+                            android:textColor="?attr/temaTexto"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/grosor_divisor"
+                        android:layout_marginVertical="@dimen/espacio_l"
+                        android:background="?attr/temaDivisor" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_filtro_input"
+                        android:paddingHorizontal="@dimen/espacio_lx"
+                        android:paddingVertical="@dimen/espacio_s"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvEstadoPosesion"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif"
+                            android:text="@string/estado_en_coleccion"
+                            android:textColor="?attr/temaOk"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/switchTengoCarta"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minHeight="@dimen/objetivo_tactil_minimo"
+                            android:checked="true"
+                            android:contentDescription="@string/desc_switch_tengo" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/espacio_ml"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif"
+                            android:text="@string/etiqueta_cantidad"
+                            android:textColor="?attr/temaTexto"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <ImageButton
+                            android:id="@+id/btnRestarRepetida"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minWidth="@dimen/objetivo_tactil_minimo"
+                            android:minHeight="@dimen/objetivo_tactil_minimo"
+                            android:background="@drawable/bg_filtro_input"
+                            android:src="@drawable/ic_menos"
+                            app:tint="?attr/temaTexto"
+                            android:contentDescription="@string/desc_restar" />
+
+                        <TextView
+                            android:id="@+id/tvCantidadCarta"
+                            android:layout_width="wrap_content"
+                            android:minWidth="@dimen/ancho_minimo_contador"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:fontFamily="sans-serif-medium"
+                            tools:text="@string/ejemplo_cantidad"
+                            android:textColor="?attr/temaTexto"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <ImageButton
+                            android:id="@+id/btnSumarRepetida"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minWidth="@dimen/objetivo_tactil_minimo"
+                            android:minHeight="@dimen/objetivo_tactil_minimo"
+                            android:background="@drawable/bg_filtro_input"
+                            android:src="@drawable/ic_mas"
+                            app:tint="?attr/temaTexto"
+                            android:contentDescription="@string/desc_sumar" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/espacio_m"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnModificarCarta"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/objetivo_tactil_minimo"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="@dimen/espacio_s"
+                    android:background="@drawable/bg_boton_morado"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/btn_modificar"
+                    android:textAllCaps="false"
+                    android:textColor="?attr/temaTextoSobrePrincipal"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnBorrarCarta"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/objetivo_tactil_minimo"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/espacio_s"
+                    android:background="@drawable/bg_boton_borrar"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/btn_borrar"
+                    android:textAllCaps="false"
+                    android:textColor="@color/md_on_error"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

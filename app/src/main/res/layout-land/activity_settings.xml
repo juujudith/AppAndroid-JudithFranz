@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_degradado"
+    android:orientation="horizontal">
+
+    <include
+        android:id="@+id/bottomBar"
+        layout="@layout/fragment_bottom_bar" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/barraSuperior"
+            style="@style/BarraSuperior"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="@string/ajustes" />
+
+        <ScrollView
+            android:id="@+id/scrollAjustes"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/espacio_xxxl"
+                android:paddingBottom="@dimen/espacio_xxxl">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/espacio_m"
+                    android:layout_marginBottom="@dimen/espacio_m"
+                    android:accessibilityHeading="true"
+                    tools:targetApi="28"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/esc_ner"
+                    android:textColor="?attr/temaTexto"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/espacio_xxl"
+                    app:cardBackgroundColor="?attr/temaSuperficie"
+                    app:cardCornerRadius="@dimen/radio_tarjeta_ajustes"
+                    app:cardElevation="@dimen/elevacion_media"
+                    app:strokeWidth="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.materialswitch.MaterialSwitch
+                            android:id="@+id/swGuardarAuto"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="@dimen/objetivo_tactil_minimo"
+                            android:fontFamily="sans-serif"
+                            android:padding="@dimen/espacio_xl"
+                            android:text="@string/guardar_cartas_autom_ticamente"
+                            android:textColor="?attr/temaTexto"
+                            android:textSize="16sp" />
+
+                        <com.google.android.material.materialswitch.MaterialSwitch
+                            android:id="@+id/swVibracion"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="@dimen/objetivo_tactil_minimo"
+                            android:fontFamily="sans-serif"
+                            android:padding="@dimen/espacio_xl"
+                            android:text="@string/vibrar_al_reconocer_una_carta"
+                            android:textColor="?attr/temaTexto"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/espacio_m"
+                    android:layout_marginBottom="@dimen/espacio_m"
+                    android:accessibilityHeading="true"
+                    tools:targetApi="28"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/colecci_n"
+                    android:textColor="?attr/temaTexto"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/espacio_xxl"
+                    app:cardBackgroundColor="?attr/temaSuperficie"
+                    app:cardCornerRadius="@dimen/radio_tarjeta_ajustes"
+                    app:cardElevation="@dimen/elevacion_media"
+                    app:strokeWidth="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/optRepetidas"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackground"
+                            android:focusable="true"
+                            android:fontFamily="sans-serif"
+                            android:gravity="center_vertical"
+                            android:minHeight="@dimen/objetivo_tactil_minimo"
+                            android:padding="@dimen/espacio_xl"
+                            android:text="@string/opt_repetidas"
+                            android:textColor="?attr/temaTexto"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/espacio_m"
+                    android:layout_marginBottom="@dimen/espacio_m"
+                    android:accessibilityHeading="true"
+                    tools:targetApi="28"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/apariencia"
+                    android:textColor="?attr/temaTexto"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/espacio_xxxl"
+                    app:cardBackgroundColor="?attr/temaSuperficie"
+                    app:cardCornerRadius="@dimen/radio_tarjeta_ajustes"
+                    app:cardElevation="@dimen/elevacion_media"
+                    app:strokeWidth="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/optTema"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:minHeight="@dimen/objetivo_tactil_minimo"
+                            android:orientation="vertical"
+                            android:padding="@dimen/espacio_xl">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif"
+                                android:importantForAccessibility="no"
+                                android:text="@string/tema"
+                                android:textColor="?attr/temaTexto"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/tvTemaActual"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:importantForAccessibility="no"
+                                android:fontFamily="sans-serif"
+                                android:text="@string/tema_luna"
+                                android:textColor="?attr/temaTextoSecundario"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/optAyuda"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackground"
+                            android:focusable="true"
+                            android:fontFamily="sans-serif"
+                            android:gravity="center_vertical"
+                            android:minHeight="@dimen/objetivo_tactil_minimo"
+                            android:padding="@dimen/espacio_xl"
+                            android:text="@string/opt_ayuda"
+                            android:textColor="?attr/temaTexto"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <Button
+                    android:id="@+id/btnCerrarSesion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="@dimen/ancho_boton_destacado"
+                    android:minHeight="@dimen/alto_boton_principal"
+                    android:layout_gravity="center_horizontal"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/cerrar_sesi_n"
+                    android:textColor="?attr/temaTextoSobrePrincipal"
+                    android:textSize="22sp"
+                    app:backgroundTint="?attr/temaPrincipal" />
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</LinearLayout>

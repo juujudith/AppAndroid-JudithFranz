@@ -52,6 +52,5 @@
             android:visibility="gone" />
     </FrameLayout>
 
-    <include layout="@layout/fragment_bottom_bar" />
 
 </LinearLayout>

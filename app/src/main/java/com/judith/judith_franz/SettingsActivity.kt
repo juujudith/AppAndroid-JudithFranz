@@ -12,6 +12,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.materialswitch.MaterialSwitch
 
+// Ajustes de la app
 class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +24,7 @@ class SettingsActivity : AppCompatActivity() {
             insets
         }
 
-        BarraSuperior.configurar(this, conAtras = true)
+        BarraSuperior.configurar(this, conAtras = false)
         BarraInferior.configurar(this, R.id.nav_settings)
 
         val swGuardarAuto = findViewById<MaterialSwitch>(R.id.swGuardarAuto)
@@ -57,6 +58,7 @@ class SettingsActivity : AppCompatActivity() {
         }
     }
 
+    // Pone el tema actual
     override fun onResume() {
         super.onResume()
         val temaActual = Temas.actual(this)

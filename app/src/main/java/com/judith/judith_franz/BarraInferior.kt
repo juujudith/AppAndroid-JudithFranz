@@ -3,12 +3,12 @@ package com.judith.judith_franz
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationBarView
 
 object BarraInferior {
 
     fun configurar(activity: AppCompatActivity, seleccionado: Int) {
-        val nav = activity.findViewById<BottomNavigationView>(R.id.bottomNav)
+        val nav = activity.findViewById<NavigationBarView>(R.id.bottomNav)
         nav.selectedItemId = seleccionado
 
         nav.setOnItemSelectedListener { item ->

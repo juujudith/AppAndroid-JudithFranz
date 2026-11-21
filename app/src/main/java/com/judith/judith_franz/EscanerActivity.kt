@@ -4,7 +4,6 @@ import android.content.ClipboardManager
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.graphics.Rect
 import android.view.HapticFeedbackConstants
 import android.view.View
 import android.view.inputmethod.EditorInfo
@@ -12,12 +11,10 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.widget.doAfterTextChanged
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
+// Escaner de codigos
 class EscanerActivity : AppCompatActivity() {
 
     companion object {
@@ -31,15 +28,18 @@ class EscanerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_escaner)
-        configurarTeclado()
+        findViewById<View>(R.id.main).ajustarABarrasYTeclado(
+            ocultarConTeclado = findViewById(R.id.bottomBar),
+            mostrarConTeclado = findViewById(R.id.filaBotonesEscaner)
+        )
 
-        BarraSuperior.configurar(this, conAtras = true)
+        BarraSuperior.configurar(this, conAtras = false)
         BarraInferior.configurar(this, R.id.nav_scan)
 
         tilCodigo = findViewById(R.id.tilCodigoEscaner)
         etCodigo = findViewById(R.id.etCodigoEscaner)
 
-        etCodigo.doAfterTextChanged { tilCodigo.error = null }
+        tilCodigo.limpiarErrorAlEscribir()
         etCodigo.setOnEditorActionListener { _, accion, _ ->
             if (accion == EditorInfo.IME_ACTION_SEARCH) {
                 buscar()
@@ -53,32 +53,11 @@ class EscanerActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btnBuscarCodigo).setOnClickListener { buscar() }
     }
 
-    private fun configurarTeclado() {
-        val raiz = findViewById<View>(R.id.main)
-        val barraInferior = findViewById<View>(R.id.bottomBar)
-        ViewCompat.setOnApplyWindowInsetsListener(raiz) { v, insets ->
-            val barras = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            val teclado = insets.getInsets(WindowInsetsCompat.Type.ime())
-            val abierto = insets.isVisible(WindowInsetsCompat.Type.ime())
-            v.setPadding(
-                barras.left,
-                barras.top,
-                barras.right,
-                if (abierto) maxOf(barras.bottom, teclado.bottom) else barras.bottom
-            )
-            barraInferior.visibility = if (abierto) View.GONE else View.VISIBLE
-            if (abierto) mostrarBotones()
-            insets
-        }
-    }
-
     private fun mostrarBotones() {
-        val fila = findViewById<View>(R.id.filaBotonesEscaner)
-        fila.post {
-            fila.requestRectangleOnScreen(Rect(0, 0, fila.width, fila.height), false)
-        }
+        findViewById<View>(R.id.filaBotonesEscaner).mostrarEnPantalla()
     }
 
+    // Pega el codigo
     private fun pegar() {
         val portapapeles = getSystemService(ClipboardManager::class.java)
         val clip = portapapeles?.primaryClip
@@ -89,7 +68,6 @@ class EscanerActivity : AppCompatActivity() {
         }
         if (texto.isEmpty()) {
             tilCodigo.error = getString(R.string.portapapeles_vacio)
-            Toast.makeText(this, R.string.portapapeles_vacio, Toast.LENGTH_SHORT).show()
             mostrarBotones()
             return
         }
@@ -97,6 +75,7 @@ class EscanerActivity : AppCompatActivity() {
         etCodigo.setSelection(texto.length)
     }
 
+    // Busca la carta
     private fun buscar() {
         val texto = etCodigo.text?.toString()?.trim().orEmpty()
         if (texto.isEmpty()) {

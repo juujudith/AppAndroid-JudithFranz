@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/espacio_xl"
-            android:fontFamily="@font/nunito_extralight"
+            android:fontFamily="sans-serif-medium"
             android:text="@string/login_titulo"
             android:textColor="?attr/temaTexto"
             android:textSize="30sp"
@@ -60,7 +60,7 @@
                 android:importantForAutofill="yes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito_extralight"
+                android:fontFamily="sans-serif-medium"
                 android:textSize="18sp"
                 android:textColor="?attr/temaTexto"
                 android:inputType="textEmailAddress" />
@@ -91,7 +91,7 @@
                 android:importantForAutofill="yes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito_extralight"
+                android:fontFamily="sans-serif-medium"
                 android:textSize="18sp"
                 android:textColor="?attr/temaTexto"
                 android:inputType="textPassword" />
@@ -107,13 +107,15 @@
             android:layout_marginTop="@dimen/espacio_xxxl"
             android:text="@string/btn_login"
             android:textSize="24sp"
-            android:fontFamily="@font/nunito_extralight"
+            android:fontFamily="sans-serif-medium"
             app:backgroundTint="?attr/temaPrincipal"
             android:textColor="?attr/temaTextoSobrePrincipal"/>
 
         <!-- REGISTRARSE -->
         <TextView
             android:id="@+id/tvRegistro"
+            android:minHeight="@dimen/objetivo_tactil_minimo"
+            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/espacio_xl"

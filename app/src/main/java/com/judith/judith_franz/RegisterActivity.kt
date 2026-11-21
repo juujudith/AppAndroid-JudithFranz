@@ -2,36 +2,36 @@ package com.judith.judith_franz
 
 import android.os.Bundle
 import android.util.Patterns
+import android.view.View
 import android.widget.Button
 import android.widget.Toast
-import android.widget.TextView         // NUEVO: para usar el texto "Inicia sesión"
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.textfield.TextInputLayout
 
+// Crear cuenta
 class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_register)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        findViewById<View>(R.id.main).ajustarABarrasYTeclado(
+            mostrarConTeclado = findViewById(R.id.btnRegistro)
+        )
 
-        // NUEVO: "¿Ya tienes cuenta? Inicia sesión" --> vuelve al login
         val tvYaCuenta = findViewById<TextView>(R.id.tvYaCuenta)
 
         tvYaCuenta.setOnClickListener {
             finish()
         }
 
+        listOf(R.id.tilNombre, R.id.tilEmailRegistro, R.id.tilPasswordRegistro, R.id.tilConfirmarPassword)
+            .forEach { findViewById<TextInputLayout>(it).limpiarErrorAlEscribir() }
         findViewById<Button>(R.id.btnRegistro).setOnClickListener { registrar() }
     }
 
+    // Crea la cuenta
     private fun registrar() {
         val tilNombre = findViewById<TextInputLayout>(R.id.tilNombre)
         val tilEmail = findViewById<TextInputLayout>(R.id.tilEmailRegistro)
@@ -60,8 +60,11 @@ class RegisterActivity : AppCompatActivity() {
             else -> null
         }
 
-        val hayErrores = listOf(tilNombre, tilEmail, tilPassword, tilConfirmar).any { it.error != null }
-        if (hayErrores) return
+        val primerError = listOf(tilNombre, tilEmail, tilPassword, tilConfirmar).firstOrNull { it.error != null }
+        if (primerError != null) {
+            mostrarJuntos(primerError, findViewById(R.id.btnRegistro))
+            return
+        }
 
         Toast.makeText(this, R.string.registro_correcto, Toast.LENGTH_SHORT).show()
         finish()

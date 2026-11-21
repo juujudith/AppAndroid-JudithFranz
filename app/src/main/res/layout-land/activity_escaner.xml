@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_degradado"
+    android:orientation="horizontal"
+    tools:context=".EscanerActivity">
+
+    <include
+        android:id="@+id/bottomBar"
+        layout="@layout/fragment_bottom_bar" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/barraSuperior"
+            style="@style/BarraSuperior"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="@string/esc_ner" />
+
+        <ScrollView
+            android:id="@+id/scrollEscaner"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margen_pantalla"
+                android:background="@drawable/bg_cuadro_cartas"
+                android:elevation="@dimen/elevacion_cuadro"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="@dimen/relleno_cuadro">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:importantForAccessibility="no"
+                    android:maxHeight="@dimen/alto_logo_escaner"
+                    android:src="@drawable/ic_scan"
+                    app:tint="?attr/temaPrincipal" />
+
+                <TextView
+                    android:id="@+id/tvInstruccionesEscaner"
+                    style="@style/TextoCuerpo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/espacio_m"
+                    android:gravity="center"
+                    android:labelFor="@id/etCodigoEscaner"
+                    android:text="@string/escaner_instrucciones"
+                    android:textColor="?attr/temaTexto" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilCodigoEscaner"
+                    style="@style/CampoTexto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/espacio_l"
+                    android:hint="@string/hint_codigo_escaner"
+                    app:endIconMode="clear_text">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etCodigoEscaner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:imeOptions="actionSearch"
+                        android:importantForAutofill="no"
+                        android:inputType="textCapCharacters|textNoSuggestions"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/objetivo_tactil_minimo"
+                        android:textColor="?attr/temaTexto" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:id="@+id/filaBotonesEscaner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/espacio_l"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnPegarCodigo"
+                        style="@style/BotonSecundario"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/espacio_s"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/desc_pegar"
+                        android:text="@string/btn_pegar" />
+
+                    <Button
+                        android:id="@+id/btnBuscarCodigo"
+                        style="@style/BotonPrincipal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/espacio_s"
+                        android:layout_weight="1"
+                        android:text="@string/btn_buscar_carta" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</LinearLayout>

@@ -77,7 +77,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:fontFamily="@font/nunito_extralight"
+                    android:fontFamily="sans-serif-medium"
                     android:text="@string/ejemplo_nombre"
                     android:textColor="?attr/temaTexto"
                     android:textSize="22sp"
@@ -241,7 +241,7 @@
                         android:minWidth="@dimen/ancho_minimo_contador"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:fontFamily="@font/nunito_extralight"
+                        android:fontFamily="sans-serif-medium"
                         tools:text="@string/ejemplo_cantidad"
                         android:textColor="?attr/temaTexto"
                         android:textSize="18sp"
@@ -304,6 +304,5 @@
 
     <!-- ================= BARRA INFERIOR FIJA ================= -->
     <!-- Incluir barra inferior -->
-    <include layout="@layout/fragment_bottom_bar" />
 
 </LinearLayout>

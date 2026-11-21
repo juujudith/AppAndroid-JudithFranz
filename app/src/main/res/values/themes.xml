@@ -50,7 +50,7 @@
         <item name="temaFondoInicio">#B39DDB</item>
         <item name="temaFondoFin">#FFFFFF</item>
         <item name="temaTexto">#101329</item>
-        <item name="temaTextoSecundario">#5E586E</item>
+        <item name="temaTextoSecundario">#3D3948</item>
         <item name="temaSuperficie">#EDE7F6</item>
         <item name="temaTarjeta">#F8F5FF</item>
         <item name="temaCuadro">#D9F3EFFB</item>
@@ -64,15 +64,15 @@
         <item name="temaTextoSobreAcento">#FFFFFF</item>
         <item name="temaPlaceholder">#E8E5FF</item>
         <item name="temaIconoBarra">#000000</item>
-        <item name="temaOk">#2B742E</item>
-        <item name="temaFalta">#C22727</item>
+        <item name="temaOk">#19441B</item>
+        <item name="temaFalta">#741717</item>
     </style>
 
     <style name="Theme.JudithFranz.Applejack.Light" parent="Tema.Base.Claro">
         <item name="temaFondoInicio">#FBD3A6</item>
         <item name="temaFondoFin">#FFFAF2</item>
         <item name="temaTexto">#3B1F0E</item>
-        <item name="temaTextoSecundario">#7A5A44</item>
+        <item name="temaTextoSecundario">#765742</item>
         <item name="temaSuperficie">#FFF1E0</item>
         <item name="temaTarjeta">#FFFAF2</item>
         <item name="temaCuadro">#D9FFF1E0</item>
@@ -86,8 +86,8 @@
         <item name="temaTextoSobreAcento">#FFFFFF</item>
         <item name="temaPlaceholder">#FDE2C2</item>
         <item name="temaIconoBarra">#3B1F0E</item>
-        <item name="temaOk">#2D7A31</item>
-        <item name="temaFalta">#C62828</item>
+        <item name="temaOk">#286B2B</item>
+        <item name="temaFalta">#B42424</item>
     </style>
 
     <style name="Theme.JudithFranz.Applejack.Dark" parent="Tema.Base.Oscuro">
@@ -160,7 +160,7 @@
         <item name="temaFondoInicio">#F8BFD8</item>
         <item name="temaFondoFin">#FFF7FB</item>
         <item name="temaTexto">#3D0F25</item>
-        <item name="temaTextoSecundario">#7A4F63</item>
+        <item name="temaTextoSecundario">#744B5E</item>
         <item name="temaSuperficie">#FFEAF3</item>
         <item name="temaTarjeta">#FFF7FB</item>
         <item name="temaCuadro">#D9FFEAF3</item>
@@ -174,8 +174,8 @@
         <item name="temaTextoSobreAcento">#3D0F25</item>
         <item name="temaPlaceholder">#FBD3E5</item>
         <item name="temaIconoBarra">#3D0F25</item>
-        <item name="temaOk">#2C7730</item>
-        <item name="temaFalta">#C62828</item>
+        <item name="temaOk">#256328</item>
+        <item name="temaFalta">#A82222</item>
     </style>
 
     <style name="Theme.JudithFranz.PinkiePie.Dark" parent="Tema.Base.Oscuro">
@@ -204,7 +204,7 @@
         <item name="temaFondoInicio">#A9DDF7</item>
         <item name="temaFondoFin">#F7FCFF</item>
         <item name="temaTexto">#0B2638</item>
-        <item name="temaTextoSecundario">#4A6476</item>
+        <item name="temaTextoSecundario">#465E6F</item>
         <item name="temaSuperficie">#E8F6FD</item>
         <item name="temaTarjeta">#F7FCFF</item>
         <item name="temaCuadro">#D9E8F6FD</item>
@@ -218,8 +218,8 @@
         <item name="temaTextoSobreAcento">#0B2638</item>
         <item name="temaPlaceholder">#CDEBFA</item>
         <item name="temaIconoBarra">#0B2638</item>
-        <item name="temaOk">#2D7A31</item>
-        <item name="temaFalta">#C62828</item>
+        <item name="temaOk">#26682A</item>
+        <item name="temaFalta">#B02424</item>
     </style>
 
     <style name="Theme.JudithFranz.RainbowDash.Dark" parent="Tema.Base.Oscuro">
@@ -262,8 +262,8 @@
         <item name="temaTextoSobreAcento">#1E1838</item>
         <item name="temaPlaceholder">#ECE7F9</item>
         <item name="temaIconoBarra">#1E1838</item>
-        <item name="temaOk">#2E7D32</item>
-        <item name="temaFalta">#C62828</item>
+        <item name="temaOk">#29702D</item>
+        <item name="temaFalta">#BC2626</item>
     </style>
 
     <style name="Theme.JudithFranz.Rarity.Dark" parent="Tema.Base.Oscuro">
@@ -292,7 +292,7 @@
         <item name="temaFondoInicio">#DCC8EE</item>
         <item name="temaFondoFin">#FFFCFF</item>
         <item name="temaTexto">#23163A</item>
-        <item name="temaTextoSecundario">#66587A</item>
+        <item name="temaTextoSecundario">#5F5271</item>
         <item name="temaSuperficie">#F5EEFB</item>
         <item name="temaTarjeta">#FFFCFF</item>
         <item name="temaCuadro">#D9F5EEFB</item>
@@ -306,8 +306,8 @@
         <item name="temaTextoSobreAcento">#23163A</item>
         <item name="temaPlaceholder">#E8DAF5</item>
         <item name="temaIconoBarra">#23163A</item>
-        <item name="temaOk">#2C7830</item>
-        <item name="temaFalta">#C62828</item>
+        <item name="temaOk">#256428</item>
+        <item name="temaFalta">#A82222</item>
     </style>
 
     <style name="Theme.JudithFranz.Twilight.Dark" parent="Tema.Base.Oscuro">

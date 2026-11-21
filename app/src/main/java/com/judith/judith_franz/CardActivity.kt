@@ -20,6 +20,7 @@ import com.google.android.material.color.MaterialColors
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.util.Locale
 
+// Ver una carta
 class CardActivity : AppCompatActivity() {
 
     companion object {
@@ -64,7 +65,6 @@ class CardActivity : AppCompatActivity() {
         codigo = codigoRecibido
 
         BarraSuperior.configurar(this, conAtras = true)
-        BarraInferior.configurar(this, R.id.nav_home)
 
         ivCarta = findViewById(R.id.ivDetalleCarta)
         tvNombre = findViewById(R.id.tvDetalleNombre)
@@ -91,6 +91,7 @@ class CardActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btnBorrarCarta).setOnClickListener { confirmarEliminar() }
     }
 
+    // Pregunta antes de borrar
     private fun confirmarEliminar() {
         val carta = CartasRepositorio.buscar(codigo) ?: return
         MaterialAlertDialogBuilder(this)
@@ -116,6 +117,7 @@ class CardActivity : AppCompatActivity() {
         mostrarCarta()
     }
 
+    // Guarda el cambio
     private fun actualizar(cambio: (Carta) -> Carta) {
         val carta = CartasRepositorio.buscar(codigo) ?: return
         val nueva = cambio(carta)

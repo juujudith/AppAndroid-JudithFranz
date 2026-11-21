@@ -159,6 +159,8 @@
 
     <!-- BARRA INFERIOR -->
     <!-- Incluir barra inferior -->
-    <include layout="@layout/fragment_bottom_bar" />
+    <include
+        android:id="@+id/bottomBar"
+        layout="@layout/fragment_bottom_bar" />
 
 </LinearLayout>

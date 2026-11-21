@@ -10,6 +10,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.RecyclerView
 
+// Lista de repetidas
 class RepetidasActivity : AppCompatActivity() {
 
     private lateinit var rvRepetidas: RecyclerView
@@ -32,13 +33,13 @@ class RepetidasActivity : AppCompatActivity() {
         }
 
         BarraSuperior.configurar(this, conAtras = true)
-        BarraInferior.configurar(this, R.id.nav_home)
 
         rvRepetidas = findViewById(R.id.rvRepetidas)
         tvVacio = findViewById(R.id.tvRepetidasVacio)
         rvRepetidas.adapter = adapter
     }
 
+    // Recarga la lista
     override fun onResume() {
         super.onResume()
         val repetidas = CartasRepositorio.repetidas()

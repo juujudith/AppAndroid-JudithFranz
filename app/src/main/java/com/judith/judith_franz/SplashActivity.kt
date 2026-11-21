@@ -1,6 +1,8 @@
 package com.judith.judith_franz
 
+import android.app.Activity
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.view.animation.Animation
@@ -51,7 +53,23 @@ class SplashActivity : AppCompatActivity() {
     private fun abrirLogin() {
         if (loginAbierto || isFinishing) return
         loginAbierto = true
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            overrideActivityTransition(
+                Activity.OVERRIDE_TRANSITION_OPEN,
+                android.R.anim.fade_in,
+                android.R.anim.fade_out
+            )
+            overrideActivityTransition(
+                Activity.OVERRIDE_TRANSITION_CLOSE,
+                android.R.anim.fade_in,
+                android.R.anim.fade_out
+            )
+        }
         startActivity(Intent(this, MainActivity::class.java))
         finish()
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            @Suppress("DEPRECATION")
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+        }
     }
 }

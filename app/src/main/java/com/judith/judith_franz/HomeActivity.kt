@@ -13,7 +13,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.doAfterTextChanged
@@ -22,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 
+// Pantalla principal
 class HomeActivity : AppCompatActivity() {
 
     companion object {
@@ -39,15 +39,14 @@ class HomeActivity : AppCompatActivity() {
         alMantener = { carta -> mostrarAcciones(carta) }
     )
 
+    // Carga la lista
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_home)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        findViewById<View>(R.id.main).ajustarABarrasYTeclado(
+            ocultarConTeclado = findViewById(R.id.bottomBar)
+        )
 
         BarraSuperior.configurar(this, conAtras = false) { id ->
             when (id) {
@@ -90,6 +89,7 @@ class HomeActivity : AppCompatActivity() {
         refrescar()
     }
 
+    // Filtros de la lista
     private fun configurarFiltros() {
         etFiltro = findViewById(R.id.etFiltroCodigo)
         spinnerRareza = findViewById(R.id.spinnerFiltroRareza)
@@ -187,6 +187,7 @@ class HomeActivity : AppCompatActivity() {
             .show()
     }
 
+    // Borra la carta
     private fun eliminar(carta: Carta) {
         val posicion = CartasRepositorio.eliminar(carta.codigo)
         if (posicion == -1) {

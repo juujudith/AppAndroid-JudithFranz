@@ -1,11 +1,13 @@
 package com.judith.judith_franz
 
+// Filtra las cartas
 object FiltroCartas {
 
     const val POSESION_TODAS = 0
     const val POSESION_TENGO = 1
     const val POSESION_FALTAN = 2
 
+    // Busca y filtra
     fun filtrar(
         cartas: List<Carta>,
         texto: String,

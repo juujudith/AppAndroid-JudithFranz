@@ -11,8 +11,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ContextThemeWrapper
 import com.google.android.material.card.MaterialCardView
 
+// Elegir tema
 class TemasActivity : AppCompatActivity() {
 
+    // Carga los temas
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -28,6 +30,7 @@ class TemasActivity : AppCompatActivity() {
         }
     }
 
+    // Crea cada tarjeta
     private fun crearTarjeta(grid: GridLayout, tema: Temas.Tema, enUso: Boolean): View {
         val conColoresDelTema = ContextThemeWrapper(this, tema.estilo)
         val tarjeta = LayoutInflater.from(conColoresDelTema)

@@ -51,6 +51,7 @@
             </androidx.cardview.widget.CardView>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilNombreCarta"
                 style="@style/CampoTexto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -69,6 +70,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilCodigoCarta"
                 style="@style/CampoTexto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -123,6 +125,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilCantidadCarta"
                     style="@style/CampoTexto"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -143,6 +146,7 @@
             </LinearLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilEdicionCarta"
                 style="@style/CampoTexto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
