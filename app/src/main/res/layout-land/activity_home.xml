@@ -10,7 +10,7 @@
 
     <include
         android:id="@+id/bottomBar"
-        layout="@layout/fragment_bottom_bar" />
+        layout="@layout/barra_inferior" />
 
     <LinearLayout
         android:layout_width="0dp"

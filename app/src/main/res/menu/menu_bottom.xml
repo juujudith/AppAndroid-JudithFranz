@@ -9,7 +9,7 @@
         android:title="@string/nav_home"
         app:contentDescription="@string/desc_nav_home" />
 
-    <!-- ESCANEAR CON LA CÁMARA -->
+    <!-- ESCANEAR -->
     <item
         android:id="@+id/nav_scan"
         android:icon="@drawable/ic_scan"

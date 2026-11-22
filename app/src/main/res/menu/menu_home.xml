@@ -21,9 +21,4 @@
         android:title="@string/menu_repetidas"
         app:showAsAction="never" />
 
-    <item
-        android:id="@+id/accion_ajustes"
-        android:title="@string/menu_ajustes"
-        app:showAsAction="never" />
-
 </menu>

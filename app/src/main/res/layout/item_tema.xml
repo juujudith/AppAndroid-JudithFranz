@@ -6,6 +6,8 @@
     android:layout_margin="@dimen/espacio_s"
     android:clickable="true"
     android:focusable="true"
+    android:minWidth="@dimen/objetivo_tactil_minimo"
+    android:minHeight="@dimen/objetivo_tactil_minimo"
     app:cardBackgroundColor="?attr/temaSuperficie"
     app:cardCornerRadius="@dimen/radio_tarjeta_tema"
     app:cardElevation="@dimen/elevacion_media"
@@ -16,7 +18,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="@dimen/espacio_m">
+        android:padding="@dimen/espacio_m"
+        android:importantForAccessibility="noHideDescendants">
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
@@ -76,7 +79,7 @@
                         android:maxLines="2"
                         android:text="@string/tema_preview_carta"
                         android:textColor="?attr/temaTexto"
-                        android:textSize="11sp"
+                        android:textSize="@dimen/texto_pequeno"
                         android:textStyle="bold" />
 
                     <TextView
@@ -86,7 +89,7 @@
                         android:paddingHorizontal="@dimen/espacio_xs"
                         android:text="@string/tema_preview_rareza"
                         android:textColor="?attr/temaTextoSobreAcento"
-                        android:textSize="11sp"
+                        android:textSize="@dimen/texto_pequeno"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -100,7 +103,7 @@
                     android:paddingVertical="@dimen/espacio_xxs_plus"
                     android:text="@string/btn_modificar"
                     android:textColor="?attr/temaTextoSobrePrincipal"
-                    android:textSize="11sp"
+                    android:textSize="@dimen/texto_pequeno"
                     android:textStyle="bold" />
 
                 <LinearLayout
@@ -178,7 +181,7 @@
                 android:paddingVertical="@dimen/espacio_xxxs"
                 android:text="@string/tema_en_uso"
                 android:textColor="?attr/temaTextoSobrePrincipal"
-                android:textSize="11sp"
+                android:textSize="@dimen/texto_pequeno"
                 android:textStyle="bold"
                 android:visibility="gone" />
         </LinearLayout>

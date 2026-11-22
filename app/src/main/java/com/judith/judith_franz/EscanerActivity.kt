@@ -53,6 +53,11 @@ class EscanerActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btnBuscarCodigo).setOnClickListener { buscar() }
     }
 
+    override fun onResume() {
+        super.onResume()
+        BorradoCarta.mostrarAvisoPendiente(this, findViewById(R.id.main)) {}
+    }
+
     private fun mostrarBotones() {
         findViewById<View>(R.id.filaBotonesEscaner).mostrarEnPantalla()
     }

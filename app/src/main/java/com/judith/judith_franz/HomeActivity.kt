@@ -1,6 +1,9 @@
 package com.judith.judith_franz
 
 import android.content.Intent
+import android.graphics.Canvas
+import android.graphics.Paint
+import android.graphics.Rect
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -10,16 +13,15 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Spinner
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.doAfterTextChanged
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.snackbar.Snackbar
 
 // Pantalla principal
 class HomeActivity : AppCompatActivity() {
@@ -62,13 +64,6 @@ class HomeActivity : AppCompatActivity() {
                     startActivity(Intent(this, AyudaActivity::class.java))
                     true
                 }
-                R.id.accion_ajustes -> {
-                    startActivity(
-                        Intent(this, SettingsActivity::class.java)
-                            .addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
-                    )
-                    true
-                }
                 else -> false
             }
         }
@@ -87,6 +82,7 @@ class HomeActivity : AppCompatActivity() {
         etFiltro.clearFocus()
         ocultarTeclado()
         refrescar()
+        BorradoCarta.mostrarAvisoPendiente(this, findViewById(R.id.main)) { refrescar() }
     }
 
     // Filtros de la lista
@@ -172,18 +168,9 @@ class HomeActivity : AppCompatActivity() {
                 when (opcion) {
                     0 -> abrirDetalle(carta)
                     1 -> abrirModificar(carta)
-                    2 -> confirmarEliminar(carta)
+                    2 -> BorradoCarta.confirmar(this, carta, alConfirmar = { eliminar(carta) })
                 }
             }
-            .show()
-    }
-
-    private fun confirmarEliminar(carta: Carta) {
-        MaterialAlertDialogBuilder(this)
-            .setTitle(R.string.dialogo_eliminar_titulo)
-            .setMessage(getString(R.string.dialogo_eliminar_mensaje, carta.nombre, carta.codigo))
-            .setNegativeButton(R.string.btn_cancelar, null)
-            .setPositiveButton(R.string.btn_eliminar) { _, _ -> eliminar(carta) }
             .show()
     }
 
@@ -196,16 +183,7 @@ class HomeActivity : AppCompatActivity() {
         }
         Log.d(TAG, "Carta eliminada: ${carta.codigo} (${carta.nombre})")
         refrescar()
-
-        Snackbar.make(rvCartas, R.string.carta_eliminada, Snackbar.LENGTH_LONG)
-            .setAnchorView(R.id.bottomNav)
-            .setAction(R.string.btn_deshacer) {
-                CartasRepositorio.restaurar(carta, posicion)
-                Log.d(TAG, "Carta restaurada: ${carta.codigo} (${carta.nombre})")
-                Toast.makeText(this, R.string.carta_restaurada, Toast.LENGTH_SHORT).show()
-                refrescar()
-            }
-            .show()
+        BorradoCarta.mostrarAviso(this, findViewById(R.id.main), carta, posicion) { refrescar() }
     }
 
     private inner class DeslizarParaEliminar :
@@ -217,10 +195,57 @@ class HomeActivity : AppCompatActivity() {
             target: RecyclerView.ViewHolder
         ): Boolean = false
 
+        private val pintura = Paint().apply {
+            color = ContextCompat.getColor(this@HomeActivity, R.color.md_error_container)
+        }
+        private val icono = ContextCompat.getDrawable(this@HomeActivity, R.drawable.ic_papelera)
+            ?.mutate()
+            ?.apply { setTint(ContextCompat.getColor(this@HomeActivity, R.color.md_on_error)) }
+        private val margenIcono = resources.getDimensionPixelSize(R.dimen.espacio_xl)
+
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
             val posicion = viewHolder.bindingAdapterPosition
             if (posicion == RecyclerView.NO_POSITION) return
-            eliminar(adapter.currentList[posicion])
+            val carta = adapter.currentList[posicion]
+            BorradoCarta.confirmar(
+                this@HomeActivity,
+                carta,
+                alConfirmar = { eliminar(carta) },
+                alCancelar = { adapter.notifyItemChanged(posicion) }
+            )
+        }
+
+        override fun onChildDraw(
+            c: Canvas,
+            recyclerView: RecyclerView,
+            viewHolder: RecyclerView.ViewHolder,
+            dX: Float,
+            dY: Float,
+            actionState: Int,
+            isCurrentlyActive: Boolean
+        ) {
+            if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE && dX != 0f) {
+                val fila = viewHolder.itemView
+                val desplazamiento = dX.toInt()
+                val fondo = if (dX > 0) {
+                    Rect(fila.left, fila.top, fila.left + desplazamiento, fila.bottom)
+                } else {
+                    Rect(fila.right + desplazamiento, fila.top, fila.right, fila.bottom)
+                }
+                c.drawRect(fondo, pintura)
+
+                icono?.let { dibujo ->
+                    val ancho = dibujo.intrinsicWidth
+                    val alto = dibujo.intrinsicHeight
+                    if (fondo.width() > ancho + margenIcono * 2) {
+                        val arriba = fila.top + (fila.height - alto) / 2
+                        val izquierda = if (dX > 0) fila.left + margenIcono else fila.right - margenIcono - ancho
+                        dibujo.setBounds(izquierda, arriba, izquierda + ancho, arriba + alto)
+                        dibujo.draw(c)
+                    }
+                }
+            }
+            super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
         }
     }
 }

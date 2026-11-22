@@ -17,7 +17,8 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="@dimen/espacio_m">
+        android:padding="@dimen/espacio_m"
+        android:importantForAccessibility="noHideDescendants">
 
         <ImageView
             android:id="@+id/ivRepetidaImagen"

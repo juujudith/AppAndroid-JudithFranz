@@ -42,6 +42,11 @@ class RepetidasActivity : AppCompatActivity() {
     // Recarga la lista
     override fun onResume() {
         super.onResume()
+        refrescar()
+        BorradoCarta.mostrarAvisoPendiente(this, findViewById(R.id.main)) { refrescar() }
+    }
+
+    private fun refrescar() {
         val repetidas = CartasRepositorio.repetidas()
         adapter.submitList(repetidas)
         val vacia = repetidas.isEmpty()

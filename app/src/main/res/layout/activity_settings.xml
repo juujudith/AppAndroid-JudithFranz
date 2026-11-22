@@ -232,7 +232,7 @@
     <!-- Incluir barra inferior -->
     <include
         android:id="@+id/bottomBar"
-        layout="@layout/fragment_bottom_bar"
+        layout="@layout/barra_inferior"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"

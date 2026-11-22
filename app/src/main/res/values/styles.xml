@@ -62,7 +62,7 @@
 
     <style name="Theme.JudithFranz.Splash" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/md_splash_background</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_sin_icono</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_foreground</item>
         <item name="postSplashScreenTheme">@style/Theme.JudithFranz</item>
     </style>
 

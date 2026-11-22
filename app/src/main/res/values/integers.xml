@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <integer name="duracion_splash_entrada">1200</integer>
-    <integer name="duracion_splash_latido">300</integer>
-    <integer name="inicio_splash_vuelta">1500</integer>
+    <integer name="duracion_splash_salida">500</integer>
+    <integer name="tiempo_minimo_splash">700</integer>
     <integer name="columnas_cartas">2</integer>
     <integer name="columnas_temas">2</integer>
 </resources>

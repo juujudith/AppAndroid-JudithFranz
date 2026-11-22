@@ -31,8 +31,6 @@ class CartaAdapter(
             val contexto = itemView.context
 
             ivImagen.cargarCarta(carta)
-            ivImagen.contentDescription =
-                contexto.getString(R.string.desc_imagen_carta, carta.nombre, carta.codigo)
             ivImagen.alpha = if (carta.tengo) 1f else 0.55f
 
             tvNombre.text = carta.nombre
@@ -47,6 +45,12 @@ class CartaAdapter(
                 tvEstado.setTextColor(MaterialColors.getColor(tvEstado, R.attr.temaFalta))
             }
 
+            val estado = contexto.getString(
+                if (carta.tengo) R.string.desc_estado_tengo else R.string.desc_estado_falta
+            )
+            itemView.contentDescription = contexto.getString(
+                R.string.desc_item_carta, carta.nombre, carta.codigo, carta.rareza, estado
+            )
             itemView.setOnClickListener { alPulsar(carta) }
 
             if (alMantener == null) {

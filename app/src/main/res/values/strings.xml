@@ -150,7 +150,6 @@
     <string name="carta_anadida">Carta añadida a tu colección</string>
     <string name="carta_modificada">Carta modificada</string>
     <string name="carta_eliminada">Carta eliminada</string>
-    <string name="carta_restaurada">Carta restaurada</string>
     <string name="dialogo_eliminar_titulo">¿Eliminar carta?</string>
     <string name="dialogo_eliminar_mensaje">Se eliminará «%1$s» (%2$s) de tu álbum.</string>
     <string name="btn_eliminar">Eliminar</string>
@@ -165,7 +164,6 @@
 
     <string name="menu_repetidas">Cartas repetidas</string>
     <string name="menu_ayuda">Ayuda</string>
-    <string name="menu_ajustes">Ajustes</string>
 
     <string name="escaner_instrucciones">Escribe o pega el código que aparece en la carta y abriremos su ficha.</string>
     <string name="hint_codigo_escaner">Código de la carta</string>
@@ -193,4 +191,9 @@
     <string name="error_password_distinta">Las contraseñas no coinciden</string>
     <string name="registro_correcto">Cuenta creada. Ya puedes iniciar sesión</string>
     <string name="error_cantidad_invalida">Escribe una cantidad válida (0 o más)</string>
+    <string name="desc_item_carta">%1$s, código %2$s, rareza %3$s, %4$s</string>
+    <string name="desc_estado_tengo">la tengo</string>
+    <string name="desc_estado_falta">me falta</string>
+    <string name="desc_tema">Tema %1$s</string>
+    <string name="desc_tema_en_uso">Tema %1$s, en uso</string>
 </resources>

@@ -8,6 +8,8 @@
     android:clickable="true"
     android:focusable="true"
     android:foreground="?attr/selectableItemBackground"
+    android:minWidth="@dimen/objetivo_tactil_minimo"
+    android:minHeight="@dimen/objetivo_tactil_minimo"
     app:cardBackgroundColor="?attr/temaTarjeta"
     app:cardCornerRadius="@dimen/radio_tarjeta"
     app:cardElevation="@dimen/elevacion_tarjeta">
@@ -15,6 +17,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:importantForAccessibility="noHideDescendants"
         android:orientation="vertical"
         android:padding="@dimen/espacio_m">
 
@@ -22,7 +25,7 @@
             android:id="@+id/ivItemCarta"
             android:layout_width="match_parent"
             android:layout_height="@dimen/alto_imagen_carta_lista"
-            android:contentDescription="@string/desc_imagen_carta_ejemplo"
+            android:importantForAccessibility="no"
             android:scaleType="centerCrop"
             android:src="@drawable/carta_placeholder" />
 
@@ -46,7 +49,7 @@
             android:fontFamily="sans-serif"
             android:text="@string/ejemplo_codigo"
             android:textColor="?attr/temaTextoSecundario"
-            android:textSize="11sp" />
+            android:textSize="@dimen/texto_pequeno" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -64,7 +67,7 @@
                 android:paddingVertical="@dimen/espacio_xxs"
                 android:text="@string/ejemplo_rareza"
                 android:textColor="?attr/temaTextoSobreAcento"
-                android:textSize="11sp"
+                android:textSize="@dimen/texto_pequeno"
                 android:textStyle="bold" />
 
             <TextView
@@ -75,7 +78,7 @@
                 android:gravity="end"
                 android:text="@string/estado_tengo"
                 android:textColor="?attr/temaOk"
-                android:textSize="11sp"
+                android:textSize="@dimen/texto_pequeno"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>

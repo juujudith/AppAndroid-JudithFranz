@@ -48,8 +48,6 @@
     <dimen name="alto_logo_registro">200dp</dimen>
     <dimen name="ancho_logo_ayuda">180dp</dimen>
     <dimen name="alto_logo_ayuda">180dp</dimen>
-    <dimen name="ancho_logo_splash">300dp</dimen>
-    <dimen name="alto_logo_splash">220dp</dimen>
     <dimen name="alto_logo_escaner">96dp</dimen>
     <dimen name="icono_paso_ayuda">40dp</dimen>
     <dimen name="icono_barra_inferior">40dp</dimen>
@@ -57,4 +55,6 @@
     <dimen name="alto_carta_preview_tema">52dp</dimen>
     <dimen name="icono_preview_barra">16dp</dimen>
     <dimen name="margen_barra_inferior">16dp</dimen>
+    <dimen name="texto_pequeno">12sp</dimen>
+    <dimen name="grosor_seleccion_tema">3dp</dimen>
 </resources>

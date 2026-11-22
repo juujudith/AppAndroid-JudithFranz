@@ -9,7 +9,6 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -17,7 +16,6 @@ import androidx.appcompat.widget.SwitchCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.color.MaterialColors
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.util.Locale
 
 // Ver una carta
@@ -94,21 +92,14 @@ class CardActivity : AppCompatActivity() {
     // Pregunta antes de borrar
     private fun confirmarEliminar() {
         val carta = CartasRepositorio.buscar(codigo) ?: return
-        MaterialAlertDialogBuilder(this)
-            .setTitle(R.string.dialogo_eliminar_titulo)
-            .setMessage(getString(R.string.dialogo_eliminar_mensaje, carta.nombre, carta.codigo))
-            .setNegativeButton(R.string.btn_cancelar, null)
-            .setPositiveButton(R.string.btn_eliminar) { _, _ -> eliminar(carta) }
-            .show()
+        BorradoCarta.confirmar(this, carta, alConfirmar = { eliminar(carta) })
     }
 
     private fun eliminar(carta: Carta) {
-        if (CartasRepositorio.eliminar(carta.codigo) == -1) return
+        val posicion = CartasRepositorio.eliminar(carta.codigo)
+        if (posicion == -1) return
         Log.d(TAG, "Carta eliminada: ${carta.codigo} (${carta.nombre})")
-        Toast.makeText(this, R.string.carta_eliminada, Toast.LENGTH_SHORT).show()
-        val intent = Intent(this, HomeActivity::class.java)
-            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
-        startActivity(intent)
+        BorradoCarta.dejarAviso(carta, posicion)
         finish()
     }
 
