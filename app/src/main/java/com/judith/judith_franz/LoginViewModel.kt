@@ -1,6 +1,5 @@
 package com.judith.judith_franz
 
-import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -22,7 +21,7 @@ class LoginViewModel : ViewModel() {
     fun entrar(email: String, password: String) {
         _errorEmail.value = when {
             email.isEmpty() -> R.string.error_campo_obligatorio
-            !Patterns.EMAIL_ADDRESS.matcher(email).matches() -> R.string.error_email_invalido
+            !esEmailValido(email) -> R.string.error_email_invalido
             else -> null
         }
         _errorPassword.value = if (password.isEmpty()) R.string.error_campo_obligatorio else null

@@ -43,6 +43,7 @@ dependencies {
     implementation(libs.androidx.recyclerview)
     implementation(libs.coil)
     testImplementation(libs.junit)
+    testImplementation(libs.androidx.arch.core.testing)
     testImplementation(libs.org.json)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
